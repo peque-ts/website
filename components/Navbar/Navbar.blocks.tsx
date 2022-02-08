@@ -8,15 +8,20 @@ interface IconLinkProps {
   icon: string;
   link: string;
   alt: string;
+  small?: boolean;
 }
 
-const IconLink: React.VFC<IconLinkProps> = ({ link, icon, alt }) => (
-  <Link href={link}>
-    <a>
-      <Image src={icon} alt={alt} width={40} height={40} />
-    </a>
-  </Link>
-);
+const IconLink: React.VFC<IconLinkProps> = ({ link, icon, alt, small }) => {
+  const size = small ? 30 : 40;
+
+  return (
+    <Link href={link}>
+      <a>
+        <Image src={icon} alt={alt} width={size} height={size} />
+      </a>
+    </Link>
+  );
+};
 
 const Nav: React.VFC = () => (
   <nav>

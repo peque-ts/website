@@ -1,3 +1,17 @@
+@import "./variables.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-primary-700 font-sans text-base text-white antialiased;
+}
+
+h1 {
+  @apply text-4xl font-extrabold mb-2;
+}
+
+a:has(img) {
+  font-size: 0;
+}
