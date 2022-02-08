@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 16.x
+          - 16.9.1
     steps:
       - uses: actions/checkout@v2
         with:
@@ -45,3 +45,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "chore: resolve style guide violations"
+      - name: Test (unit)
+        run: pnpm test:coverage
