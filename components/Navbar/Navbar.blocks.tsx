@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
+import { Icon } from '../Icon';
 import { NAV_ITEMS } from './Navbar.helpers';
 
 interface IconLinkProps {
@@ -17,7 +17,7 @@ const IconLink: React.VFC<IconLinkProps> = ({ link, icon, alt, small }) => {
   return (
     <Link href={link}>
       <a>
-        <Image src={icon} alt={alt} width={size} height={size} />
+        <Icon alt={alt} name={icon} size={size} />
       </a>
     </Link>
   );
