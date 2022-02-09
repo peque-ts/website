@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import { Button } from '../Button';
+import { Code } from '../Code';
 import { Icon } from '../Icon';
 import { List } from '../List';
 import { Terminal } from '../Terminal';
@@ -43,9 +44,7 @@ export const Project: React.VFC<Props> = ({
         )}
       </List>
       <Terminal>{command}</Terminal>
-      <Link passHref href={docsLink}>
-        <Button>Check the docs</Button>
-      </Link>
+      <Button>Check the docs</Button>
     </>
   );
 
@@ -57,11 +56,11 @@ export const Project: React.VFC<Props> = ({
           {exampleCodePosition === 'right' ? (
             <>
               <div>{renderContent()}</div>
-              <div>{exampleCode}</div>
+              <Code>{exampleCode}</Code>
             </>
           ) : (
             <>
-              <div>{exampleCode}</div>
+              <Code>{exampleCode}</Code>
               <div>{renderContent()}</div>
             </>
           )}

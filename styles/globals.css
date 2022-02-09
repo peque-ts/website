@@ -1,4 +1,6 @@
+@import "../node_modules/highlight.js/styles/nnfx-dark.css";
 @import "./variables.css";
+@import "./scrollbars.css";
 @import "./fonts.css";
 
 @tailwind base;

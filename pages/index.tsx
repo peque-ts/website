@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import { Hero } from '../components/Hero';
 import { Navbar } from '../components/Navbar';
-import { Project } from '../components/Project';
+import { Project, SNIPPET_FRAMEWORK } from '../components/Project';
 import { RepoCard } from '../components/RepoCard';
 
 const Home: NextPage = () => {
@@ -39,7 +39,7 @@ const Home: NextPage = () => {
           features={['Modular', 'Setup REST endpoints in no time', 'Microservices']}
           docsLink="/docs/framework"
           command="npx peque new project-name"
-          exampleCode="hello world"
+          exampleCode={SNIPPET_FRAMEWORK}
           bgClassName="bg-primary-800 skew-y-2"
         />
 
