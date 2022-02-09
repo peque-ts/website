@@ -47,7 +47,7 @@ const Home: NextPage = () => {
           docsLink="/docs/framework"
           command="npx peque new project-name"
           renderExample={() => <Code>{SNIPPET_FRAMEWORK}</Code>}
-          bgClassName="bg-primary-800 skew-y-2"
+          bgClassName="bg-primary-800 skew-y-1"
         />
 
         <Project
@@ -72,7 +72,7 @@ const Home: NextPage = () => {
               <Code>{SNIPPET_SMB_CLIENT}</Code>
             </div>
           )}
-          bgClassName="bg-primary-800 -skew-y-2"
+          bgClassName="bg-primary-800 -skew-y-3"
         />
       </main>
     </div>
