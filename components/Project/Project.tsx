@@ -1,9 +1,7 @@
 import clsx from 'clsx';
-import Link from 'next/link';
 import React from 'react';
 
-import { Button } from '../Button';
-import { Code } from '../Code';
+import { ButtonLink } from '../ButtonLink';
 import { Icon } from '../Icon';
 import { List } from '../List';
 import { Terminal } from '../Terminal';
@@ -14,8 +12,8 @@ interface Props {
   features: string[];
   docsLink: string;
   command: string;
-  exampleCodePosition?: 'left' | 'right';
-  exampleCode: string;
+  examplePosition?: 'left' | 'right';
+  renderExample: () => JSX.Element;
   bgClassName?: string;
   className?: string;
 }
@@ -26,13 +24,13 @@ export const Project: React.VFC<Props> = ({
   features,
   docsLink,
   command,
-  exampleCodePosition = 'right',
-  exampleCode,
+  examplePosition = 'right',
+  renderExample,
   bgClassName,
   className,
 }) => {
   const renderContent = () => (
-    <>
+    <div className="flex flex-col justify-center">
       <h1>{name}</h1>
       <h2 className="text-lg font-normal mb-6">{description}</h2>
       <List className="space-y-2" items={features}>
@@ -43,25 +41,29 @@ export const Project: React.VFC<Props> = ({
           </div>
         )}
       </List>
-      <Terminal className="my-8">{command}</Terminal>
-      <Button>Check the docs</Button>
-    </>
+      <div>
+        <Terminal className="my-8">{command}</Terminal>
+      </div>
+      <div>
+        <ButtonLink to={docsLink}>Check the docs</ButtonLink>
+      </div>
+    </div>
   );
 
   return (
     <section className={clsx('relative py-8 my-8', className)}>
       <div className={clsx('-z-10 absolute inset-0', bgClassName)} />
       <div className="container mx-auto">
-        <div className="grid grid-cols-2 gap-8">
-          {exampleCodePosition === 'right' ? (
+        <div className="grid grid-cols-2 gap-36">
+          {examplePosition === 'right' ? (
             <>
-              <div>{renderContent()}</div>
-              <Code>{exampleCode}</Code>
+              {renderContent()}
+              {renderExample()}
             </>
           ) : (
             <>
-              <Code>{exampleCode}</Code>
-              <div>{renderContent()}</div>
+              {renderExample()}
+              {renderContent()}
             </>
           )}
         </div>

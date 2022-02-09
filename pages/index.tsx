@@ -1,9 +1,16 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
+import { Code } from '../components/Code';
 import { Hero } from '../components/Hero';
 import { Navbar } from '../components/Navbar';
-import { Project, SNIPPET_FRAMEWORK } from '../components/Project';
+import {
+  Project,
+  SNIPPET_DI,
+  SNIPPET_FRAMEWORK,
+  SNIPPET_SMB_CLIENT,
+  SNIPPET_SMB_SERVER,
+} from '../components/Project';
 import { RepoCard } from '../components/RepoCard';
 
 const Home: NextPage = () => {
@@ -39,7 +46,7 @@ const Home: NextPage = () => {
           features={['Modular', 'Setup REST endpoints in no time', 'Microservices']}
           docsLink="/docs/framework"
           command="npx peque new project-name"
-          exampleCode={SNIPPET_FRAMEWORK}
+          renderExample={() => <Code>{SNIPPET_FRAMEWORK}</Code>}
           bgClassName="bg-primary-800 skew-y-2"
         />
 
@@ -49,8 +56,8 @@ const Home: NextPage = () => {
           features={['Easy Dependency Injection', 'Use it in backend or frontend']}
           docsLink="/docs/di"
           command="npm install @pequehq/di reflect-metadata"
-          exampleCode="hello world"
-          exampleCodePosition="left"
+          renderExample={() => <Code>{SNIPPET_DI}</Code>}
+          examplePosition="left"
         />
 
         <Project
@@ -59,7 +66,12 @@ const Home: NextPage = () => {
           features={['Event-driven', 'Lightweight client dependency (< 100 KB)', 'Easy setup']}
           docsLink="/docs/smb"
           command="npx peque add smb"
-          exampleCode="hello world"
+          renderExample={() => (
+            <div className="space-y-14">
+              <Code>{SNIPPET_SMB_SERVER}</Code>
+              <Code>{SNIPPET_SMB_CLIENT}</Code>
+            </div>
+          )}
           bgClassName="bg-primary-800 -skew-y-2"
         />
       </main>

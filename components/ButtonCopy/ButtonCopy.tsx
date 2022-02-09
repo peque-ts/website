@@ -11,7 +11,7 @@ export const ButtonCopy: React.VFC<Props> = ({ data }) => {
   const [copy, copied] = useClipboard();
 
   return (
-    <button type="button" onClick={() => copy(data)}>
+    <button type="button" className="flex items-center" onClick={() => copy(data)}>
       {copied ? (
         <span className="text-sm">copied!</span>
       ) : (
