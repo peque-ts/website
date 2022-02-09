@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import { Section } from './Section';
+import { Project } from './Project';
 
-describe('Section', () => {
+describe('Project', () => {
   it('should render', () => {
-    const { asFragment } = render(<Section />);
+    const { asFragment } = render(<Project />);
 
     expect(asFragment()).toMatchSnapshot();
   });

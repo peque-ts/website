@@ -18,6 +18,6 @@ export const RepoCard: React.FC<Props> = ({ title, repo, children }) => (
         link={`https://github.com/peque-ts/${repo}`}
       />
     </div>
-    <p>{children}</p>
+    <p className="text-lg">{children}</p>
   </article>
 );
