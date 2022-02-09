@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import { FeatureCard } from './FeatureCard';
+import { RepoCard } from './RepoCard';
 
-describe('FeatureCard', () => {
+describe('RepoCard', () => {
   it('should render', () => {
-    const { asFragment } = render(<FeatureCard />);
+    const { asFragment } = render(<RepoCard />);
 
     expect(asFragment()).toMatchSnapshot();
   });

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`FeatureItem should render 1`] = `
-<DocumentFragment>
-  <p>
-    FeatureItem
-  </p>
-</DocumentFragment>
-`;

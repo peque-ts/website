@@ -13,6 +13,10 @@ h1 {
   @apply text-4xl font-extrabold mb-2;
 }
 
+h3 {
+  @apply text-2xl font-extrabold;
+}
+
 a:has(img) {
   font-size: 0;
 }
