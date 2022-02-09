@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List should render 1`] = `
+<DocumentFragment>
+  <ul>
+    <li>
+      <span>
+        one (0)
+      </span>
+    </li>
+    <li>
+      <span>
+        two (1)
+      </span>
+    </li>
+    <li>
+      <span>
+        three (2)
+      </span>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
