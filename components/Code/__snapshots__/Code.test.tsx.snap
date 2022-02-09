@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Code should render 1`] = `
+<DocumentFragment>
+  <pre
+    class="custom-scrollbar"
+  >
+    <code
+      class="drop-shadow-xl rounded hljs language-typescript"
+    >
+      <span
+        class="hljs-variable language_"
+      >
+        console
+      </span>
+      .
+      <span
+        class="hljs-title function_"
+      >
+        log
+      </span>
+      (
+      <span
+        class="hljs-string"
+      >
+        'something'
+      </span>
+      );
+    </code>
+  </pre>
+</DocumentFragment>
+`;

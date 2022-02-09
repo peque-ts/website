@@ -3,7 +3,7 @@
 exports[`Navbar should render 1`] = `
 <DocumentFragment>
   <div
-    class="h-16"
+    class="h-16 bg-primary-600"
   >
     <div
       class="container h-full mx-auto px-2 flex items-center justify-between"
@@ -87,7 +87,7 @@ exports[`Navbar should render 1`] = `
               <img
                 alt=""
                 aria-hidden="true"
-                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2740%27%20height=%2740%27/%3e"
+                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e"
                 style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
               />
             </span>

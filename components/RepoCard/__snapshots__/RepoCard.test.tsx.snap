@@ -1,23 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Terminal should render 1`] = `
+exports[`RepoCard should render 1`] = `
 <DocumentFragment>
-  <div
-    class="bg-primary-900 p-4 shadow-lg rounded inline-flex space-x-8"
+  <article
+    class="space-y-3"
   >
-    <pre>
-      <code
-        class="bg-primary-900"
-      >
-        $ npm i @pequehq/di
-      </code>
-    </pre>
     <div
-      class="w-12 flex items-center justify-end"
+      class="flex items-center justify-between"
     >
-      <button
-        class="flex items-center"
-        type="button"
+      <h3 />
+      <a
+        href="https://github.com/peque-ts/undefined"
       >
         <span
           style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
@@ -33,7 +26,7 @@ exports[`Terminal should render 1`] = `
             />
           </span>
           <img
-            alt="Copy"
+            alt="undefined on GitHub"
             data-nimg="intrinsic"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -41,8 +34,11 @@ exports[`Terminal should render 1`] = `
           />
           <noscript />
         </span>
-      </button>
+      </a>
     </div>
-  </div>
+    <p
+      class="text-lg"
+    />
+  </article>
 </DocumentFragment>
 `;
