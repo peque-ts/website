@@ -43,7 +43,7 @@ export const Project: React.VFC<Props> = ({
           </div>
         )}
       </List>
-      <Terminal>{command}</Terminal>
+      <Terminal className="my-8">{command}</Terminal>
       <Button>Check the docs</Button>
     </>
   );
