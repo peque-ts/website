@@ -21,7 +21,7 @@ export const Icon: React.VFC<Props> = ({ name, size, className, alt, link }) => 
 
   return (
     <Link href={link}>
-      <a>{renderIcon()}</a>
+      <a className="flex">{renderIcon()}</a>
     </Link>
   );
 };

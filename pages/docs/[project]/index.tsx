@@ -1,23 +1,72 @@
-import type { NextPage } from 'next';
+import matter from 'gray-matter';
+import type {
+  GetStaticPathsResult,
+  GetStaticPropsContext,
+  GetStaticPropsResult,
+  NextPage,
+} from 'next';
 import Head from 'next/head';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
 import { Header } from '../../../components/Header';
+import { markdownToHtml } from '../../../lib/markdown-to-html';
+import { Meta } from '../../../types/meta';
+import { assertString } from '../../../utils/assertions';
 
-const Project: NextPage = () => {
-  return (
-    <div>
-      <Head>
-        <title>Peque Project | Docs</title> {/* @TODO: use variable */}
-        <meta name="description" content="TypeScript libraries for fast development" />
-        <link rel="icon" href="/favicon.svg" />
-      </Head>
+interface Props {
+  project: string;
+  content: string;
+  meta: Meta;
+}
 
-      <main>
-        <Header />
-        <p>Welcome to the project page. Choose section.</p>
-      </main>
-    </div>
+const Project: NextPage<Props> = ({ project, content, meta }) => (
+  <div>
+    <Head>
+      <title>Peque {meta.title} | Docs</title>
+      <meta name="description" content={meta.description} />
+      <link rel="icon" href="/favicon.svg" />
+    </Head>
+
+    <main>
+      <Header />
+      <section className="container mx-auto">
+        <div dangerouslySetInnerHTML={{ __html: content }} />
+      </section>
+    </main>
+  </div>
+);
+
+export async function getStaticPaths(): Promise<GetStaticPathsResult> {
+  const projects = await fs.readdir(path.join(process.cwd(), 'docs'));
+
+  return {
+    paths: projects.map((project) => `/docs/${project}`),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(
+  context: GetStaticPropsContext,
+): Promise<GetStaticPropsResult<Props>> {
+  assertString(context.params?.project);
+  const project = context.params.project;
+
+  const parsed = matter(
+    await fs.readFile(path.join(process.cwd(), 'docs', project, 'index.md'), {
+      encoding: 'utf-8',
+    }),
   );
-};
+
+  const content = await markdownToHtml(parsed.content);
+
+  return {
+    props: {
+      project,
+      content,
+      meta: parsed.data as Meta,
+    },
+  };
+}
 
 export default Project;
