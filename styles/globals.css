@@ -7,6 +7,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   @apply bg-primary-700 font-sans text-base text-white antialiased;
 }

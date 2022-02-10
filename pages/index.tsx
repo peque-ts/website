@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Peque | TypeScript libraries for fast development</title>
         <meta name="description" content="TypeScript libraries for fast development" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" />
       </Head>
 
       <main>
