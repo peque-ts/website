@@ -8,9 +8,11 @@ exports[`RepoCard should render 1`] = `
     <div
       class="flex items-center justify-between"
     >
-      <h3 />
+      <h3>
+        Framework
+      </h3>
       <a
-        href="https://github.com/peque-ts/undefined"
+        href="https://github.com/peque-ts/framework"
       >
         <span
           style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
@@ -26,7 +28,7 @@ exports[`RepoCard should render 1`] = `
             />
           </span>
           <img
-            alt="undefined on GitHub"
+            alt="Framework on GitHub"
             data-nimg="intrinsic"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -38,7 +40,9 @@ exports[`RepoCard should render 1`] = `
     </div>
     <p
       class="text-lg"
-    />
+    >
+      Create enterprise level server-side TypeScript applications. For REST, GraphQL, and Microservices.
+    </p>
   </article>
 </DocumentFragment>
 `;

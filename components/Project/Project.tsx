@@ -12,10 +12,9 @@ interface Props {
   features: string[];
   docsLink: string;
   command: string;
-  examplePosition?: 'left' | 'right';
+  examplePosition: 'left' | 'right';
   renderExample: () => JSX.Element;
   bgClassName?: string;
-  className?: string;
 }
 
 export const Project: React.VFC<Props> = ({
@@ -24,10 +23,9 @@ export const Project: React.VFC<Props> = ({
   features,
   docsLink,
   command,
-  examplePosition = 'right',
+  examplePosition,
   renderExample,
   bgClassName,
-  className,
 }) => {
   const renderContent = () => (
     <div className="flex flex-col justify-center">
@@ -51,7 +49,7 @@ export const Project: React.VFC<Props> = ({
   );
 
   return (
-    <section className={clsx('relative py-8 my-8', className)}>
+    <section className="relative py-8 my-8">
       <div className={clsx('-z-10 absolute inset-0', bgClassName)} />
       <div className="container mx-auto">
         <div className="grid grid-cols-2 gap-36">

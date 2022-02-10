@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-import { NAV_ITEMS } from './Navbar.helpers';
+import { NAV_ITEMS } from './Header.helpers';
 
 export const Nav: React.VFC = () => (
   <nav>

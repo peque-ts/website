@@ -2,8 +2,8 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 
 import { Code } from '../components/Code';
+import { Header } from '../components/Header';
 import { Hero } from '../components/Hero';
-import { Navbar } from '../components/Navbar';
 import {
   Project,
   SNIPPET_DI,
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <Navbar />
+        <Header />
         <Hero />
 
         <section className="container mx-auto grid grid-cols-3 gap-8 mb-16">
@@ -47,6 +47,7 @@ const Home: NextPage = () => {
           docsLink="/docs/framework"
           command="npx peque new project-name"
           renderExample={() => <Code>{SNIPPET_FRAMEWORK}</Code>}
+          examplePosition="right"
           bgClassName="bg-primary-800 skew-y-1"
         />
 
@@ -72,6 +73,7 @@ const Home: NextPage = () => {
               <Code>{SNIPPET_SMB_CLIENT}</Code>
             </div>
           )}
+          examplePosition="right"
           bgClassName="bg-primary-800 -skew-y-3"
         />
       </main>

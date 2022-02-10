@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import { List } from './List';
 
@@ -14,6 +14,8 @@ describe('List', () => {
       </List>,
     );
 
+    expect(screen.getByRole('list')).toBeInTheDocument();
+    expect(screen.getAllByRole('listitem')).toHaveLength(3);
     expect(asFragment()).toMatchSnapshot();
   });
 });

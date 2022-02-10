@@ -9,10 +9,6 @@ export const NAV_ITEMS: NavItem[] = [
     link: '/docs',
   },
   {
-    name: 'Tutorials',
-    link: '/tutorials',
-  },
-  {
     name: 'Enterprise',
     link: '/enterprise',
   },

@@ -7,6 +7,7 @@ exports[`Code should render 1`] = `
   >
     <code
       class="drop-shadow-xl rounded hljs language-typescript"
+      role="code"
     >
       <span
         class="hljs-variable language_"

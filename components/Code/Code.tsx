@@ -12,6 +12,7 @@ export const Code: React.FC = ({ children }) => {
   useEffect(() => {
     hljs.registerLanguage('typescript', typescript);
 
+    /* istanbul ignore else */
     if (ref.current) {
       hljs.highlightElement(ref.current);
     }
@@ -19,7 +20,7 @@ export const Code: React.FC = ({ children }) => {
 
   return (
     <pre className="custom-scrollbar">
-      <code className="drop-shadow-xl rounded" ref={ref}>
+      <code role="code" className="drop-shadow-xl rounded" ref={ref}>
         {children.trim()}
       </code>
     </pre>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Navbar should render 1`] = `
+exports[`Header should render 1`] = `
 <DocumentFragment>
   <div
     class="h-16 bg-primary-600"
@@ -47,14 +47,6 @@ exports[`Navbar should render 1`] = `
                 href="/docs"
               >
                 Docs
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-lg"
-                href="/tutorials"
-              >
-                Tutorials
               </a>
             </li>
             <li>

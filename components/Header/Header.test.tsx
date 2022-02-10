@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
 
-import { Navbar } from './Navbar';
+import { Header } from './Header';
 
-describe('Navbar', () => {
+describe('Header', () => {
   it('should render', () => {
-    const { asFragment } = render(<Navbar />);
+    const { asFragment } = render(<Header />);
 
     expect(screen.getByRole('navigation')).toBeInTheDocument();
     expect(asFragment()).toMatchSnapshot();

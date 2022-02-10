@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { Icon } from '../Icon';
-import { Nav } from './Navbar.blocks';
+import { Nav } from './Header.blocks';
 
-export const Navbar: React.VFC = () => (
+export const Header: React.VFC = () => (
   <div className="h-16 bg-primary-600">
     <div className="container h-full mx-auto px-2 flex items-center justify-between">
       <Icon alt="Logo" name="logo" size={40} link="/" />
