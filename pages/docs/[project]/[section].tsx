@@ -3,33 +3,41 @@ import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } fro
 import Head from 'next/head';
 
 import { Header } from '../../../components/Header';
+import { Renderer } from '../../../components/Renderer';
+import { SideNav } from '../../../components/SideNav';
+import { getProjectName } from '../../../lib/common';
 import { getProjectSectionPaths, read } from '../../../lib/fs';
 import { parse } from '../../../lib/markdown';
-import { SectionMeta } from '../../../types/meta';
+import { buildSideNavItems, SideNavItem } from '../../../lib/nav';
+import type { Meta } from '../../../types/meta';
 import { assertString } from '../../../utils/assertions';
 
 interface Props {
-  content: string;
-  meta: SectionMeta;
+  html: string;
+  meta: Meta;
+  pageTitle: string;
+  sideNavItems: SideNavItem[];
 }
 
-const Section: NextPage<Props> = ({ content, meta }) => {
-  console.log(meta);
+const Section: NextPage<Props> = ({ html, meta, pageTitle, sideNavItems }) => {
   return (
-    <div>
+    <>
       <Head>
-        <title>Peque Project | Doc Section</title> {/* @TODO: use variable */}
-        <meta name="description" content="TypeScript libraries for fast development" />
+        <title>{pageTitle}</title>
+        <meta name="description" content={meta.description} />
         <link rel="icon" href="/favicon.svg" />
       </Head>
 
       <main>
         <Header />
-        <section className="container mx-auto">
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-        </section>
+        <div className="flex">
+          <SideNav items={sideNavItems} />
+          <section className="flex-1 container mx-auto">
+            <Renderer html={html} />
+          </section>
+        </div>
       </main>
-    </div>
+    </>
   );
 };
 
@@ -49,12 +57,18 @@ export async function getStaticProps(
   assertString(context.params?.section);
 
   const { project, section } = context.params;
-  const { meta, html } = await parse<SectionMeta>(await read(project, section));
+  const markdown = await read(`docs/${project}/${section}.md`);
+  const { meta, html } = await parse<Meta>(markdown);
+
+  const pageTitle = `${meta.title} | Peque ${getProjectName(project)}`;
+  const sideNavItems = await buildSideNavItems(project, section);
 
   return {
     props: {
-      content: html,
+      html,
       meta,
+      pageTitle,
+      sideNavItems,
     },
   };
 }

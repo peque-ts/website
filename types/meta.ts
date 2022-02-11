@@ -1,9 +1,4 @@
-export interface ProjectMeta {
-  title: string;
-  description: string;
-}
-
-export interface SectionMeta {
+export interface Meta {
   title: string;
   description: string;
   order: number;

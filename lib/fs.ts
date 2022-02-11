@@ -1,18 +1,13 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-export async function read(project: string, section = 'index'): Promise<string> {
-  return fs.readFile(path.join(process.cwd(), 'docs', project, `${section}.md`), {
+async function read(filePath: string): Promise<string> {
+  return fs.readFile(path.join(process.cwd(), filePath), {
     encoding: 'utf-8',
   });
 }
 
-export async function getProjectPaths(): Promise<string[]> {
-  const projects = await fs.readdir(path.join(process.cwd(), 'docs'));
-  return projects.map((project) => `/docs/${project}`);
-}
-
-export async function getProjectSectionPaths(): Promise<string[]> {
+async function getProjectSectionPaths(): Promise<string[]> {
   let paths: string[] = [];
 
   const projects = await fs.readdir(path.join(process.cwd(), 'docs'));
@@ -31,3 +26,5 @@ export async function getProjectSectionPaths(): Promise<string[]> {
 
   return paths;
 }
+
+export { read, getProjectSectionPaths };

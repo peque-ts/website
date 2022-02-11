@@ -1,7 +1,6 @@
-import hljs from 'highlight.js/lib/core';
-import typescript from 'highlight.js/lib/languages/typescript';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 
+import { useCode } from '../../hooks/use-code';
 import { assertString } from '../../utils/assertions';
 
 export const Code: React.FC = ({ children }) => {
@@ -9,14 +8,7 @@ export const Code: React.FC = ({ children }) => {
 
   const ref = useRef(null);
 
-  useEffect(() => {
-    hljs.registerLanguage('typescript', typescript);
-
-    /* istanbul ignore else */
-    if (ref.current) {
-      hljs.highlightElement(ref.current);
-    }
-  }, []);
+  useCode(ref);
 
   return (
     <pre className="custom-scrollbar">
