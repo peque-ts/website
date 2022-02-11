@@ -11,13 +11,13 @@ import path from 'node:path';
 
 import { Header } from '../../../components/Header';
 import { markdownToHtml } from '../../../lib/markdown-to-html';
-import { Meta } from '../../../types/meta';
+import { ProjectMeta } from '../../../types/meta';
 import { assertString } from '../../../utils/assertions';
 
 interface Props {
   project: string;
   content: string;
-  meta: Meta;
+  meta: ProjectMeta;
 }
 
 const Project: NextPage<Props> = ({ project, content, meta }) => (
@@ -64,7 +64,7 @@ export async function getStaticProps(
     props: {
       project,
       content,
-      meta: parsed.data as Meta,
+      meta: parsed.data as ProjectMeta,
     },
   };
 }
