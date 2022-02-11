@@ -1,12 +1,10 @@
-import matter from 'gray-matter';
 import type { NextPage } from 'next';
 import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next';
 import Head from 'next/head';
-import fs from 'node:fs/promises';
-import path from 'node:path';
 
 import { Header } from '../../../components/Header';
-import { markdownToHtml } from '../../../lib/markdown-to-html';
+import { getProjectSectionPaths, read } from '../../../lib/fs';
+import { parse } from '../../../lib/markdown';
 import { SectionMeta } from '../../../types/meta';
 import { assertString } from '../../../utils/assertions';
 
@@ -36,22 +34,7 @@ const Section: NextPage<Props> = ({ content, meta }) => {
 };
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const paths: string[] = [];
-
-  const projects = await fs.readdir(path.join(process.cwd(), 'docs'));
-
-  for (const project of projects) {
-    const sections = await fs.readdir(path.join(process.cwd(), 'docs', project));
-
-    paths.push(
-      ...sections
-        .filter((section) => section.endsWith('.md'))
-        .map((section) => {
-          const sectionName = section.replace(/.md$/, '');
-          return `/docs/${project}/${sectionName}`;
-        }),
-    );
-  }
+  const paths = await getProjectSectionPaths();
 
   return {
     paths,
@@ -66,19 +49,12 @@ export async function getStaticProps(
   assertString(context.params?.section);
 
   const { project, section } = context.params;
-
-  const parsed = matter(
-    await fs.readFile(path.join(process.cwd(), 'docs', project, `${section}.md`), {
-      encoding: 'utf-8',
-    }),
-  );
-
-  const content = await markdownToHtml(parsed.content);
+  const { meta, html } = await parse<SectionMeta>(await read(project, section));
 
   return {
     props: {
-      content,
-      meta: parsed.data as SectionMeta,
+      content: html,
+      meta,
     },
   };
 }

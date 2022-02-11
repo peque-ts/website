@@ -1,4 +1,3 @@
-import matter from 'gray-matter';
 import type {
   GetStaticPathsResult,
   GetStaticPropsContext,
@@ -6,21 +5,19 @@ import type {
   NextPage,
 } from 'next';
 import Head from 'next/head';
-import fs from 'node:fs/promises';
-import path from 'node:path';
 
 import { Header } from '../../../components/Header';
-import { markdownToHtml } from '../../../lib/markdown-to-html';
-import { ProjectMeta } from '../../../types/meta';
+import { getProjectPaths, read } from '../../../lib/fs';
+import { parse } from '../../../lib/markdown';
+import type { ProjectMeta } from '../../../types/meta';
 import { assertString } from '../../../utils/assertions';
 
 interface Props {
-  project: string;
   content: string;
   meta: ProjectMeta;
 }
 
-const Project: NextPage<Props> = ({ project, content, meta }) => (
+const Project: NextPage<Props> = ({ content, meta }) => (
   <div>
     <Head>
       <title>Peque {meta.title} | Docs</title>
@@ -38,10 +35,10 @@ const Project: NextPage<Props> = ({ project, content, meta }) => (
 );
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const projects = await fs.readdir(path.join(process.cwd(), 'docs'));
+  const paths = await getProjectPaths();
 
   return {
-    paths: projects.map((project) => `/docs/${project}`),
+    paths,
     fallback: false,
   };
 }
@@ -50,21 +47,13 @@ export async function getStaticProps(
   context: GetStaticPropsContext,
 ): Promise<GetStaticPropsResult<Props>> {
   assertString(context.params?.project);
-  const project = context.params.project;
 
-  const parsed = matter(
-    await fs.readFile(path.join(process.cwd(), 'docs', project, 'index.md'), {
-      encoding: 'utf-8',
-    }),
-  );
-
-  const content = await markdownToHtml(parsed.content);
+  const { meta, html } = await parse<ProjectMeta>(await read(context.params.project));
 
   return {
     props: {
-      project,
-      content,
-      meta: parsed.data as ProjectMeta,
+      content: html,
+      meta,
     },
   };
 }
