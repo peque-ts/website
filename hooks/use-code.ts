@@ -6,14 +6,16 @@ export const useCode = (ref?: MutableRefObject<HTMLElement | null>) => {
   useEffect(() => {
     hljs.registerLanguage('typescript', typescript);
 
+    return () => {
+      hljs.unregisterLanguage('typescript');
+    };
+  }, []);
+
+  useEffect(() => {
     if (ref?.current) {
       hljs.highlightElement(ref.current);
     } else {
       hljs.highlightAll();
     }
-
-    return () => {
-      hljs.unregisterLanguage('typescript');
-    };
-  }, [ref]);
+  });
 };
