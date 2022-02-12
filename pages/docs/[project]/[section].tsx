@@ -30,11 +30,13 @@ const Section: NextPage<Props> = ({ html, meta, pageTitle, sideNavItems }) => {
 
       <main>
         <Header />
-        <div className="flex">
-          <SideNav items={sideNavItems} />
-          <section className="flex-1 container mx-auto">
+        <div className="container mx-auto flex">
+          <aside className="w-72">
+            <SideNav items={sideNavItems} />
+          </aside>
+          <article className="flex-1">
             <Renderer html={html} />
-          </section>
+          </article>
         </div>
       </main>
     </>
