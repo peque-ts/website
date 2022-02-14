@@ -13,13 +13,23 @@ export const SideNav: React.VFC<Props> = ({ items }) => {
   const router = useRouter();
 
   return (
-    <nav>
+    <nav className="fixed">
       <ul>
         {items.map(({ to, name, active }, index) => (
-          <li key={index}>
-            <Link href={`${router.basePath}${to}`}>
-              <a className={clsx({ active })}>{name}</a>
-            </Link>
+          <li key={index} className={clsx('py-2 px-4', { 'bg-secondary-300 rounded': active })}>
+            <div className="flex items-center">
+              <Link href={`${router.basePath}${to}`}>
+                <a
+                  className={clsx(
+                    active
+                      ? 'font-semibold text-primary-700'
+                      : 'hover:text-white text-secondary-300',
+                  )}
+                >
+                  {name}
+                </a>
+              </Link>
+            </div>
           </li>
         ))}
       </ul>

@@ -6,13 +6,12 @@ interface Props {
   alt: string;
   name: string;
   size: number;
-  className?: string;
   link?: string;
 }
 
-export const Icon: React.VFC<Props> = ({ name, size, className, alt, link }) => {
+export const Icon: React.VFC<Props> = ({ name, size, alt, link }) => {
   const renderIcon = () => (
-    <Image src={`/icons/${name}.svg`} alt={alt} width={size} height={size} className={className} />
+    <Image src={`/icons/${name}.svg`} alt={alt} width={size} height={size} />
   );
 
   if (!link) {

@@ -7,11 +7,13 @@ order: 5
 # Controllers
 The controllers are the components designated to handle the incoming **requests** and to return **responses** to the client.
 
-![Controllers](/images/framework/controllers.png)
+![Peque Framework Controllers](/images/framework/controllers.png)
 
-## Routings
+## Routing
+
 The `@Controller()` decorator is required together with the route argument (`/test`) in order to define a controller.
 The `@Get()` decorator is the handler for a specific endpoint of the controller. Its argument is defining the final route `/test/hellow-world`
+
 ```typescript
 @Controller('/test')
 export class TestController {
@@ -26,6 +28,7 @@ export class TestController {
 ```
 
 Of course, the framework give access to all the standard methods as well:
+
 - `@Get()`
 - `@Post()`
 - `@Put()`

@@ -1,0 +1,57 @@
+/* typography */
+
+.renderer h1 {
+    @apply mb-2 text-3xl text-secondary-200;
+}
+
+.renderer h2 {
+    @apply mt-4 mb-2 text-2xl text-secondary-200;
+}
+
+.renderer p {
+    @apply leading-8 mb-6 text-secondary-100;
+}
+
+/* images */
+
+.renderer img {
+    @apply mx-auto my-8;
+}
+
+/* tables */
+
+.renderer table {
+    @apply table-auto border-collapse w-full mt-4 mb-8 bg-primary-650 rounded;
+}
+
+.renderer table thead th {
+    @apply py-4 border-b border-secondary-500;
+}
+
+.renderer table tbody tr {
+    @apply border-b border-secondary-600 last:border-none;
+}
+
+.renderer table tbody td {
+    @apply py-4 px-2;
+}
+
+/* lists */
+
+.renderer ul {
+    @apply list-disc mx-4 mb-8;
+}
+
+.renderer ul li {
+    @apply mb-2;
+}
+
+/* code */
+
+.renderer pre {
+    @apply mt-4 mb-8;
+}
+
+.renderer p code {
+    @apply bg-primary-900 p-1 text-primary-400 rounded;
+}

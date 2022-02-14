@@ -9,7 +9,7 @@ order: 9
 A transformer is a provider class decorated with the `@Transformer()` decorator.
 The class, though, must implement the `TransformerHandler` interface.
 
-![Transformers](/images/framework/transformers.png)
+![Peque Framework Transformers](/images/framework/transformers.png)
 
 ```typescript
 @Transformer()

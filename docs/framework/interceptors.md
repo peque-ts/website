@@ -11,7 +11,7 @@ The class, though, must implement the `InterceptorHandler` interface.
 
 The interceptor will provide capabilities of adding extra logic before and after the actual route handler, and also to trap it errors. 
 
-![Interceptors](/images/framework/interceptors.png)
+![Peque Framework Interceptors](/images/framework/interceptors.png)
 
 ```typescript
 @Interceptor()

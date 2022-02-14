@@ -5,13 +5,17 @@ order: 3
 ---
 
 # Lifecycle
+
 The framework give you access also to lifecycle events. They can be hooked via interfaces and/or via the Event Manager Service.
-![](/images/framework/lifecycle.png)
+
+![Peque Framework lifecycle diagram](/images/framework/lifecycle.png)
 
 ## Interface hooks
+
 The interface hooks allows the developer to control the lifecycle synchronously where possible, hence, utilize `async/await` statements to wait for processes through stepping in the lifecycle.
 
 ## Event hooks
+
 The lifecycle is also firing asynchronous events that can be consumed at developer will and in separate providers implementations.
 
 ## Start stage lifecycle
@@ -27,6 +31,7 @@ The lifecycle is also firing asynchronous events that can be consumed at develop
 | **Server started**   | `OnServerStarted`   | All                                     | `lifecycle.server.started`   |
 
 ## Stop stage lifecycle
+
 The stop stage will refer to the `SIGINT`, `SIGTERM`, `SIGBREAK`, `SIGHUP` signals.
 Please read the Node.js process signal event [documentation](https://nodejs.org/api/process.html#process_signal_events) to understand which of them are available in your OS.
 

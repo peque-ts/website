@@ -5,14 +5,17 @@ order: 6
 ---
 
 # Providers
+
 A provider **injects** dependencies establishing relationships within objects.
 Most of the classes inside a project can be handled as providers, like: services, factories, repositories, and like.
 
-![Providers](/images/framework/providers.png)
+![Peque Framework Providers](/images/framework/providers.png)
 
 ## Dependency injection
+
 The framework leverages the **dependency injection** pattern.
 It makes classes injectable by using the decorator `@Injectable()` and injects them with the decorator `@Inject()` or directly in the constructor without the `@Inject()` decorator, but just the Provider class typing.
+
 ```typescript
 @Injectable()
 export class ExternalTestService {
@@ -33,6 +36,7 @@ export class ExternalTestService {
 ```
 
 The providers are finally resolved by the framework and returned as **singletons**, means returning the **existing instance** (if it has already been requested elsewhere) in the **property** that has been decorated with `@Inject()`.
+
 ```typescript
 @Controller('/test')
 export class TestController {
@@ -52,6 +56,7 @@ export class TestController {
 ```
 
 ## Custom providers
+
 The providers can also be custom in the case we want to cover it with an abstract class and inject it with different implementations.
 The `providers` metadata in `@Module()` can either be a specific provider or a custom mapping.
 
@@ -67,6 +72,7 @@ export class TestRootModule { }
 ```
 
 You can inject custom providers also via the @Injectable({ interface: CustomProvider }) decorator.
+
 ```typescript
 @Injectable({ interface: CacheManager })
 class RedisService implements CacheManager {}

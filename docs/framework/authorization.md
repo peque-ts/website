@@ -11,7 +11,7 @@ Guards contain the logic and the context which will decide if a request will be 
 
 Typical use cases can be JWT validation, user roles, permission, and like.
 
-![Guards](/images/framework/guards.png)
+![Peque Framework Guards](/images/framework/guards.png)
 
 ```typescript
 @Injectable()

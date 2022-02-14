@@ -5,20 +5,23 @@ order: 8
 ---
 
 # Microservices
+
 Microservice are a type of architecture (opposite to monolithic) where the application is structured as
 a set of services that are in communication in between each other.
 
-![Microservices](/images/framework/microservices.png)
+![Peque Framework Microservices](/images/framework/microservices.png)
 
 In Peque.ts, Microservices are applications that doesn't run via HTTP, and at this moment the available transports are:
+
 - MQTT
 - Redis Pub/Sub
 
 The roadmap of transports to be supported is the following:
+
 - Apache Kafka
 - Custom brokers
 
-![Microservices in Peque.ts](/images/framework/microservice-internal.png)
+![Peque Framework Microservices internals](/images/framework/microservice-internal.png)
 
 Microservices, anyway, are provider classes decorated with the `@Microservice()` decorator that extends the `MicroserviceHandler` class.
 
@@ -121,7 +124,6 @@ async function startUp() {
 
 startUp();
 ```
-
 
 # Events
 

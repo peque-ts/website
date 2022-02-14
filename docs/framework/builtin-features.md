@@ -4,7 +4,8 @@ description: Peque Framework built-in features
 order: 13
 ---
 
-## Built-in features
+# Built-in features
+
 The framework comes out with a list of built-in providers and aspects ready to implemented:
 
 | Feature                 | Type      | Description                                                                                                                                          |
@@ -22,6 +23,7 @@ The framework comes out with a list of built-in providers and aspects ready to i
 | **GetWebSocketServer**  | Decorator | Injects the current created WebSocket server.                                                                                                        |
 
 ## Event management service
+
 It is based on Node.js `EventEmitter`, and it provides a ready to use out-of-the-box implementation.
 The framework is also leveraging this service internally to dispatch native events that can also be hooked by developers for design purposes.
 
@@ -46,6 +48,7 @@ The framework is also leveraging this service internally to dispatch native even
 | `lifecycle.server.shutdown`       | Server shutdown          |
 
 The Event Management System, besides the injectable `EventManagementService`, is also providing a set of decorators:
+
 - `@OnEvent(event: string | NativeEventType)`
 
 ```typescript
@@ -61,6 +64,7 @@ export class InternalService {
 ```
 
 ## Logger service
+
 It is a simple service where to route all the logs. This service is also used internally by the framework so that the developers
 can make use of the internal logs as well.
 
@@ -88,8 +92,10 @@ export class InternalService {
 ```
 
 ## Scheduler service
+
 It is based on the package [`node-cron`](https://www.npmjs.com/package/node-cron), and it allows the execution of methods at a specified time.
 The schedule is provided by this decorator:
+
 - `@Scheduler(name: string, cron: string)`
 
 ```typescript
@@ -105,6 +111,7 @@ export class InternalService {
 ```
 
 The tasks can also be managed via the `ScheduleService` itself.
+
 ```typescript
 @Injectable()
 export class InternalService {

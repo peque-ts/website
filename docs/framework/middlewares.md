@@ -4,7 +4,8 @@ description: Building middlewares in Peque Framework
 order: 7
 ---
 
-## Middlewares
+# Middlewares
+
 Middlewares are providers classes decorated with the `@Middleware()` decorator.
 The class, though, must implement the `MiddlewareHandler` interface.
 
@@ -18,7 +19,7 @@ export class TestMiddleware implements MiddlewareHandler {
 }
 ```
 
-![Middlewares](/images/framework/middlewares.png)
+![Peque Framework Middlewares](/images/framework/middlewares.png)
 
 The middlewares can be placed both at **Controller** and **Route** time by using the `@UseMiddleware()` decorator.
 

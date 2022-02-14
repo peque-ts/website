@@ -16,10 +16,11 @@ interface Props {
   html: string;
   meta: Meta;
   pageTitle: string;
+  projectName: string;
   sideNavItems: SideNavItem[];
 }
 
-const Section: NextPage<Props> = ({ html, meta, pageTitle, sideNavItems }) => {
+const Section: NextPage<Props> = ({ html, meta, pageTitle, sideNavItems, projectName }) => {
   return (
     <>
       <Head>
@@ -29,8 +30,8 @@ const Section: NextPage<Props> = ({ html, meta, pageTitle, sideNavItems }) => {
       </Head>
 
       <main>
-        <Header />
-        <div className="container mx-auto flex">
+        <Header transparent text={projectName} />
+        <div className="container mx-auto flex pb-8 pt-20">
           <aside className="w-72">
             <SideNav items={sideNavItems} />
           </aside>
@@ -62,7 +63,8 @@ export async function getStaticProps(
   const markdown = await read(`docs/${project}/${section}.md`);
   const { meta, html } = await parse<Meta>(markdown);
 
-  const pageTitle = `${meta.title} | Peque ${getProjectName(project)}`;
+  const projectName = getProjectName(project);
+  const pageTitle = `${meta.title} | Peque ${projectName}`;
   const sideNavItems = await buildSideNavItems(project, section);
 
   return {
@@ -70,6 +72,7 @@ export async function getStaticProps(
       html,
       meta,
       pageTitle,
+      projectName,
       sideNavItems,
     },
   };
