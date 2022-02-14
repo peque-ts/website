@@ -12,6 +12,7 @@ exports[`RepoCard should render 1`] = `
         Framework
       </h3>
       <a
+        class="flex"
         href="https://github.com/peque-ts/framework"
       >
         <span

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideNav should render 1`] = `
+<DocumentFragment>
+  <nav
+    class="fixed"
+  >
+    <ul>
+      <li
+        class="py-2 px-4 bg-secondary-300 rounded"
+      >
+        <div
+          class="flex items-center"
+        >
+          <a
+            class="font-semibold text-primary-700"
+            href="/docs/1"
+          >
+            First
+          </a>
+        </div>
+      </li>
+      <li
+        class="py-2 px-4"
+      >
+        <div
+          class="flex items-center"
+        >
+          <a
+            class="hover:text-white text-secondary-300"
+            href="/docs/2"
+          >
+            Second
+          </a>
+        </div>
+      </li>
+      <li
+        class="py-2 px-4"
+      >
+        <div
+          class="flex items-center"
+        >
+          <a
+            class="hover:text-white text-secondary-300"
+            href="/docs/3"
+          >
+            Third
+          </a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;

@@ -9,4 +9,11 @@ describe('Header', () => {
     expect(screen.getByRole('navigation')).toBeInTheDocument();
     expect(asFragment()).toMatchSnapshot();
   });
+
+  it('should render transparent', () => {
+    const { asFragment } = render(<Header transparent />);
+
+    expect(screen.getByRole('navigation')).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

@@ -1,11 +1,16 @@
 @import "../node_modules/highlight.js/styles/nnfx-dark.css";
 @import "./variables.css";
 @import "./scrollbars.css";
+@import "./renderer.css";
 @import "./fonts.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  overflow-y: scroll;
+}
 
 body {
   @apply bg-primary-700 font-sans text-base text-white antialiased;
@@ -21,6 +26,10 @@ h2 {
 
 h3 {
   @apply text-2xl font-extrabold;
+}
+
+h4 {
+  @apply text-xl font-extrabold;
 }
 
 a:has(img) {

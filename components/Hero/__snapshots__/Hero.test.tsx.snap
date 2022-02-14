@@ -3,7 +3,7 @@
 exports[`Hero should render 1`] = `
 <DocumentFragment>
   <section
-    class="h-80 bg-gradient-to-b from-primary-600 to-primary-700 flex items-center justify-center"
+    class="h-80 mt-16 bg-gradient-to-b from-primary-600-alpha to-primary-700 flex items-center justify-center"
   >
     <div
       class="flex items-start space-x-2"
@@ -39,19 +39,19 @@ exports[`Hero should render 1`] = `
         >
           <a
             class="text-lg text-secondary-500 transition duration-300 hover:text-white"
-            href="#framework"
+            href="/docs/framework"
           >
             Framework
           </a>
           <a
             class="text-lg text-secondary-500 transition duration-300 hover:text-white"
-            href="#di"
+            href="/docs/di"
           >
             IoC Container
           </a>
           <a
             class="text-lg text-secondary-500 transition duration-300 hover:text-white"
-            href="#smb"
+            href="/docs/smb"
           >
             Message Broker
           </a>
