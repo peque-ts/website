@@ -1,12 +1,17 @@
 import mermaid from 'mermaid';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export const useMermaid = () => {
+  const [initialized, setInitialized] = useState(false);
+
   useEffect(() => {
     mermaid.initialize({ theme: 'dark' });
+    setInitialized(true);
   }, []);
 
   useEffect(() => {
-    mermaid.init('.mermaid');
-  });
+    if (initialized) {
+      mermaid.init('.mermaid');
+    }
+  }, [initialized]);
 };
