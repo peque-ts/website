@@ -1,23 +1,35 @@
-import mermaid from 'mermaid';
-import { Plugin } from 'unified';
-import { map } from 'unist-util-map';
+import puppeteer from 'puppeteer';
 
-const isMermaidNode = (node: Record<string, any>): boolean =>
-  node.type === 'code' && node.lang === 'mermaid';
+const SCRIPT_PATH = `${process.cwd()}/node_modules/mermaid/dist/mermaid.min.js`;
 
-export const remarkMermaid: Plugin = () => {
-  return async (tree) => {
-    map(tree, (node: any) => {
-      if (!isMermaidNode(node)) {
-        return node;
+const isMermaid = (node: any): boolean => node.type === 'code' && node.lang === 'mermaid';
+
+export function remarkMermaid() {
+  return async (tree: any) => {
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+    const page = await browser.newPage();
+
+    for (const node of tree.children ?? []) {
+      if (!isMermaid(node)) {
+        continue;
       }
 
-      Object.assign(node, {
-        type: 'html',
-        value: `<div class="mermaid">\n${node.value}\n</div>`,
+      await page.goto(`data:text/html,<div id="mermaid">${node.value}</div>`);
+      await page.addScriptTag({ path: SCRIPT_PATH });
+
+      await page.evaluate(() => {
+        const mermaid = (window as any).mermaid;
+
+        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+        mermaid.init('#mermaid');
       });
 
-      return node;
-    });
+      const svg = await page.$eval('#mermaid', (el) => el.innerHTML);
+
+      Object.assign(node, { type: 'html', value: svg });
+    }
+
+    await page.close();
+    await browser.close();
   };
-};
+}
