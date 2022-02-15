@@ -13,7 +13,7 @@ exports[`RepoCard should render 1`] = `
       </h3>
       <a
         class="flex"
-        href="https://github.com/peque-ts/framework"
+        href="https://github.com/pequehq/framework"
       >
         <span
           style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
