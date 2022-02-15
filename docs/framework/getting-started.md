@@ -8,3 +8,10 @@ order: 1
 
 This framework is built on-top of [express](https://expressjs.com/) and is intended to provide a standard to help the design, development,
 and life-cycle management of **scalable** and **efficient** Node.js applications.
+
+```mermaid
+    graph TB
+    A --- B 
+    B --> C
+    B --> D
+```
