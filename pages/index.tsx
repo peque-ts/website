@@ -8,6 +8,7 @@ import {
   Project,
   SNIPPET_DI,
   SNIPPET_FRAMEWORK,
+  SNIPPET_GRAPHQL,
   SNIPPET_SMB_CLIENT,
   SNIPPET_SMB_SERVER,
 } from '../components/Project';
@@ -31,6 +32,9 @@ const Home: NextPage = () => {
             Create enterprise level server-side TypeScript applications. For REST, GraphQL, and
             Microservices.
           </RepoCard>
+          <RepoCard title="GraphQL" repo="graphql">
+            OOP transposition of Apollo Server Resolvers.
+          </RepoCard>
           <RepoCard title="IoC Container" repo="di">
             Lightweight and dev-friendly Inversion of Control container for TypeScript and
             JavaScript applications.
@@ -47,6 +51,17 @@ const Home: NextPage = () => {
           docsLink="/docs/framework"
           command="npx peque new project-name"
           renderExample={() => <Code>{SNIPPET_FRAMEWORK}</Code>}
+          examplePosition="right"
+          bgClassName="bg-primary-800 skew-y-1"
+        />
+
+        <Project
+          name="GraphQL"
+          description="OOP transposition of Apollo Server Resolvers."
+          features={['Code Apollo Server Resolvers in an OOP fashion', 'Modular', 'Easy testable']}
+          docsLink="/docs/graphql"
+          command="npm install @pequehq/graphql reflect-metadata"
+          renderExample={() => <Code>{SNIPPET_GRAPHQL}</Code>}
           examplePosition="right"
           bgClassName="bg-primary-800 skew-y-1"
         />
