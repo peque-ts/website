@@ -23,7 +23,7 @@ export const Header: React.VFC<Props> = ({ text, transparent }) => (
       </div>
       <div className="flex items-center space-x-8">
         <Nav />
-        <Icon alt="Peque on GitHub" name="github" size={30} link="https://github.com/peque-ts" />
+        <Icon alt="Peque on GitHub" name="github" size={30} link="https://github.com/pequehq" />
       </div>
     </div>
   </header>
