@@ -19,6 +19,26 @@ const webserver = PequeFactory.createServer({
 
 webserver.start();`;
 
+const SNIPPET_GRAPHQL = `import { Resolver, ResolverService } from '@pequehq/graphql';
+
+@Resolver()
+class ResolverExample {
+  @Query()
+  countries(@Args('continent') continent: string): unknown {
+    return [
+      { id: 1, name: 'italy', continent: 'europe' },
+      { id: 2, name: 'spain', continent: 'europe' },
+      { id: 3, name: 'china', continent: 'asia' },
+    ].filter((country) => country.continent === continent);
+  }
+}
+
+const resolverService = new ResolverService();
+
+const resolvers = resolverService.get([new ResolverExample()]);
+
+// Add resolvers to your Apollo Server.`;
+
 const SNIPPET_DI = `import { Container, Injectable } from '@pequehq/di';
 
 @Injectable()
@@ -65,4 +85,4 @@ client.subscribe('^topic', (command) => {
 client.message('topic', { test: 'message' });
 `;
 
-export { SNIPPET_FRAMEWORK, SNIPPET_DI, SNIPPET_SMB_CLIENT, SNIPPET_SMB_SERVER };
+export { SNIPPET_FRAMEWORK, SNIPPET_GRAPHQL, SNIPPET_DI, SNIPPET_SMB_CLIENT, SNIPPET_SMB_SERVER };

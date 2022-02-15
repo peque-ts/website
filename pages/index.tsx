@@ -8,6 +8,7 @@ import {
   Project,
   SNIPPET_DI,
   SNIPPET_FRAMEWORK,
+  SNIPPET_GRAPHQL,
   SNIPPET_SMB_CLIENT,
   SNIPPET_SMB_SERVER,
 } from '../components/Project';
@@ -31,6 +32,9 @@ const Home: NextPage = () => {
             Create enterprise level server-side TypeScript applications. For REST, GraphQL, and
             Microservices.
           </RepoCard>
+          <RepoCard title="GraphQL" repo="graphql">
+            OOP transposition of Apollo Server Resolvers.
+          </RepoCard>
           <RepoCard title="IoC Container" repo="di">
             Lightweight and dev-friendly Inversion of Control container for TypeScript and
             JavaScript applications.
@@ -52,13 +56,24 @@ const Home: NextPage = () => {
         />
 
         <Project
+          name="GraphQL"
+          description="OOP transposition of Apollo Server Resolvers."
+          features={['Code Apollo Server Resolvers in an OOP fashion', 'Modular', 'Easy testable']}
+          docsLink="/docs/graphql"
+          command="npm install @pequehq/graphql reflect-metadata"
+          renderExample={() => <Code>{SNIPPET_GRAPHQL}</Code>}
+          examplePosition="left"
+          bgClassName="bg-primary-800 skew-y-1"
+        />
+
+        <Project
           name="IoC Container"
           description="TypeScript Dependency Injection."
           features={['Easy Dependency Injection', 'Use it in backend or frontend']}
           docsLink="/docs/di"
           command="npm install @pequehq/di reflect-metadata"
           renderExample={() => <Code>{SNIPPET_DI}</Code>}
-          examplePosition="left"
+          examplePosition="right"
         />
 
         <Project
@@ -73,7 +88,7 @@ const Home: NextPage = () => {
               <Code>{SNIPPET_SMB_CLIENT}</Code>
             </div>
           )}
-          examplePosition="right"
+          examplePosition="left"
           bgClassName="bg-primary-800 -skew-y-3"
         />
       </main>
