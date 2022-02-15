@@ -1,12 +1,14 @@
 import mermaid from 'mermaid';
-import { useEffect, useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 
 export const useMermaid = () => {
   useEffect(() => {
+    console.log('mermaid: initialize');
     mermaid.initialize({ theme: 'dark' });
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    console.log('mermaid: init');
     mermaid.init('.mermaid');
   });
 };
