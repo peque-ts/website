@@ -62,7 +62,7 @@ const Home: NextPage = () => {
           docsLink="/docs/graphql"
           command="npm install @pequehq/graphql reflect-metadata"
           renderExample={() => <Code>{SNIPPET_GRAPHQL}</Code>}
-          examplePosition="right"
+          examplePosition="left"
           bgClassName="bg-primary-800 skew-y-1"
         />
 
@@ -73,7 +73,7 @@ const Home: NextPage = () => {
           docsLink="/docs/di"
           command="npm install @pequehq/di reflect-metadata"
           renderExample={() => <Code>{SNIPPET_DI}</Code>}
-          examplePosition="left"
+          examplePosition="right"
         />
 
         <Project
@@ -88,7 +88,7 @@ const Home: NextPage = () => {
               <Code>{SNIPPET_SMB_CLIENT}</Code>
             </div>
           )}
-          examplePosition="right"
+          examplePosition="left"
           bgClassName="bg-primary-800 -skew-y-3"
         />
       </main>
