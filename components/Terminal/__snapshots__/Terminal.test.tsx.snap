@@ -3,12 +3,10 @@
 exports[`Terminal should render 1`] = `
 <DocumentFragment>
   <div
-    class="bg-primary-900 p-4 shadow-lg rounded inline-flex space-x-8"
+    class="bg-black p-4 shadow-lg rounded inline-flex space-x-4"
   >
     <pre>
-      <code
-        class="bg-primary-900"
-      >
+      <code>
         $ npm i @pequehq/di
       </code>
     </pre>
@@ -19,6 +17,11 @@ exports[`Terminal should render 1`] = `
         class="flex items-center"
         type="button"
       >
+        <span
+          class="sr-only"
+        >
+          Copy to clipboard
+        </span>
         <span
           style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
         >

@@ -1,15 +1,18 @@
 /* typography */
 
-.renderer h1 {
-    @apply mb-2 text-3xl text-secondary-200;
-}
-
 .renderer h2 {
-    @apply mt-4 mb-2 text-2xl text-secondary-200;
+    @apply mt-10 mb-4;
 }
 
 .renderer p {
-    @apply leading-8 mb-6 text-secondary-100;
+    @apply mb-8 text-secondary-100;
+    line-height: 1.65;
+}
+
+/* anchors */
+
+.renderer .link {
+    @apply ml-2 text-xs;
 }
 
 /* images */
@@ -21,15 +24,15 @@
 /* tables */
 
 .renderer table {
-    @apply table-auto border-collapse w-full mt-4 mb-8 bg-primary-650 rounded;
+    @apply table-auto border-collapse w-full mt-4 mb-8 bg-secondary-700 rounded;
 }
 
 .renderer table thead th {
-    @apply py-4 border-b border-secondary-500;
+    @apply py-4 border-b border-b-2 border-secondary-100;
 }
 
 .renderer table tbody tr {
-    @apply border-b border-secondary-600 last:border-none;
+    @apply border-b border-secondary-200 last:border-none;
 }
 
 .renderer table tbody td {
@@ -53,5 +56,5 @@
 }
 
 .renderer p code {
-    @apply bg-primary-900 p-1 text-primary-400 rounded;
+    @apply bg-secondary-500 px-1 py-px text-white rounded;
 }

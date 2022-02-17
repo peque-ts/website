@@ -12,18 +12,16 @@ export const SideNav: React.VFC<Props> = ({ items }) => (
   <nav className="fixed">
     <ul>
       {items.map(({ to, name, active }, index) => (
-        <li key={index} className={clsx('py-2 px-4', { 'bg-secondary-300 rounded': active })}>
-          <div className="flex items-center">
-            <Link href={to}>
-              <a
-                className={clsx(
-                  active ? 'font-semibold text-primary-700' : 'hover:text-white text-secondary-300',
-                )}
-              >
-                {name}
-              </a>
-            </Link>
-          </div>
+        <li key={index}>
+          <Link href={to}>
+            <a
+              className={clsx('py-2 flex text-secondary-200 hover:text-white transition', {
+                'font-semibold text-white': active,
+              })}
+            >
+              {name}
+            </a>
+          </Link>
         </li>
       ))}
     </ul>

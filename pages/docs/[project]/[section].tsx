@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { Header } from '../../../components/Header';
 import { Renderer } from '../../../components/Renderer';
 import { SideNav } from '../../../components/SideNav';
-import { getProjectName } from '../../../lib/common';
+import { ProjectId, PROJECTS } from '../../../lib/data';
 import { getProjectSectionPaths, read } from '../../../lib/fs';
 import { parse } from '../../../lib/markdown';
 import { buildSideNavItems, SideNavItem } from '../../../lib/nav';
@@ -63,7 +63,7 @@ export async function getStaticProps(
   const markdown = await read(`docs/${project}/${section}.md`);
   const { meta, html } = await parse<Meta>(markdown);
 
-  const projectName = getProjectName(project);
+  const projectName = PROJECTS[project as ProjectId].name;
   const pageTitle = `${meta.title} | Peque ${projectName}`;
   const sideNavItems = await buildSideNavItems(project, section);
 

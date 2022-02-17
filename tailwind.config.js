@@ -3,20 +3,16 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    screens: {
+      sm: '640px',
+      lg: '1024px',
+    },
     colors: {
       white: 'var(--white)',
       black: 'var(--black)',
-      'primary-100': 'var(--primary-100)',
-      'primary-200': 'var(--primary-200)',
-      'primary-300': 'var(--primary-300)',
+      transparent: 'transparent',
       'primary-400': 'var(--primary-400)',
       'primary-500': 'var(--primary-500)',
-      'primary-600': 'var(--primary-600)',
-      'primary-600-alpha': 'var(--primary-600-alpha)',
-      'primary-650': 'var(--primary-650)',
-      'primary-700': 'var(--primary-700)',
-      'primary-800': 'var(--primary-800)',
-      'primary-900': 'var(--primary-900)',
       'secondary-100': 'var(--secondary-100)',
       'secondary-200': 'var(--secondary-200)',
       'secondary-300': 'var(--secondary-300)',

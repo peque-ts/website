@@ -6,7 +6,7 @@ describe('Hero', () => {
   it('should render', () => {
     const { asFragment } = render(<Hero />);
 
-    expect(screen.getAllByRole('link')).toHaveLength(3);
+    expect(screen.getAllByRole('link')).toHaveLength(4);
     expect(asFragment()).toMatchSnapshot();
   });
 });

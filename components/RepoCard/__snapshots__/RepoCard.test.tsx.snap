@@ -6,7 +6,7 @@ exports[`RepoCard should render 1`] = `
     class="space-y-3"
   >
     <div
-      class="flex items-center justify-between"
+      class="flex items-center space-x-3"
     >
       <h3>
         Framework
@@ -40,7 +40,7 @@ exports[`RepoCard should render 1`] = `
       </a>
     </div>
     <p
-      class="text-lg"
+      class="text-lg text-secondary-100"
     >
       Create enterprise level server-side TypeScript applications. For REST, GraphQL, and Microservices.
     </p>

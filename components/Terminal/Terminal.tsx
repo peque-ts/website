@@ -12,9 +12,9 @@ export const Terminal: React.FC<Props> = ({ children, className }) => {
   assertString(children);
 
   return (
-    <div className={clsx('bg-primary-900 p-4 shadow-lg rounded inline-flex space-x-8', className)}>
+    <div className={clsx('bg-black p-4 shadow-lg rounded inline-flex space-x-4', className)}>
       <pre>
-        <code className="bg-primary-900">$ {children}</code>
+        <code>$ {children}</code>
       </pre>
       <div className="w-12 flex items-center justify-end">
         <ButtonCopy data={children} />

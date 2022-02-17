@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  @apply bg-primary-700 font-sans text-base text-white antialiased;
+  @apply bg-secondary-900 font-sans text-base text-white antialiased;
 }
 
 h1 {

@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 
 import { Code } from '../components/Code';
+import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Hero } from '../components/Hero';
 import {
@@ -13,6 +14,7 @@ import {
   SNIPPET_SMB_SERVER,
 } from '../components/Project';
 import { RepoCard } from '../components/RepoCard';
+import { PROJECTS } from '../lib/data';
 
 const Home: NextPage = () => {
   return (
@@ -27,59 +29,61 @@ const Home: NextPage = () => {
         <Header />
         <Hero />
 
-        <section className="container mx-auto grid grid-cols-3 gap-8 mb-16">
-          <RepoCard title="Framework" repo="framework">
-            Create enterprise level server-side TypeScript applications. For REST, GraphQL, and
-            Microservices.
-          </RepoCard>
-          <RepoCard title="GraphQL" repo="graphql">
-            OOP transposition of Apollo Server Resolvers.
-          </RepoCard>
-          <RepoCard title="IoC Container" repo="di">
-            Lightweight and dev-friendly Inversion of Control container for TypeScript and
-            JavaScript applications.
-          </RepoCard>
-          <RepoCard title="SMB" repo="smb">
-            TCP based Redis-like Pub/Sub type of message broker, almost configuration-less.
-          </RepoCard>
+        <section className="container mx-auto grid grid-cols-2 gap-10 mt-12 mb-20">
+          <RepoCard projectId="framework" />
+          <RepoCard projectId="graphql" />
+          <RepoCard projectId="di" />
+          <RepoCard projectId="smb" />
         </section>
 
         <Project
-          name="Framework"
-          description="Node.js framework for backend applications."
+          name={PROJECTS.framework.name}
+          description={PROJECTS.framework.descriptionShort}
           features={['Modular', 'Setup REST endpoints in no time', 'Microservices']}
           docsLink="/docs/framework"
           command="npx peque new project-name"
           renderExample={() => <Code>{SNIPPET_FRAMEWORK}</Code>}
           examplePosition="right"
-          bgClassName="bg-primary-800 skew-y-1"
+          bgClassName="bg-secondary-800 skew-y-1"
         />
 
         <Project
-          name="GraphQL"
-          description="OOP transposition of Apollo Server Resolvers."
-          features={['Code Apollo Server Resolvers in an OOP fashion', 'Modular', 'Easy testable']}
+          name={PROJECTS.graphql.name}
+          description={PROJECTS.graphql.descriptionShort}
+          features={[
+            'Code resolvers in an OOP fashion',
+            'Use decorators like @Query() and @Mutation()',
+            'Easy testable',
+          ]}
           docsLink="/docs/graphql"
-          command="npm install @pequehq/graphql reflect-metadata"
+          command="npm i @pequehq/graphql reflect-metadata"
           renderExample={() => <Code>{SNIPPET_GRAPHQL}</Code>}
           examplePosition="left"
-          bgClassName="bg-primary-800 skew-y-1"
         />
 
         <Project
-          name="IoC Container"
-          description="TypeScript Dependency Injection."
-          features={['Easy Dependency Injection', 'Use it in backend or frontend']}
+          name={PROJECTS.di.name}
+          description={PROJECTS.di.descriptionShort}
+          features={[
+            'Easy dependency injection',
+            'Use it in backend or frontend apps',
+            'Full TypeScript support',
+          ]}
           docsLink="/docs/di"
-          command="npm install @pequehq/di reflect-metadata"
+          command="npm i @pequehq/di reflect-metadata"
           renderExample={() => <Code>{SNIPPET_DI}</Code>}
           examplePosition="right"
+          bgClassName="bg-secondary-800 -skew-y-2"
         />
 
         <Project
-          name="SMB"
-          description="TCP-based Message Broker."
-          features={['Event-driven', 'Lightweight client dependency (< 100 KB)', 'Easy setup']}
+          name={PROJECTS.smb.name}
+          description={PROJECTS.smb.descriptionShort}
+          features={[
+            'Event-driven',
+            'Lightweight client dependency (< 100 KB)',
+            'Almost configuration-less',
+          ]}
           docsLink="/docs/smb"
           command="npx peque add smb"
           renderExample={() => (
@@ -89,8 +93,9 @@ const Home: NextPage = () => {
             </div>
           )}
           examplePosition="left"
-          bgClassName="bg-primary-800 -skew-y-3"
         />
+
+        <Footer />
       </main>
     </div>
   );
