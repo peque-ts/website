@@ -56,9 +56,9 @@ export class TestController {
   ) {}
   
   @Get('/hello-world')
-  async helloWorld(@Cookie('hayu-portability') portability: string, @Session() session: any) {
+  async helloWorld(@Cookie('cookie') cookie: string, @Session() session: any) {
     this.loggerService.log({ level: 'info', data: 'Test log from /hello-world' });
-    return { test: 'hello world', portability, session };
+    return { test: 'hello world', cookie, session };
   }
   
   @Intercept(TestRouteInterceptor)
