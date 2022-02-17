@@ -7,8 +7,14 @@ order: 5
 # Controllers
 The controllers are the components designated to handle the incoming **requests** and to return **responses** to the client.
 
-![Peque Framework Controllers](/images/framework/controllers.png)
-
+```mermaid
+graph LR
+  CL(Client) --> C1(Controller /app):::controller
+  CL --> C2(Controller /page):::controller
+  CL --> C3(Controller /user):::controller
+  
+  classDef controller fill:DodgerBlue
+```
 ## Routing
 
 The `@Controller()` decorator is required together with the route argument (`/test`) in order to define a controller.

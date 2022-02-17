@@ -9,7 +9,18 @@ order: 6
 A provider **injects** dependencies establishing relationships within objects.
 Most of the classes inside a project can be handled as providers, like: services, factories, repositories, and like.
 
-![Peque Framework Providers](/images/framework/providers.png)
+```mermaid
+graph LR
+    HTTP(HTTP Service) --> CACHE(Cacheable Service)
+    HTTP --> EXT(External Service)
+    HTTP --> LOG(Logger Service)
+    CACHE --> PAGE(Page Service)
+    EXT --> PAGE
+    LOG --> PAGE
+    PAGE --> C(Controller /page):::controller
+    
+    classDef controller fill:DodgerBlue
+```
 
 ## Dependency injection
 

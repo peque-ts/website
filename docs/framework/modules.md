@@ -12,10 +12,12 @@ An application must have at least one root module (a module importing all the ot
 
 ```mermaid
 graph LR
-  M1(Module) --> C1(Controller /app)
-  M1 --> C2(Controller /page)
+  M1(Module) --> C1(Controller /app):::controller
+  M1 --> C2(Controller /page):::controller
   M1 --> M2(Module)
-  M2 --> C3(Controller /user)
+  M2 --> C3(Controller /user):::controller
+  
+  classDef controller fill:DodgerBlue
 ```
 
 The Modules are decorated with the `@Module()` decorator that is necessary to define its metadata (other modules or controllers).

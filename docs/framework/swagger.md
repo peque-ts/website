@@ -9,8 +9,6 @@ order: 14
 The key concept is to avoid or to maintain the Swagger (**OpenAPI**) document manually as less as possible.
 For this purpose, the framework provides a set of decorators that enables the definition of the metadata for the automatic generation of the OpenAPI document.
 
-![Tommy Shelby mad GIF](/images/framework/tommy-shelby-mad.gif)
-
 ## Tag
 
 The tags object allows the paths (endpoints) to be **arranged** into named groups in the Swagger document.
