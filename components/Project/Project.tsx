@@ -40,7 +40,13 @@ export const Project: React.VFC<Props> = ({
         )}
       </List>
       <div className="mb-10">
-        <Terminal className={!!bgClassName ? 'shadow-secondary-700' : 'shadow-secondary-800'}>
+        <Terminal
+          className={
+            /* istanbul ignore next */ !!bgClassName
+              ? 'shadow-secondary-700'
+              : 'shadow-secondary-800'
+          }
+        >
           {command}
         </Terminal>
       </div>

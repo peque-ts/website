@@ -9,5 +9,5 @@ interface Props {
 export const Renderer: React.VFC<Props> = ({ html }) => {
   useCode();
 
-  return <div className="renderer" dangerouslySetInnerHTML={{ __html: html }} />;
+  return <article className="renderer" dangerouslySetInnerHTML={{ __html: html }} />;
 };

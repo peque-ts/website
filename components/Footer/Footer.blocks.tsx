@@ -11,7 +11,7 @@ export const FooterProject: React.VFC<FooterProjectProps> = ({ projectId }) => {
 
   const renderLink = (text: string, href: string) => (
     <li>
-      <a className="text-sm text-secondary-100 hover:underline" href={href}>
+      <a className="link text-sm" href={href}>
         {text}
       </a>
     </li>

@@ -7,7 +7,7 @@ import { FooterProject } from './Footer.blocks';
 export const Footer: React.VFC = () => {
   const renderLink = (text: string, href = '#') => (
     <li>
-      <a className="text-secondary-100 hover:underline" href={href}>
+      <a className="link text-base" href={href}>
         {text}
       </a>
     </li>

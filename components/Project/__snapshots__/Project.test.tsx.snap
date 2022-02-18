@@ -356,7 +356,7 @@ webserver.
             class="mb-10"
           >
             <div
-              class="bg-black p-4 shadow-lg rounded inline-flex space-x-4"
+              class="bg-black p-4 shadow-lg rounded inline-flex space-x-4 shadow-secondary-700"
             >
               <pre>
                 <code>
@@ -548,7 +548,7 @@ exports[`Project should render with example to the right 1`] = `
             class="mb-10"
           >
             <div
-              class="bg-black p-4 shadow-lg rounded inline-flex space-x-4"
+              class="bg-black p-4 shadow-lg rounded inline-flex space-x-4 shadow-secondary-700"
             >
               <pre>
                 <code>

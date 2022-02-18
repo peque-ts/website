@@ -46,7 +46,7 @@ exports[`Footer should render 1`] = `
           >
             <li>
               <a
-                class="text-secondary-100 hover:underline"
+                class="link text-base"
                 href="https://github.com/pequehq"
               >
                 Peque on GitHub
@@ -54,7 +54,7 @@ exports[`Footer should render 1`] = `
             </li>
             <li>
               <a
-                class="text-secondary-100 hover:underline"
+                class="link text-base"
                 href="#"
               >
                 Become a sponsor
@@ -62,7 +62,7 @@ exports[`Footer should render 1`] = `
             </li>
             <li>
               <a
-                class="text-secondary-100 hover:underline"
+                class="link text-base"
                 href="#"
               >
                 Enterprise support
@@ -70,7 +70,7 @@ exports[`Footer should render 1`] = `
             </li>
             <li>
               <a
-                class="text-secondary-100 hover:underline"
+                class="link text-base"
                 href="#"
               >
                 Credits
@@ -94,7 +94,7 @@ exports[`Footer should render 1`] = `
             >
               <li>
                 <a
-                  class="text-sm text-secondary-100 hover:underline"
+                  class="link text-sm"
                   href="https://github.com/pequehq/framework/releases"
                 >
                   Releases
@@ -102,7 +102,7 @@ exports[`Footer should render 1`] = `
               </li>
               <li>
                 <a
-                  class="text-sm text-secondary-100 hover:underline"
+                  class="link text-sm"
                   href="https://github.com/pequehq/framework/issues"
                 >
                   Report an issue
@@ -110,7 +110,7 @@ exports[`Footer should render 1`] = `
               </li>
               <li>
                 <a
-                  class="text-sm text-secondary-100 hover:underline"
+                  class="link text-sm"
                   href="https://github.com/pequehq/framework/blob/main/LICENSE"
                 >
                   License
@@ -131,7 +131,7 @@ exports[`Footer should render 1`] = `
             >
               <li>
                 <a
-                  class="text-sm text-secondary-100 hover:underline"
+                  class="link text-sm"
                   href="https://github.com/pequehq/graphql/releases"
                 >
                   Releases
@@ -139,7 +139,7 @@ exports[`Footer should render 1`] = `
               </li>
               <li>
                 <a
-                  class="text-sm text-secondary-100 hover:underline"
+                  class="link text-sm"
                   href="https://github.com/pequehq/graphql/issues"
                 >
                   Report an issue
@@ -147,7 +147,7 @@ exports[`Footer should render 1`] = `
               </li>
               <li>
                 <a
-                  class="text-sm text-secondary-100 hover:underline"
+                  class="link text-sm"
                   href="https://github.com/pequehq/graphql/blob/main/LICENSE"
                 >
                   License
@@ -168,7 +168,7 @@ exports[`Footer should render 1`] = `
             >
               <li>
                 <a
-                  class="text-sm text-secondary-100 hover:underline"
+                  class="link text-sm"
                   href="https://github.com/pequehq/di/releases"
                 >
                   Releases
@@ -176,7 +176,7 @@ exports[`Footer should render 1`] = `
               </li>
               <li>
                 <a
-                  class="text-sm text-secondary-100 hover:underline"
+                  class="link text-sm"
                   href="https://github.com/pequehq/di/issues"
                 >
                   Report an issue
@@ -184,7 +184,7 @@ exports[`Footer should render 1`] = `
               </li>
               <li>
                 <a
-                  class="text-sm text-secondary-100 hover:underline"
+                  class="link text-sm"
                   href="https://github.com/pequehq/di/blob/main/LICENSE"
                 >
                   License
@@ -205,7 +205,7 @@ exports[`Footer should render 1`] = `
             >
               <li>
                 <a
-                  class="text-sm text-secondary-100 hover:underline"
+                  class="link text-sm"
                   href="https://github.com/pequehq/smb/releases"
                 >
                   Releases
@@ -213,7 +213,7 @@ exports[`Footer should render 1`] = `
               </li>
               <li>
                 <a
-                  class="text-sm text-secondary-100 hover:underline"
+                  class="link text-sm"
                   href="https://github.com/pequehq/smb/issues"
                 >
                   Report an issue
@@ -221,7 +221,7 @@ exports[`Footer should render 1`] = `
               </li>
               <li>
                 <a
-                  class="text-sm text-secondary-100 hover:underline"
+                  class="link text-sm"
                   href="https://github.com/pequehq/smb/blob/main/LICENSE"
                 >
                   License

@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     screens: {
       sm: '640px',
-      lg: '1024px',
+      lg: '1280px',
     },
     colors: {
       white: 'var(--white)',
@@ -18,6 +18,7 @@ module.exports = {
       'primary-400': 'var(--primary-400)',
       'primary-500': 'var(--primary-500)',
       'secondary-100': 'var(--secondary-100)',
+      'secondary-150': 'var(--secondary-150)',
       'secondary-200': 'var(--secondary-200)',
       'secondary-300': 'var(--secondary-300)',
       'secondary-400': 'var(--secondary-400)',

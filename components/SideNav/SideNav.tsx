@@ -2,14 +2,14 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import React from 'react';
 
-import { SideNavItem } from '../../lib/nav';
+import { NavItem } from '../../lib/nav.types';
 
 interface Props {
-  items: SideNavItem[];
+  items: NavItem[];
 }
 
 export const SideNav: React.VFC<Props> = ({ items }) => (
-  <nav className="fixed">
+  <nav>
     <ul>
       {items.map(({ to, name, active }, index) => (
         <li key={index}>

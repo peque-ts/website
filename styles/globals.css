@@ -35,3 +35,7 @@ h4 {
 a:has(img) {
   font-size: 0;
 }
+
+.link {
+  @apply text-secondary-150 transition hover:text-white;
+}
