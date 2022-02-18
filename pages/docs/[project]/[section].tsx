@@ -35,8 +35,10 @@ const Section: NextPage<Props> = ({ html, meta, pageTitle, sideNavItems, project
           <aside className="w-72">
             <SideNav items={sideNavItems} />
           </aside>
-          <article className="flex-1 overflow-x-auto custom-scrollbar px-6">
-            <Renderer html={html} />
+          <article className="flex-1 overflow-x-auto custom-scrollbar">
+            <div className="px-4">
+              <Renderer html={html} />
+            </div>
           </article>
         </div>
       </main>
