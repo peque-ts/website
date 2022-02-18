@@ -19,7 +19,18 @@ export class TestMiddleware implements MiddlewareHandler {
 }
 ```
 
-![Peque Framework Middlewares](/images/framework/middlewares.png)
+```mermaid
+graph LR
+  C1(Controller /page):::controller --> MW1(Controller Middleware)
+  MW1 --> MW2(Route Middleware)
+  MW1 --> MW3(Route Middleware)
+  MW1 --> MW4(Route Middleware)
+  MW2 --> RT1(Route Handler):::controller
+  MW3 --> RT2(Route Handler):::controller
+  MW4 --> RT3(Route Handler):::controller
+  
+  classDef controller fill:DodgerBlue
+```
 
 The middlewares can be placed both at **Controller** and **Route** time by using the `@UseMiddleware()` decorator.
 

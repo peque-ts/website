@@ -8,7 +8,50 @@ order: 3
 
 The framework give you access also to lifecycle events. They can be hooked via interfaces and/or via the Event Manager Service.
 
-![Peque Framework lifecycle diagram](/images/framework/lifecycle.png)
+```mermaid
+graph LR
+  START([Start]) --> S(Server Bootstap):::server
+  S --> P(Provider Init):::service
+  P --> M(Module Init):::module
+  M --> C(Controller Init):::controller
+  C --> SL(Server Listen):::server
+  SL --> SS(Server Started):::server
+  
+  classDef server fill:DarkSeaGreen
+  classDef module fill:LightPink
+  classDef controller fill:DodgerBlue
+  classDef service fill:SandyBrown
+```
+
+```mermaid
+graph LR
+  STOP([Stop]) --> C(Controller Destroy):::controller
+  C --> M(Module Destroy):::module
+  M --> P(Provider Destroy):::service
+  P --> SL(Server Listen Stop):::server
+  SL --> SS(Server Shutdown):::server
+
+  classDef server fill:DarkSeaGreen
+  classDef module fill:LightPink
+  classDef controller fill:DodgerBlue
+  classDef service fill:SandyBrown
+```
+
+```mermaid
+graph LR
+  UNE([Uncaught Exception]) --> S(Event):::server
+  S --> C([Continue])
+  
+  classDef server fill:DarkSeaGreen
+```
+
+```mermaid
+graph LR
+  UNR([Uhandled Rejection]) --> S(Event):::server
+  S --> C([Continue])
+  
+  classDef server fill:DarkSeaGreen
+```
 
 ## Interface hooks
 

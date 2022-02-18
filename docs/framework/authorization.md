@@ -11,7 +11,21 @@ Guards contain the logic and the context which will decide if a request will be 
 
 Typical use cases can be JWT validation, user roles, permission, and like.
 
-![Peque Framework Guards](/images/framework/guards.png)
+```mermaid
+graph LR
+  C(Client) --> GG([Global Guard Class]):::clazz
+  GG --> C1(Controller /page):::controller
+  C1 --> CG([Controller Guard Class]):::clazz
+  CG --> RG1([Route Guard Class]):::clazz
+  CG --> RG2([Route Guard Class]):::clazz
+  CG --> RG3([Route Guard Class]):::clazz
+  RG1 --> RH1(Route Handler):::controller
+  RG2 --> RH2(Route Handler):::controller
+  RG3 --> RH3(Route Handler):::controller
+  
+  classDef controller fill:DodgerBlue
+  classDef clazz fill:MediumPurple
+```
 
 ```typescript
 @Injectable()
