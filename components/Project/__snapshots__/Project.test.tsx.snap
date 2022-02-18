@@ -12,7 +12,7 @@ exports[`Project should render with example to the left 1`] = `
       class="container mx-auto"
     >
       <div
-        class="grid grid-cols-2 gap-36"
+        class="grid grid-cols-2 gap-12"
       >
         <pre
           class="custom-scrollbar"
@@ -245,12 +245,12 @@ webserver.
             Framework
           </h1>
           <h2
-            class="text-lg font-normal mb-6"
+            class="text-lg font-normal mb-6 text-secondary-100"
           >
             Node.js framework for backend applications.
           </h2>
           <ul
-            class="space-y-2"
+            class="space-y-1.5 mb-8"
           >
             <li>
               <div
@@ -278,7 +278,9 @@ webserver.
                   />
                   <noscript />
                 </span>
-                <span>
+                <span
+                  class="text-secondary-100"
+                >
                   Modular
                 </span>
               </div>
@@ -309,7 +311,9 @@ webserver.
                   />
                   <noscript />
                 </span>
-                <span>
+                <span
+                  class="text-secondary-100"
+                >
                   Setup REST endpoints in no time
                 </span>
               </div>
@@ -340,20 +344,22 @@ webserver.
                   />
                   <noscript />
                 </span>
-                <span>
+                <span
+                  class="text-secondary-100"
+                >
                   Microservices
                 </span>
               </div>
             </li>
           </ul>
-          <div>
+          <div
+            class="mb-10"
+          >
             <div
-              class="bg-primary-900 p-4 shadow-lg rounded inline-flex space-x-8 my-8"
+              class="bg-black p-4 shadow-lg rounded inline-flex space-x-4 shadow-secondary-700"
             >
               <pre>
-                <code
-                  class="bg-primary-900"
-                >
+                <code>
                   $ npx peque new project-name
                 </code>
               </pre>
@@ -364,6 +370,11 @@ webserver.
                   class="flex items-center"
                   type="button"
                 >
+                  <span
+                    class="sr-only"
+                  >
+                    Copy to clipboard
+                  </span>
                   <span
                     style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
                   >
@@ -417,7 +428,7 @@ exports[`Project should render with example to the right 1`] = `
       class="container mx-auto"
     >
       <div
-        class="grid grid-cols-2 gap-36"
+        class="grid grid-cols-2 gap-12"
       >
         <div
           class="flex flex-col justify-center"
@@ -426,12 +437,12 @@ exports[`Project should render with example to the right 1`] = `
             Framework
           </h1>
           <h2
-            class="text-lg font-normal mb-6"
+            class="text-lg font-normal mb-6 text-secondary-100"
           >
             Node.js framework for backend applications.
           </h2>
           <ul
-            class="space-y-2"
+            class="space-y-1.5 mb-8"
           >
             <li>
               <div
@@ -459,7 +470,9 @@ exports[`Project should render with example to the right 1`] = `
                   />
                   <noscript />
                 </span>
-                <span>
+                <span
+                  class="text-secondary-100"
+                >
                   Modular
                 </span>
               </div>
@@ -490,7 +503,9 @@ exports[`Project should render with example to the right 1`] = `
                   />
                   <noscript />
                 </span>
-                <span>
+                <span
+                  class="text-secondary-100"
+                >
                   Setup REST endpoints in no time
                 </span>
               </div>
@@ -521,20 +536,22 @@ exports[`Project should render with example to the right 1`] = `
                   />
                   <noscript />
                 </span>
-                <span>
+                <span
+                  class="text-secondary-100"
+                >
                   Microservices
                 </span>
               </div>
             </li>
           </ul>
-          <div>
+          <div
+            class="mb-10"
+          >
             <div
-              class="bg-primary-900 p-4 shadow-lg rounded inline-flex space-x-8 my-8"
+              class="bg-black p-4 shadow-lg rounded inline-flex space-x-4 shadow-secondary-700"
             >
               <pre>
-                <code
-                  class="bg-primary-900"
-                >
+                <code>
                   $ npx peque new project-name
                 </code>
               </pre>
@@ -545,6 +562,11 @@ exports[`Project should render with example to the right 1`] = `
                   class="flex items-center"
                   type="button"
                 >
+                  <span
+                    class="sr-only"
+                  >
+                    Copy to clipboard
+                  </span>
                   <span
                     style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
                   >

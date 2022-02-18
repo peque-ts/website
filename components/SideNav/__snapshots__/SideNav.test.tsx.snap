@@ -2,51 +2,31 @@
 
 exports[`SideNav should render 1`] = `
 <DocumentFragment>
-  <nav
-    class="fixed"
-  >
+  <nav>
     <ul>
-      <li
-        class="py-2 px-4 bg-secondary-300 rounded"
-      >
-        <div
-          class="flex items-center"
+      <li>
+        <a
+          class="py-2 flex text-secondary-200 hover:text-white transition font-semibold text-white"
+          href="/docs/1"
         >
-          <a
-            class="font-semibold text-primary-700"
-            href="/docs/1"
-          >
-            First
-          </a>
-        </div>
+          First
+        </a>
       </li>
-      <li
-        class="py-2 px-4"
-      >
-        <div
-          class="flex items-center"
+      <li>
+        <a
+          class="py-2 flex text-secondary-200 hover:text-white transition"
+          href="/docs/2"
         >
-          <a
-            class="hover:text-white text-secondary-300"
-            href="/docs/2"
-          >
-            Second
-          </a>
-        </div>
+          Second
+        </a>
       </li>
-      <li
-        class="py-2 px-4"
-      >
-        <div
-          class="flex items-center"
+      <li>
+        <a
+          class="py-2 flex text-secondary-200 hover:text-white transition"
+          href="/docs/3"
         >
-          <a
-            class="hover:text-white text-secondary-300"
-            href="/docs/3"
-          >
-            Third
-          </a>
-        </div>
+          Third
+        </a>
       </li>
     </ul>
   </nav>

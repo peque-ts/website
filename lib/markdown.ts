@@ -1,9 +1,15 @@
 import matter from 'gray-matter';
+import { rehype } from 'rehype';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
 import { remark } from 'remark';
-import gfm from 'remark-gfm';
-import html from 'remark-html';
+import remarkGfm from 'remark-gfm';
+import remarkHtml from 'remark-html';
 
+import { getAnchorSvg } from './markdown.helpers';
 import { remarkMermaid } from './remark-mermaid';
+
+const rehypeAddClasses = require('rehype-add-classes'); // no typedefs
 
 interface ParsedMarkdown<T> {
   meta: T;
@@ -12,14 +18,32 @@ interface ParsedMarkdown<T> {
 
 export async function parse<TMeta>(markdown: string): Promise<ParsedMarkdown<TMeta>> {
   const { content, data } = matter(markdown);
-  const result = await remark()
-    .use(html, { sanitize: false })
-    .use(gfm)
-    .use(remarkMermaid)
-    .process(content);
+
+  // transform markdown into html
+  const baseHtml = String(
+    await remark()
+      .use(remarkHtml, { sanitize: false })
+      .use(remarkGfm)
+      .use(remarkMermaid)
+      .process(content),
+  );
+
+  // process html
+  const html = String(
+    await rehype()
+      .use(rehypeAddClasses, {
+        'h1,h2,h3,h4,h5,h6': 'group',
+      })
+      .use(rehypeSlug)
+      .use(rehypeAutolinkHeadings, {
+        behavior: 'append',
+        content: () => [getAnchorSvg()],
+      })
+      .process(baseHtml),
+  );
 
   return {
     meta: data as TMeta,
-    html: result.toString(),
+    html,
   };
 }

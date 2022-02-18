@@ -15,7 +15,10 @@ export const ButtonCopy: React.VFC<Props> = ({ data }) => {
       {copied ? (
         <span className="text-sm">copied!</span>
       ) : (
-        <Icon alt="Copy" name="copy" size={16} />
+        <>
+          <span className="sr-only">Copy to clipboard</span>
+          <Icon alt="Copy" name="copy" size={16} />
+        </>
       )}
     </button>
   );

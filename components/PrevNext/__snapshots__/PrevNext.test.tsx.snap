@@ -1,81 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header should render 1`] = `
+exports[`PrevNext should render 1`] = `
 <DocumentFragment>
-  <header
-    class="z-10 h-16 w-full top-0 fixed bg-secondary-600"
+  <div
+    class="flex items-center justify-between mt-4"
   >
-    <div
-      class="container h-full mx-auto flex items-center justify-between"
-    >
-      <div
-        class="flex items-center"
+    <div />
+    <div>
+      <a
+        class="flex items-center font-semibold justify-between rounded w-80 p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row-reverse"
+        href="/last"
       >
-        <a
-          class="flex"
-          href="/"
-        >
-          <span
-            style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
-          >
-            <span
-              style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2740%27%20height=%2740%27/%3e"
-                style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
-              />
-            </span>
-            <img
-              alt="Logo"
-              data-nimg="intrinsic"
-              decoding="async"
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-            />
-            <noscript />
-          </span>
-        </a>
-        <h4 />
-      </div>
-      <div
-        class="flex items-center space-x-8"
-      >
-        <nav>
-          <ul
-            class="flex space-x-8"
-          >
-            <li>
-              <a
-                class="text-lg"
-                href="/docs"
-              >
-                Docs
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-lg"
-                href="/enterprise"
-              >
-                Enterprise
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-lg"
-                href="/sponsors"
-              >
-                Sponsors
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <a
-          class="flex"
-          href="https://github.com/pequehq"
+        <div
+          class="flex rotate-180 ml-4"
         >
           <span
             style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
@@ -91,7 +28,7 @@ exports[`Header should render 1`] = `
               />
             </span>
             <img
-              alt="Peque on GitHub"
+              alt="Go to Last"
               data-nimg="intrinsic"
               decoding="async"
               src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -99,89 +36,39 @@ exports[`Header should render 1`] = `
             />
             <noscript />
           </span>
-        </a>
-      </div>
+        </div>
+        <div
+          class="flex flex-col space-y-1 items-start"
+        >
+          <span
+            class="text-sm text-secondary-200"
+          >
+            Next
+          </span>
+          <span
+            class="text-base text-white"
+          >
+            Last
+          </span>
+        </div>
+      </a>
     </div>
-  </header>
+  </div>
 </DocumentFragment>
 `;
 
-exports[`Header should render transparent 1`] = `
+exports[`PrevNext should render 2`] = `
 <DocumentFragment>
-  <header
-    class="z-10 h-16 w-full top-0 fixed bg-secondary-900 opacity-95"
+  <div
+    class="flex items-center justify-between mt-4"
   >
-    <div
-      class="container h-full mx-auto flex items-center justify-between"
-    >
-      <div
-        class="flex items-center"
+    <div>
+      <a
+        class="flex items-center font-semibold justify-between rounded w-80 p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row"
+        href="/first"
       >
-        <a
-          class="flex"
-          href="/"
-        >
-          <span
-            style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
-          >
-            <span
-              style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
-            >
-              <img
-                alt=""
-                aria-hidden="true"
-                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2740%27%20height=%2740%27/%3e"
-                style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
-              />
-            </span>
-            <img
-              alt="Logo"
-              data-nimg="intrinsic"
-              decoding="async"
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-            />
-            <noscript />
-          </span>
-        </a>
-        <h4 />
-      </div>
-      <div
-        class="flex items-center space-x-8"
-      >
-        <nav>
-          <ul
-            class="flex space-x-8"
-          >
-            <li>
-              <a
-                class="text-lg"
-                href="/docs"
-              >
-                Docs
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-lg"
-                href="/enterprise"
-              >
-                Enterprise
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-lg"
-                href="/sponsors"
-              >
-                Sponsors
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <a
-          class="flex"
-          href="https://github.com/pequehq"
+        <div
+          class="flex mr-4"
         >
           <span
             style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
@@ -197,7 +84,7 @@ exports[`Header should render transparent 1`] = `
               />
             </span>
             <img
-              alt="Peque on GitHub"
+              alt="Go to First"
               data-nimg="intrinsic"
               decoding="async"
               src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
@@ -205,9 +92,127 @@ exports[`Header should render transparent 1`] = `
             />
             <noscript />
           </span>
-        </a>
-      </div>
+        </div>
+        <div
+          class="flex flex-col space-y-1 items-end"
+        >
+          <span
+            class="text-sm text-secondary-200"
+          >
+            Prev
+          </span>
+          <span
+            class="text-base text-white"
+          >
+            First
+          </span>
+        </div>
+      </a>
     </div>
-  </header>
+    <div>
+      <a
+        class="flex items-center font-semibold justify-between rounded w-80 p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row-reverse"
+        href="/last"
+      >
+        <div
+          class="flex rotate-180 ml-4"
+        >
+          <span
+            style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+          >
+            <span
+              style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2724%27%20height=%2724%27/%3e"
+                style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+              />
+            </span>
+            <img
+              alt="Go to Last"
+              data-nimg="intrinsic"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            />
+            <noscript />
+          </span>
+        </div>
+        <div
+          class="flex flex-col space-y-1 items-start"
+        >
+          <span
+            class="text-sm text-secondary-200"
+          >
+            Next
+          </span>
+          <span
+            class="text-base text-white"
+          >
+            Last
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`PrevNext should render 3`] = `
+<DocumentFragment>
+  <div
+    class="flex items-center justify-between mt-4"
+  >
+    <div>
+      <a
+        class="flex items-center font-semibold justify-between rounded w-80 p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row"
+        href="/first"
+      >
+        <div
+          class="flex mr-4"
+        >
+          <span
+            style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+          >
+            <span
+              style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2724%27%20height=%2724%27/%3e"
+                style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+              />
+            </span>
+            <img
+              alt="Go to First"
+              data-nimg="intrinsic"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            />
+            <noscript />
+          </span>
+        </div>
+        <div
+          class="flex flex-col space-y-1 items-end"
+        >
+          <span
+            class="text-sm text-secondary-200"
+          >
+            Prev
+          </span>
+          <span
+            class="text-base text-white"
+          >
+            First
+          </span>
+        </div>
+      </a>
+    </div>
+    <div />
+  </div>
 </DocumentFragment>
 `;

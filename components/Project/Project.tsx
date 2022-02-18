@@ -30,17 +30,25 @@ export const Project: React.VFC<Props> = ({
   const renderContent = () => (
     <div className="flex flex-col justify-center">
       <h1>{name}</h1>
-      <h2 className="text-lg font-normal mb-6">{description}</h2>
-      <List className="space-y-2" items={features}>
+      <h2 className="text-lg font-normal mb-6 text-secondary-100">{description}</h2>
+      <List className="space-y-1.5 mb-8" items={features}>
         {(feature) => (
           <div className="flex items-center space-x-2">
             <Icon alt={feature} name="check" size={20} />
-            <span>{feature}</span>
+            <span className="text-secondary-100">{feature}</span>
           </div>
         )}
       </List>
-      <div>
-        <Terminal className="my-8">{command}</Terminal>
+      <div className="mb-10">
+        <Terminal
+          className={
+            /* istanbul ignore next */ !!bgClassName
+              ? 'shadow-secondary-700'
+              : 'shadow-secondary-800'
+          }
+        >
+          {command}
+        </Terminal>
       </div>
       <div>
         <ButtonLink to={docsLink}>Check the docs</ButtonLink>
@@ -52,7 +60,7 @@ export const Project: React.VFC<Props> = ({
     <section className="relative py-8 my-8">
       <div className={clsx('-z-10 absolute inset-0', bgClassName)} />
       <div className="container mx-auto">
-        <div className="grid grid-cols-2 gap-36">
+        <div className="grid grid-cols-2 gap-12">
           {examplePosition === 'right' ? (
             <>
               {renderContent()}

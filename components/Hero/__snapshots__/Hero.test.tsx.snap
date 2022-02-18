@@ -3,7 +3,7 @@
 exports[`Hero should render 1`] = `
 <DocumentFragment>
   <section
-    class="h-80 mt-16 bg-gradient-to-b from-primary-600-alpha to-primary-700 flex items-center justify-center"
+    class="h-80 mt-16 bg-gradient-to-b from-secondary-600 to-transparent flex items-center justify-center"
   >
     <div
       class="flex items-start space-x-2"
@@ -17,7 +17,7 @@ exports[`Hero should render 1`] = `
           <img
             alt=""
             aria-hidden="true"
-            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2746%27%20height=%2746%27/%3e"
+            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2740%27%20height=%2740%27/%3e"
             style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
           />
         </span>
@@ -38,19 +38,25 @@ exports[`Hero should render 1`] = `
           class="flex flex-col space-y-1"
         >
           <a
-            class="text-lg text-secondary-500 transition duration-300 hover:text-white"
+            class="text-lg text-secondary-300 transition duration-300 hover:text-white"
             href="/docs/framework"
           >
             Framework
           </a>
           <a
-            class="text-lg text-secondary-500 transition duration-300 hover:text-white"
+            class="text-lg text-secondary-300 transition duration-300 hover:text-white"
+            href="/docs/graphql"
+          >
+            GraphQL
+          </a>
+          <a
+            class="text-lg text-secondary-300 transition duration-300 hover:text-white"
             href="/docs/di"
           >
             IoC Container
           </a>
           <a
-            class="text-lg text-secondary-500 transition duration-300 hover:text-white"
+            class="text-lg text-secondary-300 transition duration-300 hover:text-white"
             href="/docs/smb"
           >
             Message Broker

@@ -2,7 +2,7 @@
 
 exports[`Renderer should render 1`] = `
 <DocumentFragment>
-  <div
+  <article
     class="renderer"
   >
     <p
@@ -10,6 +10,6 @@ exports[`Renderer should render 1`] = `
     >
       hello world
     </p>
-  </div>
+  </article>
 </DocumentFragment>
 `;

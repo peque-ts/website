@@ -7,6 +7,11 @@ exports[`ButtonCopy should render 1`] = `
     type="button"
   >
     <span
+      class="sr-only"
+    >
+      Copy to clipboard
+    </span>
+    <span
       style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
     >
       <span

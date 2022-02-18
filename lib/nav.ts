@@ -3,19 +3,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 import { read } from './fs';
+import { NavItem, PrevNextNavItems } from './nav.types';
 
-export interface SideNavItem {
-  name: string;
-  to: string;
-  order: number;
-  active: boolean;
-}
-
-export async function buildSideNavItems(
-  project: string,
-  activeSection: string,
-): Promise<SideNavItem[]> {
-  const items: SideNavItem[] = [];
+async function buildSideNavItems(project: string, activeSection: string): Promise<NavItem[]> {
+  const items: NavItem[] = [];
 
   const sectionFiles = await fs.readdir(path.join(process.cwd(), 'docs', project));
 
@@ -30,6 +21,7 @@ export async function buildSideNavItems(
       to: `/docs/${project}/${sectionSlug}`,
       order,
       active: sectionSlug === activeSection,
+      slug: sectionSlug,
     });
   }
 
@@ -37,3 +29,20 @@ export async function buildSideNavItems(
     return a.order > b.order ? 1 : a.order < b.order ? -1 : 0;
   });
 }
+
+function getPrevNextNavItems(sideNavItems: NavItem[], activeSection: string): PrevNextNavItems {
+  const currentItem = sideNavItems.find((item) => item.slug === activeSection);
+
+  if (!currentItem) {
+    throw new Error(
+      `Cannot find navigation item with slug = [${activeSection}]. This looks like a bug.`,
+    );
+  }
+
+  return {
+    prev: sideNavItems.find((item) => item.order === currentItem.order - 1) ?? null,
+    next: sideNavItems.find((item) => item.order === currentItem.order + 1) ?? null,
+  };
+}
+
+export { buildSideNavItems, getPrevNextNavItems };

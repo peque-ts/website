@@ -4,7 +4,7 @@
  */
 @-moz-document url-prefix() {
     .custom-scrollbar {
-        scrollbar-color: var(--secondary-700) transparent;
+        scrollbar-color: var(--secondary-300) transparent;
         scrollbar-width: thin;
     }
 }
@@ -31,7 +31,7 @@
 }
 
 .custom-scrollbar ::-webkit-scrollbar-thumb {
-    background-color: var(--secondary-700);
+    background-color: var(--secondary-300);
     border: 1px solid transparent;
     border-radius: 6px;
     background-clip: content-box;
@@ -39,6 +39,6 @@
 
 .custom-scrollbar ::-webkit-scrollbar-thumb:hover,
 .custom-scrollbar ::-webkit-scrollbar-thumb:active {
-    background-color: var(--secondary-600);
+    background-color: var(--secondary-400);
     border: none;
 }
