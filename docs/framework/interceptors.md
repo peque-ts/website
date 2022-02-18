@@ -11,7 +11,16 @@ The class, though, must implement the `InterceptorHandler` interface.
 
 The interceptor will provide capabilities of adding extra logic before and after the actual route handler, and also to trap it errors. 
 
-![Peque Framework Interceptors](/images/framework/interceptors.png)
+```mermaid
+graph LR
+  C(Client) -- Request --> CI1([Interceptor Class]):::clazz
+  CI1 -- Request --> R(Route Handler):::controller
+  R -- Response --> CI2([Interceptor Class]):::clazz
+  CI2 -- Response --> C
+  
+  classDef controller fill:DodgerBlue
+  classDef clazz fill:MediumPurple
+```
 
 ```typescript
 @Interceptor()
@@ -47,9 +56,9 @@ export class TestController {
   ) {}
   
   @Get('/hello-world')
-  async helloWorld(@Cookie('hayu-portability') portability: string, @Session() session: any) {
+  async helloWorld(@Cookie('cookie') cookie: string, @Session() session: any) {
     this.loggerService.log({ level: 'info', data: 'Test log from /hello-world' });
-    return { test: 'hello world', portability, session };
+    return { test: 'hello world', cookie, session };
   }
   
   @Intercept(TestRouteInterceptor)

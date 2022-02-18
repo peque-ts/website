@@ -20,7 +20,7 @@ export function remarkMermaid() {
       await page.evaluate(() => {
         const mermaid = (window as any).mermaid;
 
-        mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
         mermaid.init('#mermaid');
       });
 

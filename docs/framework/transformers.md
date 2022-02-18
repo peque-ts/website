@@ -9,7 +9,14 @@ order: 9
 A transformer is a provider class decorated with the `@Transformer()` decorator.
 The class, though, must implement the `TransformerHandler` interface.
 
-![Peque Framework Transformers](/images/framework/transformers.png)
+```mermaid
+graph LR
+  C(Client) --> T([Transformer Class]):::clazz
+  T --> R(Route Handle):::controller
+  
+  classDef controller fill:DodgerBlue
+  classDef clazz fill:MediumPurple
+```
 
 ```typescript
 @Transformer()
