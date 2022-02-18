@@ -21,6 +21,10 @@
     @apply mx-auto my-8;
 }
 
+.renderer svg {
+    @apply my-8;
+}
+
 /* tables */
 
 .renderer table {
