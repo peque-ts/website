@@ -11,12 +11,8 @@
 
 /* images */
 
-.renderer img {
+.renderer img, .renderer svg:not(.anchor) {
     @apply mx-auto my-8;
-}
-
-.renderer svg:not(.anchor) {
-    @apply my-8;
 }
 
 /* tables */
