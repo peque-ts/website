@@ -1,5 +1,4 @@
 import matter from 'gray-matter';
-import { h } from 'hastscript';
 import { rehype } from 'rehype';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
@@ -7,7 +6,10 @@ import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
 
+import { getAnchorSvg } from './markdown.helpers';
 import { remarkMermaid } from './remark-mermaid';
+
+const rehypeAddClasses = require('rehype-add-classes'); // no typedefs
 
 interface ParsedMarkdown<T> {
   meta: T;
@@ -29,10 +31,13 @@ export async function parse<TMeta>(markdown: string): Promise<ParsedMarkdown<TMe
   // process html
   const html = String(
     await rehype()
+      .use(rehypeAddClasses, {
+        'h1,h2,h3,h4,h5,h6': 'group',
+      })
       .use(rehypeSlug)
       .use(rehypeAutolinkHeadings, {
         behavior: 'append',
-        content: (node) => [h('sup.link', '🔗')],
+        content: () => [getAnchorSvg()],
       })
       .process(baseHtml),
   );

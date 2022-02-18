@@ -13,7 +13,7 @@ export const Header: React.VFC<Props> = ({ text, transparent }) => (
   <header
     className={clsx(
       'z-10 h-16 w-full top-0 fixed',
-      transparent ? 'bg-transparent' : 'bg-secondary-600',
+      transparent ? 'bg-secondary-900 opacity-95' : 'bg-secondary-600',
     )}
   >
     <div className="container h-full mx-auto flex items-center justify-between">

@@ -9,19 +9,13 @@
     line-height: 1.65;
 }
 
-/* anchors */
-
-.renderer .link {
-    @apply ml-2 text-xs;
-}
-
 /* images */
 
 .renderer img {
     @apply mx-auto my-8;
 }
 
-.renderer svg {
+.renderer svg:not(.anchor) {
     @apply my-8;
 }
 
