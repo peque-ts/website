@@ -17,16 +17,21 @@ The `@Query()` decorator supports the options declared inside the `IQueryOptions
 |----------|-------------------------------------------------------------------------------------------------------------------------|----------|
 | `name`   | The name of the query in the SDL schema query type. If not specified, than the name is assumed to be the method's name. | No       |
 
-```graphql
-type Query {
-  users: [User]
-}
-
-type User {
-    id: ID
-    name: String
-    surname: String
-}
+```mermaid
+classDiagram
+  direction LR
+  
+  class User {
+    ID id
+    String name
+    String surname
+  }
+  
+  class Query {
+    User[] users
+  }
+  
+  Query --> User
 ```
 
 ```typescript

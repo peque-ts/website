@@ -17,18 +17,23 @@ The `@Mutation()` decorator supports the options declared inside the `IMutationO
 |----------|-------------------------------------------------------------------------------------------------------------------------------------|----------|
 | `name`   | The name of the mutation query in the SDL schema mutation type. If not specified, than the name is assumed to be the method's name. | No       |
 
-```graphql
-type User {
-  id: ID
-  name: String
-  surname: String
-}
-
-type Mutation {
-  insertUser(name: String!, surname: String!): User
-  updateUser(id: ID, name: String!, surname: String!): User
-  deleteUser(id: ID): User
-}
+```mermaid
+classDiagram
+  direction LR
+  
+  class User {
+    ID id
+    String name
+    String surname
+  }
+  
+  class Mutation {
+    insertUser(String name, String surname) User
+    updateUser(ID id, String! name, String! surname) User
+    deleteUser(ID id) User
+  }
+  
+  Mutation --> User
 ```
 
 ```typescript

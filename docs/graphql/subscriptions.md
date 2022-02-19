@@ -21,22 +21,27 @@ The `@Subscription()` decorator supports the options declared inside the `ISubsc
 |----------|---------------------------------------------------------------------------------------------------------------------------------------|----------|
 | `name`   | The name of the subscription in the SDL schema subscription type. If not specified, than the name is assumed to be the method's name. | No       |
 
-```graphql
-type Subscription {
-  userInserted: User!
-}
-
-type User {
-    id: ID
-    name: String
-    surname: String
-}
+```mermaid
+classDiagram
+  direction LR
+  
+  class User {
+    ID id
+    String name
+    String surname
+  }
+  
+  class Subscription {
+    User! userInserted
+  }
+  
+  Subscription --> User
 ```
 
 ```typescript
 import { Resolver, Mutation } from '@pequehq/graphql';
 import { Injectable } from '@pequehq/di';
-import { UserService } from '../your/services';
+import { UserService, PubSubService } from '../your/services';
 import { User } from '../your/dto'
 
 @Injectable()

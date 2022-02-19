@@ -1,21 +1,10 @@
 ---
-title: Fields
-description: Fields
-order: 4
+title: Full example
+description: Full example
+order: 8
 ---
 
-# Fields
-
-The fields that a query shall resolve are represented by class methods decorated with the `@Field()` decorator.
-
-## Options
-
-The `@Field()` decorator supports the options declared inside the `IFieldOptions` interface.
-
-| Options  | Description                                                                                                  | Required |
-|----------|--------------------------------------------------------------------------------------------------------------|----------|
-| `name`   | The name of the field in the SDL schema. If not specified, than the name is assumed to be the method's name. | No       |
-| `type`   | The belonging SDL schema type of the field.                                                                  | Yes      |
+# Full example
 
 ```mermaid
 classDiagram
@@ -51,20 +40,34 @@ classDiagram
     User[] users
   }
   
+  class Subscription {
+    User! userInserted
+  }
+ 
+  class Mutation {
+    insertUser(String name, String surname) User
+    updateUser(ID id, String! name, String! surname) User
+    deleteUser(ID id) User
+  }
+  
   Query --> User
   User --> Location
   User --> Family
   Location --> LocationProperties
+  
+  Subscription --> User
+  Mutation --> User
 ```
 
 ```typescript
-import { Resolver, Query, Field, Parent } from '@pequehq/graphql';
+import { Resolver, Query, Mutation, Subscription, Field, Parent } from '@pequehq/graphql';
 import { Injectable } from '@pequehq/di';
 import {
   UserService,
   FamilyService,
   LocationService,
-  LocationPropertyService
+  LocationPropertyService,
+  PubSubService,
 } from '../your/services';
 import { User, Location, LocationProperty, Family } from '../your/dto'
 
@@ -74,7 +77,8 @@ class ResolverSchemaOne {
   constructor(private userService: UserService,
               private familyService: FamilyService,
               private locationService: LocationService,
-              private locationPropertyService: LocationPropertyService) {}
+              private locationPropertyService: LocationPropertyService,
+              private pubSub: PubSubService) {}
   
   @Query()
   async users(): Promise<User[]> {
@@ -95,16 +99,28 @@ class ResolverSchemaOne {
   async properties(@Parent() parent: Location): Promise<LocationProperty[]> {
     return await this.locationPropertyService.get(parent.id);
   }
+
+  @Mutation()
+  async insertUser(@Args() args: any): Promise<User> {
+    return await this.userService.insert({ name: args.name, surname: args.surname });
+  }
+
+  @Mutation()
+  async updateUser(@Args() args: any): Promise<User> {
+    return await this.userService.update(args.id, { name: args.name, surname: args.surname });
+  }
+
+  @Mutation()
+  async updateUser(@Args() args: any): Promise<User> {
+    const user = await this.userService.get(args.id);
+    await this.userService.delete(args.id);
+
+    return user;
+  }
+
+  @Subscription()
+  userInserted(): User {
+    return this.pubSub.asyncIterator('userInserted');
+  }
 }
-```
-
-## Graph representation
-The above resolve class is indeed representing the resolver graph that will be executed in order to resolve data for
-a specified query.
-
-```mermaid
-graph LR
-  QU(Query.users) --> UL(User.location)
-  QU --> UF(User.family)
-  UL --> LP(Location.properties)
 ```
