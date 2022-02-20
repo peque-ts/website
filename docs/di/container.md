@@ -119,3 +119,57 @@ const DI = new Container({ providers: [Foo, Bar] });
 // Resolve.
 DI.get<Bar>('Bar').test(); // prints "pizza".
 ```
+
+## Unset
+
+It can also be possible to unset providers from the container.
+
+```typescript
+import { Container, Injectable } from '@pequehq/di';
+
+@Injectable()
+class Foo {
+  getPizza() {
+    return 'pizza';
+  }
+}
+
+// Implicit register.
+const DI = new Container({ providers: [Foo] });
+
+// Resolve.
+DI.get<Foo>('Foo').test(); // prints "pizza".
+
+// Unset.
+DI.unset('Foo').test(); // prints "pizza".
+```
+
+## Events
+
+Within the Container, you can intercept the init and the destroy events of the providers by defining specific callbacks
+inside the constructor options of the container itself.
+
+```typescript
+import { Container, Injectable } from '@pequehq/di';
+
+@Injectable()
+class Provider {
+  test() {
+    return 'pizza';
+  }
+}
+
+const DI = new Container({ 
+  onInit: (name: string, instance: ProviderInstance): void => console.log(name),
+  onDestroy: (name: string, instance: ProviderInstance): void => console.log(name),
+});
+
+// Register.
+DI.set(Provider, 'Provider');
+
+// Resolve.
+DI.get('Provider').test(); // prints "hotdog" and triggers the onInit event.
+
+// Unset.
+DI.unset('Provider'); // it will trigger the onDestroy event.
+```

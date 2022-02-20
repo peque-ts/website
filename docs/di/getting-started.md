@@ -12,7 +12,7 @@ frontend and backend applications.
 ## Example
 
 ```typescript
-import { Container, Injectable } from '@pequehq/di';
+import { Container, Injectable, Inject } from '@pequehq/di';
 
 @Injectable()
 class Foo {
