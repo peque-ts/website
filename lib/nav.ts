@@ -8,10 +8,10 @@ import { NavItem, PrevNextNavItems } from './nav.types';
 async function buildSideNavItems(project: string, activeSection: string): Promise<NavItem[]> {
   const items: NavItem[] = [];
 
-  const sectionFiles = await fs.readdir(path.join(process.cwd(), 'docs', project));
+  const sectionFiles = await fs.readdir(path.join(process.cwd(), '_docs', project));
 
   for (const sectionFile of sectionFiles) {
-    const markdown = await read(`docs/${project}/${sectionFile}`);
+    const markdown = await read(`_docs/${project}/${sectionFile}`);
 
     const sectionSlug = sectionFile.replace(/.md$/, '');
     const { title, order } = matter(markdown).data;

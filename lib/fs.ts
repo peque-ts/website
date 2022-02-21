@@ -10,10 +10,10 @@ async function read(filePath: string): Promise<string> {
 async function getProjectSectionPaths(): Promise<string[]> {
   let paths: string[] = [];
 
-  const projects = await fs.readdir(path.join(process.cwd(), 'docs'));
+  const projects = await fs.readdir(path.join(process.cwd(), '_docs'));
 
   for (const project of projects) {
-    const sections = await fs.readdir(path.join(process.cwd(), 'docs', project));
+    const sections = await fs.readdir(path.join(process.cwd(), '_docs', project));
 
     paths = [
       ...paths,
