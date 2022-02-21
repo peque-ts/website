@@ -58,7 +58,7 @@ const apolloServer = new ApolloServer({
 });
 ```
 
-Note: resolvers are returned as array, it's recommended the usage of @graphql-tools/merge to merge them before passing
+**Note**: since resolvers are returned as array, it's recommended the usage of [@graphql-tools/merge](https://www.npmjs.com/package/@graphql-tools/merge) to [merge](https://www.graphql-tools.com/docs/schema-merging) before passing
 them to the ApolloServer's configuration.
 
 ### With pre-existing Apollo flavor resolvers
