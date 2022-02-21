@@ -15,6 +15,12 @@
     @apply mx-auto my-8;
 }
 
+/* links */
+
+.renderer a {
+    @apply text-primary-300 hover:text-primary-500 transition;
+}
+
 /* tables */
 
 .renderer table {
@@ -22,15 +28,15 @@
 }
 
 .renderer table thead th {
-    @apply py-4 border-b border-b-2 border-secondary-100;
+    @apply border-b border-b-2 border-secondary-100;
 }
 
 .renderer table tbody tr {
     @apply border-b border-secondary-200 last:border-none;
 }
 
-.renderer table tbody td {
-    @apply py-4 px-2;
+.renderer table tbody td, .renderer table thead th {
+    @apply p-4;
 }
 
 /* lists */
