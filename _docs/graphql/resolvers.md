@@ -24,7 +24,7 @@ class ExampleResolver {
 }
 ```
 
-## Usage
+## Usage example
 
 Declare classes of your resolvers and decorate them with `@Resolver()`.
 
@@ -43,7 +43,7 @@ Use `PequeGraphQL.build` to get values to pass to Apollo Server's config.
 ```typescript
 import { ApolloServer } from 'apollo-server-express';
 import { mergeResolvers } from '@graphql-tools/merge';
-import { PequeGraphQL } from '@pequehq/graphql'; 
+import { PequeGraphQL } from '@pequehq/graphql';
 
 import { ExampleResolverOne, ExampleResolverTwo } from './resolvers'; 
 
@@ -57,6 +57,9 @@ const apolloServer = new ApolloServer({
   resolvers: mergeResolvers(resolvers),
 });
 ```
+
+Note: resolvers are returned as array, it's recommended the usage of @graphql-tools/merge to merge them before passing
+them to the ApolloServer's configuration.
 
 ### With pre-existing Apollo flavor resolvers
 

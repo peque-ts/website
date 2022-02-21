@@ -18,3 +18,16 @@ graph TB
   classDef server fill:DarkSeaGreen
   classDef clazz fill:MediumPurple
 ```
+
+## Install
+
+```bash
+npm install @pequehq/graphql reflect-metadata
+```
+
+**Note**: tsconfig's `compilerOptions` in your project must have both `experimentalDecorators`
+and `emitDecoratorMetadata` set to **true**.
+
+## Usage
+
+Check the next section [Resolvers](/docs/graphql/resolvers) for information on how to use this library.
