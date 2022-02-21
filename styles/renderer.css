@@ -1,6 +1,14 @@
 /* typography */
 
-.renderer h2 {
+.renderer h1 {
+    @apply mb-4;
+}
+
+.renderer h2,
+.renderer h3,
+.renderer h4,
+.renderer h5,
+.renderer h6 {
     @apply mt-10 mb-4;
 }
 
