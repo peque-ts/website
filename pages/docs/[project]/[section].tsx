@@ -3,7 +3,6 @@ import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } fro
 import Head from 'next/head';
 
 import { EditOnGitHub } from '../../../components/EditOnGitHub';
-import { Footer } from '../../../components/Footer';
 import { Header } from '../../../components/Header';
 import { PrevNext } from '../../../components/PrevNext';
 import { Renderer } from '../../../components/Renderer';
@@ -81,7 +80,7 @@ export async function getStaticProps(
   assertString(context.params?.section);
 
   const { project, section } = context.params;
-  const markdown = await read(`docs/${project}/${section}.md`);
+  const markdown = await read(`_docs/${project}/${section}.md`);
   const { meta, html } = await parse<Meta>(markdown);
 
   const projectName = PROJECTS[project as ProjectId].name;
