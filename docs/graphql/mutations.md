@@ -1,21 +1,23 @@
 ---
 title: Mutations
-description: Mutations
-order: 5
+description: Handling Mutations with Peque GraphQL
+order: 4
 ---
 
 # Mutations
 
-Mutations are the conventional SDL schema type designated to represent a data modification query, and they are
-represented as class methods decorated by the `@Mutation()` decorator.
+Mutations are the conventional SDL schema type designated to represent a data modification query. They should be 
+defined as class methods decorated with `@Mutation()`.
 
 ## Options
 
-The `@Mutation()` decorator supports the options declared inside the `IMutationOptions` interface.
+The `@Mutation()` decorator supports parameters defined by the `IMutationOptions` interface.
 
-| Options  | Description                                                                                                                         | Required |
-|----------|-------------------------------------------------------------------------------------------------------------------------------------|----------|
-| `name`   | The name of the mutation query in the SDL schema mutation type. If not specified, than the name is assumed to be the method's name. | No       |
+| Options  | Description                                                                                                                    | Required |
+|----------|--------------------------------------------------------------------------------------------------------------------------------|----------|
+| `name`   | The name of the mutation query in the SDL schema mutation type. If not specified, the name is assumed to be the method's name. | No       |
+
+## Usage example
 
 ```mermaid
 classDiagram
@@ -30,39 +32,34 @@ classDiagram
   class Mutation {
     insertUser(String name, String surname) User
     updateUser(ID id, String! name, String! surname) User
-    deleteUser(ID id) User
+    deleteUser(ID id) Boolean
   }
   
   Mutation --> User
 ```
 
 ```typescript
-import { Resolver, Mutation } from '@pequehq/graphql';
-import { Injectable } from '@pequehq/di';
+import { Resolver, Mutation, Args } from '@pequehq/graphql';
 import { UserService } from '../your/services';
 import { User } from '../your/dto'
 
-@Injectable()
 @Resolver()
-class ResolverSchemaOne {
+class ExampleResolver {
   constructor(private userService: UserService) {}
 
   @Mutation()
-  async insertUser(@Args() args: any): Promise<User> {
-    return await this.userService.insert({ name: args.name, surname: args.surname });
+  async insertUser(@Args() args: Partial<User>): Promise<User> {
+    return this.userService.insert({ name: args.name, surname: args.surname });
   }
 
   @Mutation()
-  async updateUser(@Args() args: any): Promise<User> {
-    return await this.userService.update(args.id, { name: args.name, surname: args.surname });
+  async updateUser(@Args() args: Partial<User>): Promise<User> {
+    return this.userService.update(args.id, { name: args.name, surname: args.surname });
   }
 
   @Mutation()
-  async updateUser(@Args() args: any): Promise<User> {
-    const user = await this.userService.get(args.id);
-    await this.userService.delete(args.id);
-    
-    return user;
+  async deleteUser(@Args() args: { id: string }): Promise<boolean> {
+    return this.userService.delete(args.id);
   }
 }
 ```

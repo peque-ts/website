@@ -1,21 +1,23 @@
 ---
 title: Queries
-description: Queries
+description: Handling Queries with Peque GraphQL
 order: 3
 ---
 
 # Queries
 
-Queries are the entry point of a GraphQL operation. Resolvers will resolve one query at a time, and the `@Query()`
-decorator shall decorate the class method that contains the query resolver logic.
+Queries are the entry point of a GraphQL operation. Resolvers will resolve one query at a time, and `@Query()`
+shall decorate the class method that contains the query resolver logic.
 
 ## Options
 
-The `@Query()` decorator supports the options declared inside the `IQueryOptions` interface.
+The `@Query()` decorator supports parameters defined by the `IQueryOptions` interface.
 
-| Options  | Description                                                                                                             | Required |
-|----------|-------------------------------------------------------------------------------------------------------------------------|----------|
-| `name`   | The name of the query in the SDL schema query type. If not specified, than the name is assumed to be the method's name. | No       |
+| Options  | Description                                                                                                        | Required |
+|----------|--------------------------------------------------------------------------------------------------------------------|----------|
+| `name`   | The name of the query in the SDL schema query type. If not specified, the name is assumed to be the method's name. | No       |
+
+## Usage example
 
 ```mermaid
 classDiagram
@@ -35,18 +37,17 @@ classDiagram
 ```
 
 ```typescript
-import { Resolver, Mutation } from '@pequehq/graphql';
-import { Injectable } from '@pequehq/di';
-import { UserService } from '../your/services';
+import { Resolver, Query } from '@pequehq/graphql';
 import { User } from '../your/dto'
 
 @Resolver()
-class ResolverSchemaOne {
-  constructor(private userService: UserService) {}
-
+class ExampleResolver {
   @Query()
   async users(): Promise<User[]> {
-    return await this.userService().getAll();
+    return Promise.resolve([
+      { id: '1', name: 'Keanu', surname: 'Reeves' },
+      { id: '2', name: 'James', surname: 'Bond' },
+    ]);
   }
 }
 ```
