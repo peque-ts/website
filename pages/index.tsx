@@ -27,7 +27,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <Header />
+        <Header bgClassName="bg-secondary-600" />
         <Hero />
 
         <Container section className="grid grid-cols-2 gap-10 mt-12 mb-20">

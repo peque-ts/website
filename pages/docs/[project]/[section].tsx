@@ -44,7 +44,7 @@ const Section: NextPage<Props> = ({
       </Head>
 
       <main>
-        <Header transparent text={projectName} />
+        <Header text={projectName} bgClassName="bg-secondary-900" />
         <Container className="flex pb-8 pt-20">
           <aside className="w-72">
             <div className="fixed">
