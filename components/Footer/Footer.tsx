@@ -1,6 +1,8 @@
+import clsx from 'clsx';
 import Image from 'next/image';
 import React from 'react';
 
+import { styleUtils } from '../../lib/style.utils';
 import { Container } from '../Container';
 import { Icon } from '../Icon';
 import { FooterProject } from './Footer.blocks';
@@ -17,7 +19,12 @@ export const Footer: React.VFC = () => {
   return (
     <footer className="bg-secondary-800 py-10">
       <Container>
-        <div className="flex justify-between items-start">
+        <div
+          className={clsx(
+            'flex flex-col space-y-10',
+            styleUtils.twGroup('tablet', 'flex-row space-y-0 justify-between'),
+          )}
+        >
           <div>
             <div className="flex items-center mb-4">
               <Icon alt="Logo" name="logo" size={32} />
@@ -30,7 +37,7 @@ export const Footer: React.VFC = () => {
               {renderLink('Credits')}
             </ul>
           </div>
-          <div className="flex space-x-6">
+          <div className="grid grid-cols-2 laptop:grid-cols-4 gap-6">
             <FooterProject projectId="framework" />
             <FooterProject projectId="graphql" />
             <FooterProject projectId="di" />
@@ -40,7 +47,7 @@ export const Footer: React.VFC = () => {
         <div className="text-center mt-8">
           <p>Peque packages are open source and released under the Apache 2.0 License.</p>
         </div>
-        <div className="flex flex-col items-center mt-8 space-y-2 text-sm">
+        <div className="flex flex-col text-center items-center mt-8 space-y-2 text-sm">
           <p className="flex items-center">
             <span className="mr-1">Website hosted by</span>
             <a href="https://vercel.com" target="_blank" rel="noreferrer" className="flex">

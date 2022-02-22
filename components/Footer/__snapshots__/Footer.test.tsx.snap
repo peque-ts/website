@@ -9,7 +9,7 @@ exports[`Footer should render 1`] = `
       class="container mx-auto px-4"
     >
       <div
-        class="flex justify-between items-start"
+        class="flex flex-col space-y-10 tablet:flex-row tablet:space-y-0 tablet:justify-between"
       >
         <div>
           <div
@@ -79,7 +79,7 @@ exports[`Footer should render 1`] = `
           </ul>
         </div>
         <div
-          class="flex space-x-6"
+          class="grid grid-cols-2 laptop:grid-cols-4 gap-6"
         >
           <div
             class="flex flex-col"
@@ -239,7 +239,7 @@ exports[`Footer should render 1`] = `
         </p>
       </div>
       <div
-        class="flex flex-col items-center mt-8 space-y-2 text-sm"
+        class="flex flex-col text-center items-center mt-8 space-y-2 text-sm"
       >
         <p
           class="flex items-center"
