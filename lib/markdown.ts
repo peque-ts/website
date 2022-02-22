@@ -6,10 +6,12 @@ import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
 
-import { getAnchorSvg } from './markdown.helpers';
-import { remarkMermaid } from './remark-mermaid';
-
-const rehypeAddClasses = require('rehype-add-classes'); // no typedefs
+import {
+  getAnchorSvg,
+  rehypeAddClasses,
+  rehypeTableResponsive,
+  remarkMermaid,
+} from './markdown.helpers';
 
 interface ParsedMarkdown<T> {
   meta: T;
@@ -39,6 +41,7 @@ export async function parse<TMeta>(markdown: string): Promise<ParsedMarkdown<TMe
         behavior: 'append',
         content: () => [getAnchorSvg()],
       })
+      .use(rehypeTableResponsive)
       .process(baseHtml),
   );
 
