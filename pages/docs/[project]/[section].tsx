@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next';
 import Head from 'next/head';
 
+import { Container } from '../../../components/Container';
 import { EditOnGitHub } from '../../../components/EditOnGitHub';
 import { Header } from '../../../components/Header';
 import { PrevNext } from '../../../components/PrevNext';
@@ -44,21 +45,19 @@ const Section: NextPage<Props> = ({
 
       <main>
         <Header transparent text={projectName} />
-        <div className="container mx-auto flex pb-8 pt-16">
-          <aside className="w-72 p-2">
+        <Container className="flex pb-8 pt-20">
+          <aside className="w-72">
             <div className="fixed">
               <h4 className="mb-2">Documentation</h4>
               <SideNav items={sideNavItems} />
             </div>
           </aside>
-          <div className="flex-1 overflow-x-auto custom-scrollbar p-2">
-            <div>
-              <Renderer html={html} />
-            </div>
+          <div className="flex-1 overflow-x-auto custom-scrollbar pl-4">
+            <Renderer html={html} />
             <PrevNext items={prevNextNavItems} />
             <EditOnGitHub link={github} />
           </div>
-        </div>
+        </Container>
       </main>
     </>
   );

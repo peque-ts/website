@@ -7,3 +7,11 @@ exports[`Container should render 1`] = `
   />
 </DocumentFragment>
 `;
+
+exports[`Container should render as section 1`] = `
+<DocumentFragment>
+  <section
+    class="container mx-auto px-4"
+  />
+</DocumentFragment>
+`;

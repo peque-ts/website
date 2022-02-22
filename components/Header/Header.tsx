@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 
+import { Container } from '../Container';
 import { Icon } from '../Icon';
 import { Nav } from './Header.blocks';
 
@@ -16,7 +17,7 @@ export const Header: React.VFC<Props> = ({ text, transparent }) => (
       transparent ? 'bg-secondary-900 opacity-95' : 'bg-secondary-600',
     )}
   >
-    <div className="container h-full mx-auto flex items-center justify-between">
+    <Container className="h-full flex items-center justify-between">
       <div className="flex items-center">
         <Icon alt="Logo" name="logo" size={40} link="/" />
         <h4>{text}</h4>
@@ -25,6 +26,6 @@ export const Header: React.VFC<Props> = ({ text, transparent }) => (
         <Nav />
         <Icon alt="Peque on GitHub" name="github" size={24} link="https://github.com/pequehq" />
       </div>
-    </div>
+    </Container>
   </header>
 );

@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 
 import { Code } from '../components/Code';
+import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Hero } from '../components/Hero';
@@ -29,12 +30,12 @@ const Home: NextPage = () => {
         <Header />
         <Hero />
 
-        <section className="container mx-auto grid grid-cols-2 gap-10 mt-12 mb-20">
+        <Container section className="grid grid-cols-2 gap-10 mt-12 mb-20">
           <RepoCard projectId="framework" />
           <RepoCard projectId="graphql" />
           <RepoCard projectId="di" />
           <RepoCard projectId="smb" />
-        </section>
+        </Container>
 
         <Project
           name={PROJECTS.framework.name}

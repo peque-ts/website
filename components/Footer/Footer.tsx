@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
+import { Container } from '../Container';
 import { Icon } from '../Icon';
 import { FooterProject } from './Footer.blocks';
 
@@ -15,7 +16,7 @@ export const Footer: React.VFC = () => {
 
   return (
     <footer className="bg-secondary-800 py-10">
-      <div className="container mx-auto">
+      <Container>
         <div className="flex justify-between items-start">
           <div>
             <div className="flex items-center mb-4">
@@ -48,7 +49,7 @@ export const Footer: React.VFC = () => {
           </p>
           <p>Copyright © 2022 Peque. All rights reserved.</p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 };

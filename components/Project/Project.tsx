@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 
 import { ButtonLink } from '../ButtonLink';
+import { Container } from '../Container';
 import { Icon } from '../Icon';
 import { List } from '../List';
 import { Terminal } from '../Terminal';
@@ -59,7 +60,7 @@ export const Project: React.VFC<Props> = ({
   return (
     <section className="relative py-8 my-8">
       <div className={clsx('-z-10 absolute inset-0', bgClassName)} />
-      <div className="container mx-auto">
+      <Container>
         <div className="grid grid-cols-2 gap-12">
           {examplePosition === 'right' ? (
             <>
@@ -73,7 +74,7 @@ export const Project: React.VFC<Props> = ({
             </>
           )}
         </div>
-      </div>
+      </Container>
     </section>
   );
 };
