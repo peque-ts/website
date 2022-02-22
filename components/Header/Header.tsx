@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Container } from '../Container';
 import { Icon } from '../Icon';
-import { Nav } from '../Nav';
+import { MainNav } from '../MainNav';
 
 interface Props {
   text?: string;
@@ -18,7 +18,7 @@ export const Header: React.VFC<Props> = ({ text, bgClassName }) => (
         <h4>{text}</h4>
       </div>
       <div className="flex items-center space-x-8">
-        <Nav bgClassName={bgClassName} />
+        <MainNav bgClassName={bgClassName} />
         <Icon alt="Peque on GitHub" name="github" size={24} link="https://github.com/pequehq" />
       </div>
     </Container>

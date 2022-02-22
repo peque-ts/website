@@ -5,13 +5,13 @@ import Head from 'next/head';
 import { Container } from '../../../components/Container';
 import { EditOnGitHub } from '../../../components/EditOnGitHub';
 import { Header } from '../../../components/Header';
+import { Nav } from '../../../components/Nav';
 import { PrevNext } from '../../../components/PrevNext';
 import { Renderer } from '../../../components/Renderer';
-import { SideNav } from '../../../components/SideNav';
 import { ProjectId, PROJECTS } from '../../../lib/data';
 import { getProjectSectionPaths, read } from '../../../lib/fs';
 import { parse } from '../../../lib/markdown';
-import { buildSideNavItems, getPrevNextNavItems } from '../../../lib/nav';
+import { buildNavItems, getPrevNextNavItems } from '../../../lib/nav';
 import type { NavItem, PrevNextNavItems } from '../../../lib/nav.types';
 import type { Meta } from '../../../types/meta';
 import { assertString } from '../../../utils/assertions';
@@ -21,7 +21,7 @@ interface Props {
   meta: Meta;
   pageTitle: string;
   projectName: string;
-  sideNavItems: NavItem[];
+  navItems: NavItem[];
   prevNextNavItems: PrevNextNavItems;
   github: string;
 }
@@ -30,7 +30,7 @@ const Section: NextPage<Props> = ({
   html,
   meta,
   pageTitle,
-  sideNavItems,
+  navItems,
   projectName,
   prevNextNavItems,
   github,
@@ -45,17 +45,20 @@ const Section: NextPage<Props> = ({
 
       <main>
         <Header text={projectName} bgClassName="bg-secondary-900" />
-        <Container className="flex pb-8 pt-20">
-          <aside className="w-72">
-            <div className="fixed">
-              <h4 className="mb-2">Documentation</h4>
-              <SideNav items={sideNavItems} />
+        <Container className="pb-8 pt-20">
+          <div className="tablet:hidden">mobile nav</div>
+          <div className="flex">
+            <aside className="w-72 hidden tablet:block">
+              <div className="fixed">
+                <h4 className="mb-2">Documentation</h4>
+                <Nav items={navItems} />
+              </div>
+            </aside>
+            <div className="flex-1 overflow-x-auto custom-scrollbar pl-0 tablet:pl-4">
+              <Renderer html={html} />
+              <PrevNext items={prevNextNavItems} />
+              <EditOnGitHub link={github} />
             </div>
-          </aside>
-          <div className="flex-1 overflow-x-auto custom-scrollbar pl-4">
-            <Renderer html={html} />
-            <PrevNext items={prevNextNavItems} />
-            <EditOnGitHub link={github} />
           </div>
         </Container>
       </main>
@@ -84,8 +87,8 @@ export async function getStaticProps(
 
   const projectName = PROJECTS[project as ProjectId].name;
   const pageTitle = `${meta.title} | Peque ${projectName}`;
-  const sideNavItems = await buildSideNavItems(project, section);
-  const prevNextNavItems = getPrevNextNavItems(sideNavItems, section);
+  const navItems = await buildNavItems(project, section);
+  const prevNextNavItems = getPrevNextNavItems(navItems, section);
 
   return {
     props: {
@@ -93,7 +96,7 @@ export async function getStaticProps(
       meta,
       pageTitle,
       projectName,
-      sideNavItems,
+      navItems,
       prevNextNavItems,
       github: `https://github.com/pequehq/website/blob/main/docs/${project}/${section}.md`,
     },

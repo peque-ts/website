@@ -3,7 +3,7 @@ import React, { useCallback, useState } from 'react';
 
 import { NavItem } from '../../lib/nav.types';
 
-export const NAV_ITEMS: Pick<NavItem, 'name' | 'to'>[] = [
+export const MAIN_NAV_ITEMS: Pick<NavItem, 'name' | 'to'>[] = [
   {
     name: 'Docs',
     to: '/docs',

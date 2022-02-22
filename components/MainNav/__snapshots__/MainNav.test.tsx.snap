@@ -1,0 +1,298 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainNav should render 1`] = `
+<DocumentFragment>
+  <nav>
+    <div
+      class="tablet:hidden block"
+      data-testid="MainNavMobile"
+    >
+      <button
+        class="w-10 h-10 relative focus:outline-none"
+        type="button"
+      >
+        <span
+          class="sr-only"
+        >
+          Open main menu
+        </span>
+        <div
+          class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        >
+          <span
+            aria-hidden="true"
+            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out -translate-y-1.5"
+          />
+          <span
+            aria-hidden="true"
+            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out"
+          />
+          <span
+            aria-hidden="true"
+            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out translate-y-1.5"
+          />
+        </div>
+      </button>
+      <div
+        class="absolute inset-x-0 -z-10 shadow-lg transition -translate-y-full"
+      >
+        <ul
+          class="flex-col space-y-4 items-center pt-4 pb-8 hidden"
+        >
+          <li>
+            <a
+              class="text-lg"
+              href="/docs"
+            >
+              Docs
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-lg"
+              href="/enterprise"
+            >
+              Enterprise
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-lg"
+              href="/sponsors"
+            >
+              Sponsors
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <ul
+      class="hidden tablet:flex space-x-8"
+      data-testid="MainNavDesktop"
+    >
+      <li>
+        <a
+          class="text-lg"
+          href="/docs"
+        >
+          Docs
+        </a>
+      </li>
+      <li>
+        <a
+          class="text-lg"
+          href="/enterprise"
+        >
+          Enterprise
+        </a>
+      </li>
+      <li>
+        <a
+          class="text-lg"
+          href="/sponsors"
+        >
+          Sponsors
+        </a>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;
+
+exports[`MainNav should toggle mobile navigation 1`] = `
+<DocumentFragment>
+  <nav>
+    <div
+      class="tablet:hidden block"
+      data-testid="MainNavMobile"
+    >
+      <button
+        class="w-10 h-10 relative focus:outline-none"
+        type="button"
+      >
+        <span
+          class="sr-only"
+        >
+          Open main menu
+        </span>
+        <div
+          class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        >
+          <span
+            aria-hidden="true"
+            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out rotate-45"
+          />
+          <span
+            aria-hidden="true"
+            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out opacity-0"
+          />
+          <span
+            aria-hidden="true"
+            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out -rotate-45"
+          />
+        </div>
+      </button>
+      <div
+        class="absolute inset-x-0 -z-10 shadow-lg transition translate-y-0"
+      >
+        <ul
+          class="flex-col space-y-4 items-center pt-4 pb-8 flex"
+        >
+          <li>
+            <a
+              class="text-lg"
+              href="/docs"
+            >
+              Docs
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-lg"
+              href="/enterprise"
+            >
+              Enterprise
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-lg"
+              href="/sponsors"
+            >
+              Sponsors
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <ul
+      class="hidden tablet:flex space-x-8"
+      data-testid="MainNavDesktop"
+    >
+      <li>
+        <a
+          class="text-lg"
+          href="/docs"
+        >
+          Docs
+        </a>
+      </li>
+      <li>
+        <a
+          class="text-lg"
+          href="/enterprise"
+        >
+          Enterprise
+        </a>
+      </li>
+      <li>
+        <a
+          class="text-lg"
+          href="/sponsors"
+        >
+          Sponsors
+        </a>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;
+
+exports[`MainNav should toggle mobile navigation 2`] = `
+<DocumentFragment>
+  <nav>
+    <div
+      class="tablet:hidden block"
+      data-testid="MainNavMobile"
+    >
+      <button
+        class="w-10 h-10 relative focus:outline-none"
+        type="button"
+      >
+        <span
+          class="sr-only"
+        >
+          Open main menu
+        </span>
+        <div
+          class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        >
+          <span
+            aria-hidden="true"
+            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out -translate-y-1.5"
+          />
+          <span
+            aria-hidden="true"
+            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out"
+          />
+          <span
+            aria-hidden="true"
+            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out translate-y-1.5"
+          />
+        </div>
+      </button>
+      <div
+        class="absolute inset-x-0 -z-10 shadow-lg transition -translate-y-full"
+      >
+        <ul
+          class="flex-col space-y-4 items-center pt-4 pb-8 hidden"
+        >
+          <li>
+            <a
+              class="text-lg"
+              href="/docs"
+            >
+              Docs
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-lg"
+              href="/enterprise"
+            >
+              Enterprise
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-lg"
+              href="/sponsors"
+            >
+              Sponsors
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <ul
+      class="hidden tablet:flex space-x-8"
+      data-testid="MainNavDesktop"
+    >
+      <li>
+        <a
+          class="text-lg"
+          href="/docs"
+        >
+          Docs
+        </a>
+      </li>
+      <li>
+        <a
+          class="text-lg"
+          href="/enterprise"
+        >
+          Enterprise
+        </a>
+      </li>
+      <li>
+        <a
+          class="text-lg"
+          href="/sponsors"
+        >
+          Sponsors
+        </a>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;

@@ -46,7 +46,7 @@ exports[`Header should render 1`] = `
         <nav>
           <div
             class="tablet:hidden block"
-            data-testid="NavMobile"
+            data-testid="MainNavMobile"
           >
             <button
               class="w-10 h-10 relative focus:outline-none"
@@ -109,7 +109,7 @@ exports[`Header should render 1`] = `
           </div>
           <ul
             class="hidden tablet:flex space-x-8"
-            data-testid="NavDesktop"
+            data-testid="MainNavDesktop"
           >
             <li>
               <a
@@ -216,7 +216,7 @@ exports[`Header should render transparent 1`] = `
         <nav>
           <div
             class="tablet:hidden block"
-            data-testid="NavMobile"
+            data-testid="MainNavMobile"
           >
             <button
               class="w-10 h-10 relative focus:outline-none"
@@ -279,7 +279,7 @@ exports[`Header should render transparent 1`] = `
           </div>
           <ul
             class="hidden tablet:flex space-x-8"
-            data-testid="NavDesktop"
+            data-testid="MainNavDesktop"
           >
             <li>
               <a
