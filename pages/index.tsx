@@ -30,7 +30,7 @@ const Home: NextPage = () => {
         <Header bgClassName="bg-secondary-600" />
         <Hero />
 
-        <Container section className="grid grid-cols-2 gap-10 mt-12 mb-20">
+        <Container section className="grid grid-cols-1 tablet:grid-cols-2 gap-10 mt-12 mb-20">
           <RepoCard projectId="framework" />
           <RepoCard projectId="graphql" />
           <RepoCard projectId="di" />
