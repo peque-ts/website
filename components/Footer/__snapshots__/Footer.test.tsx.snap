@@ -6,7 +6,7 @@ exports[`Footer should render 1`] = `
     class="bg-secondary-800 py-10"
   >
     <div
-      class="container mx-auto"
+      class="container mx-auto px-4"
     >
       <div
         class="flex justify-between items-start"

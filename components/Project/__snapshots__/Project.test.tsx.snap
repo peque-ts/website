@@ -9,7 +9,7 @@ exports[`Project should render with example to the left 1`] = `
       class="-z-10 absolute inset-0 bg-primary-800 skew-y-2"
     />
     <div
-      class="container mx-auto"
+      class="container mx-auto px-4"
     >
       <div
         class="grid grid-cols-2 gap-12"
@@ -425,7 +425,7 @@ exports[`Project should render with example to the right 1`] = `
       class="-z-10 absolute inset-0 bg-primary-800 skew-y-2"
     />
     <div
-      class="container mx-auto"
+      class="container mx-auto px-4"
     >
       <div
         class="grid grid-cols-2 gap-12"
