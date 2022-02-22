@@ -44,7 +44,6 @@ const Home: NextPage = () => {
           docsLink="/docs/framework"
           command="npx peque new project-name"
           renderExample={() => <Code>{SNIPPET_FRAMEWORK}</Code>}
-          examplePosition="right"
           bgClassName="bg-secondary-800 skew-y-1"
         />
 
@@ -59,7 +58,6 @@ const Home: NextPage = () => {
           docsLink="/docs/graphql"
           command="npm i @pequehq/graphql reflect-metadata"
           renderExample={() => <Code>{SNIPPET_GRAPHQL}</Code>}
-          examplePosition="left"
         />
 
         <Project
@@ -73,7 +71,6 @@ const Home: NextPage = () => {
           docsLink="/docs/di"
           command="npm i @pequehq/di reflect-metadata"
           renderExample={() => <Code>{SNIPPET_DI}</Code>}
-          examplePosition="right"
           bgClassName="bg-secondary-800 -skew-y-2"
         />
 
@@ -93,7 +90,6 @@ const Home: NextPage = () => {
               <Code>{SNIPPET_SMB_CLIENT}</Code>
             </div>
           )}
-          examplePosition="left"
         />
 
         <Footer />
