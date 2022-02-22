@@ -24,7 +24,7 @@ export const PrevNext: React.VFC<Props> = ({ items }) => {
               )}
             >
               <div className={clsx('flex', type === 'next' ? 'rotate-180 ml-4' : 'mr-4')}>
-                <Icon alt={`Go to ${item.name}`} name="arrow" size={24} />
+                <Icon alt={`Go to ${item.name}`} name="arrow-left" size={24} />
               </div>
               <div
                 className={clsx(
