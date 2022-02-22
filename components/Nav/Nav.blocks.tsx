@@ -12,7 +12,7 @@ const NavMobile: React.VFC<NavMobileProps> = ({ bgClassName }) => {
   const { open, renderButton } = useNavMobileButton();
 
   return (
-    <div className="tablet:hidden block">
+    <div className="tablet:hidden block" data-testid="NavMobile">
       {renderButton()}
       <div
         className={clsx(
@@ -21,24 +21,22 @@ const NavMobile: React.VFC<NavMobileProps> = ({ bgClassName }) => {
           open ? 'translate-y-0' : '-translate-y-full',
         )}
       >
-        {open && (
-          <ul className="flex flex-col space-y-4 items-center pt-4 pb-8">
-            {NAV_ITEMS.map(({ name, to }, index) => (
-              <li key={index}>
-                <Link href={to}>
-                  <a className="text-lg">{name}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
+        <ul className={clsx('flex-col space-y-4 items-center pt-4 pb-8', open ? 'flex' : 'hidden')}>
+          {NAV_ITEMS.map(({ name, to }, index) => (
+            <li key={index}>
+              <Link href={to}>
+                <a className="text-lg">{name}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
 };
 
 const NavDesktop: React.VFC = () => (
-  <ul className="hidden tablet:flex space-x-8">
+  <ul className="hidden tablet:flex space-x-8" data-testid="NavDesktop">
     {NAV_ITEMS.map(({ name, to }, index) => (
       <li key={index}>
         <Link href={to}>
