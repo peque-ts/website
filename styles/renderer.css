@@ -31,8 +31,12 @@
 
 /* tables */
 
+.renderer .table-responsive {
+    @apply mt-4 mb-8 overflow-x-auto;
+}
+
 .renderer table {
-    @apply table-auto border-collapse w-full mt-4 mb-8 bg-secondary-700 rounded;
+    @apply table-auto border-collapse w-full bg-secondary-700 rounded;
 }
 
 .renderer table thead th {

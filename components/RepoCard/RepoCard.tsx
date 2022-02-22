@@ -12,7 +12,7 @@ export const RepoCard: React.FC<Props> = ({ projectId }) => {
 
   return (
     <article className="space-y-3">
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center space-x-3 justify-center tablet:justify-start">
         <h3>{name}</h3>
         <Icon
           alt={`${name} on GitHub`}
@@ -21,7 +21,7 @@ export const RepoCard: React.FC<Props> = ({ projectId }) => {
           link={`https://github.com/pequehq/${id}`}
         />
       </div>
-      <p className="text-lg text-secondary-100">{description}</p>
+      <p className="text-lg text-secondary-100 text-center tablet:text-left">{description}</p>
     </article>
   );
 };

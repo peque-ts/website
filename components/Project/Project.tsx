@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import React from 'react';
 
 import { ButtonLink } from '../ButtonLink';
+import { Container } from '../Container';
 import { Icon } from '../Icon';
 import { List } from '../List';
 import { Terminal } from '../Terminal';
@@ -12,7 +13,6 @@ interface Props {
   features: string[];
   docsLink: string;
   command: string;
-  examplePosition: 'left' | 'right';
   renderExample: () => JSX.Element;
   bgClassName?: string;
 }
@@ -23,12 +23,11 @@ export const Project: React.VFC<Props> = ({
   features,
   docsLink,
   command,
-  examplePosition,
   renderExample,
   bgClassName,
 }) => {
   const renderContent = () => (
-    <div className="flex flex-col justify-center">
+    <div>
       <h1>{name}</h1>
       <h2 className="text-lg font-normal mb-6 text-secondary-100">{description}</h2>
       <List className="space-y-1.5 mb-8" items={features}>
@@ -57,23 +56,14 @@ export const Project: React.VFC<Props> = ({
   );
 
   return (
-    <section className="relative py-8 my-8">
+    <section className="relative py-8 my-8 group">
       <div className={clsx('-z-10 absolute inset-0', bgClassName)} />
-      <div className="container mx-auto">
-        <div className="grid grid-cols-2 gap-12">
-          {examplePosition === 'right' ? (
-            <>
-              {renderContent()}
-              {renderExample()}
-            </>
-          ) : (
-            <>
-              {renderExample()}
-              {renderContent()}
-            </>
-          )}
+      <Container>
+        <div className="flex flex-col space-y-12 desktop:flex-row desktop:group-odd:flex-row-reverse desktop:items-center desktop:justify-around desktop:space-y-0">
+          {renderContent()}
+          {renderExample()}
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

@@ -3,17 +3,185 @@
 exports[`Project should render with example to the left 1`] = `
 <DocumentFragment>
   <section
-    class="relative py-8 my-8"
+    class="relative py-8 my-8 group"
   >
     <div
       class="-z-10 absolute inset-0 bg-primary-800 skew-y-2"
     />
     <div
-      class="container mx-auto"
+      class="container mx-auto px-4"
     >
       <div
-        class="grid grid-cols-2 gap-12"
+        class="flex flex-col space-y-12 desktop:flex-row desktop:group-odd:flex-row-reverse desktop:items-center desktop:justify-around desktop:space-y-0"
       >
+        <div>
+          <h1>
+            Framework
+          </h1>
+          <h2
+            class="text-lg font-normal mb-6 text-secondary-100"
+          >
+            Node.js framework for backend applications.
+          </h2>
+          <ul
+            class="space-y-1.5 mb-8"
+          >
+            <li>
+              <div
+                class="flex items-center space-x-2"
+              >
+                <span
+                  style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+                >
+                  <span
+                    style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2720%27%20height=%2720%27/%3e"
+                      style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+                    />
+                  </span>
+                  <img
+                    alt="Modular"
+                    data-nimg="intrinsic"
+                    decoding="async"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                    style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                  />
+                  <noscript />
+                </span>
+                <span
+                  class="text-secondary-100"
+                >
+                  Modular
+                </span>
+              </div>
+            </li>
+            <li>
+              <div
+                class="flex items-center space-x-2"
+              >
+                <span
+                  style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+                >
+                  <span
+                    style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2720%27%20height=%2720%27/%3e"
+                      style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+                    />
+                  </span>
+                  <img
+                    alt="Setup REST endpoints in no time"
+                    data-nimg="intrinsic"
+                    decoding="async"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                    style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                  />
+                  <noscript />
+                </span>
+                <span
+                  class="text-secondary-100"
+                >
+                  Setup REST endpoints in no time
+                </span>
+              </div>
+            </li>
+            <li>
+              <div
+                class="flex items-center space-x-2"
+              >
+                <span
+                  style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+                >
+                  <span
+                    style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+                  >
+                    <img
+                      alt=""
+                      aria-hidden="true"
+                      src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2720%27%20height=%2720%27/%3e"
+                      style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+                    />
+                  </span>
+                  <img
+                    alt="Microservices"
+                    data-nimg="intrinsic"
+                    decoding="async"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                    style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                  />
+                  <noscript />
+                </span>
+                <span
+                  class="text-secondary-100"
+                >
+                  Microservices
+                </span>
+              </div>
+            </li>
+          </ul>
+          <div
+            class="mb-10"
+          >
+            <div
+              class="flex items-center justify-between w-full bg-black shadow-lg rounded p-4 space-x-4 shadow-secondary-700"
+            >
+              <code>
+                $ npx peque new project-name
+              </code>
+              <div
+                class="w-12 flex items-center justify-end"
+              >
+                <button
+                  class="flex items-center"
+                  type="button"
+                >
+                  <span
+                    class="sr-only"
+                  >
+                    Copy to clipboard
+                  </span>
+                  <span
+                    style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+                  >
+                    <span
+                      style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
+                    >
+                      <img
+                        alt=""
+                        aria-hidden="true"
+                        src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2716%27%20height=%2716%27/%3e"
+                        style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+                      />
+                    </span>
+                    <img
+                      alt="Copy"
+                      data-nimg="intrinsic"
+                      decoding="async"
+                      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                      style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                    />
+                    <noscript />
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <a
+              class="inline-block text-sm font-semibold rounded py-3 px-8 transition bg-primary-500 shadow-lg shadow-[#E712B433] hover:shadow-[#E712B455] hover:bg-primary-400"
+              href="/docs/framework"
+            >
+              Check the docs
+            </a>
+          </div>
+        </div>
         <pre
           class="custom-scrollbar"
         >
@@ -238,178 +406,6 @@ webserver.
             ();
           </code>
         </pre>
-        <div
-          class="flex flex-col justify-center"
-        >
-          <h1>
-            Framework
-          </h1>
-          <h2
-            class="text-lg font-normal mb-6 text-secondary-100"
-          >
-            Node.js framework for backend applications.
-          </h2>
-          <ul
-            class="space-y-1.5 mb-8"
-          >
-            <li>
-              <div
-                class="flex items-center space-x-2"
-              >
-                <span
-                  style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
-                >
-                  <span
-                    style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
-                  >
-                    <img
-                      alt=""
-                      aria-hidden="true"
-                      src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2720%27%20height=%2720%27/%3e"
-                      style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
-                    />
-                  </span>
-                  <img
-                    alt="Modular"
-                    data-nimg="intrinsic"
-                    decoding="async"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-                  />
-                  <noscript />
-                </span>
-                <span
-                  class="text-secondary-100"
-                >
-                  Modular
-                </span>
-              </div>
-            </li>
-            <li>
-              <div
-                class="flex items-center space-x-2"
-              >
-                <span
-                  style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
-                >
-                  <span
-                    style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
-                  >
-                    <img
-                      alt=""
-                      aria-hidden="true"
-                      src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2720%27%20height=%2720%27/%3e"
-                      style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
-                    />
-                  </span>
-                  <img
-                    alt="Setup REST endpoints in no time"
-                    data-nimg="intrinsic"
-                    decoding="async"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-                  />
-                  <noscript />
-                </span>
-                <span
-                  class="text-secondary-100"
-                >
-                  Setup REST endpoints in no time
-                </span>
-              </div>
-            </li>
-            <li>
-              <div
-                class="flex items-center space-x-2"
-              >
-                <span
-                  style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
-                >
-                  <span
-                    style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
-                  >
-                    <img
-                      alt=""
-                      aria-hidden="true"
-                      src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2720%27%20height=%2720%27/%3e"
-                      style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
-                    />
-                  </span>
-                  <img
-                    alt="Microservices"
-                    data-nimg="intrinsic"
-                    decoding="async"
-                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                    style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-                  />
-                  <noscript />
-                </span>
-                <span
-                  class="text-secondary-100"
-                >
-                  Microservices
-                </span>
-              </div>
-            </li>
-          </ul>
-          <div
-            class="mb-10"
-          >
-            <div
-              class="bg-black p-4 shadow-lg rounded inline-flex space-x-4 shadow-secondary-700"
-            >
-              <pre>
-                <code>
-                  $ npx peque new project-name
-                </code>
-              </pre>
-              <div
-                class="w-12 flex items-center justify-end"
-              >
-                <button
-                  class="flex items-center"
-                  type="button"
-                >
-                  <span
-                    class="sr-only"
-                  >
-                    Copy to clipboard
-                  </span>
-                  <span
-                    style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
-                  >
-                    <span
-                      style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
-                    >
-                      <img
-                        alt=""
-                        aria-hidden="true"
-                        src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2716%27%20height=%2716%27/%3e"
-                        style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
-                      />
-                    </span>
-                    <img
-                      alt="Copy"
-                      data-nimg="intrinsic"
-                      decoding="async"
-                      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                      style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-                    />
-                    <noscript />
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <a
-              class="inline-block text-sm font-semibold rounded py-3 px-8 transition bg-primary-500 shadow-lg shadow-[#E712B433] hover:shadow-[#E712B455] hover:bg-primary-400"
-              href="/docs/framework"
-            >
-              Check the docs
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -419,20 +415,18 @@ webserver.
 exports[`Project should render with example to the right 1`] = `
 <DocumentFragment>
   <section
-    class="relative py-8 my-8"
+    class="relative py-8 my-8 group"
   >
     <div
       class="-z-10 absolute inset-0 bg-primary-800 skew-y-2"
     />
     <div
-      class="container mx-auto"
+      class="container mx-auto px-4"
     >
       <div
-        class="grid grid-cols-2 gap-12"
+        class="flex flex-col space-y-12 desktop:flex-row desktop:group-odd:flex-row-reverse desktop:items-center desktop:justify-around desktop:space-y-0"
       >
-        <div
-          class="flex flex-col justify-center"
-        >
+        <div>
           <h1>
             Framework
           </h1>
@@ -548,13 +542,11 @@ exports[`Project should render with example to the right 1`] = `
             class="mb-10"
           >
             <div
-              class="bg-black p-4 shadow-lg rounded inline-flex space-x-4 shadow-secondary-700"
+              class="flex items-center justify-between w-full bg-black shadow-lg rounded p-4 space-x-4 shadow-secondary-700"
             >
-              <pre>
-                <code>
-                  $ npx peque new project-name
-                </code>
-              </pre>
+              <code>
+                $ npx peque new project-name
+              </code>
               <div
                 class="w-12 flex items-center justify-end"
               >

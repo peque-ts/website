@@ -3,13 +3,11 @@
 exports[`Terminal should render 1`] = `
 <DocumentFragment>
   <div
-    class="bg-black p-4 shadow-lg rounded inline-flex space-x-4"
+    class="flex items-center justify-between w-full bg-black shadow-lg rounded p-4 space-x-4"
   >
-    <pre>
-      <code>
-        $ npm i @pequehq/di
-      </code>
-    </pre>
+    <code>
+      $ npm i @pequehq/di
+    </code>
     <div
       class="w-12 flex items-center justify-end"
     >

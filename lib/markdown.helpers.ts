@@ -1,4 +1,8 @@
+import { parseSelector } from 'hast-util-parse-selector';
+import { selectAll } from 'hast-util-select';
 import { h } from 'hastscript';
+import puppeteer from 'puppeteer';
+import { visit } from 'unist-util-visit';
 
 const getAnchorSvg = () => {
   return h(
@@ -12,11 +16,71 @@ const getAnchorSvg = () => {
     },
     [
       h('path', {
-        d: 'M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z',
-        fill: 'var(--white)',
+        d: 'M4 6.49.79 9.67a1 1 0 0 0 0 1.42l2.12 2.12a1 1 0 0 0 1.42 0L7.51 10M10 7.51l3.18-3.18a1 1 0 0 0 0-1.42L11.09.79a1 1 0 0 0-1.42 0L6.49 4M9 5 5 9',
+        style: 'fill:none;stroke:#FFF;stroke-linecap:round;stroke-linejoin:round',
+        transform: 'scale(1.14286)',
       }),
     ],
   );
 };
 
-export { getAnchorSvg };
+function remarkMermaid() {
+  const SCRIPT_PATH = `${process.cwd()}/node_modules/mermaid/dist/mermaid.min.js`;
+  const isMermaid = (node: any): boolean => node.type === 'code' && node.lang === 'mermaid';
+
+  return async (tree: any) => {
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+    const page = await browser.newPage();
+
+    for (const node of tree.children ?? []) {
+      if (!isMermaid(node)) {
+        continue;
+      }
+
+      await page.goto(`data:text/html,<div id="mermaid">${node.value}</div>`);
+      await page.addScriptTag({ path: SCRIPT_PATH });
+
+      await page.evaluate(() => {
+        const mermaid = (window as any).mermaid;
+
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+        mermaid.init('#mermaid');
+      });
+
+      const svg = await page.$eval('#mermaid', (el) => el.innerHTML);
+
+      Object.assign(node, { type: 'html', value: svg });
+    }
+
+    await page.close();
+    await browser.close();
+  };
+}
+
+function rehypeAddClasses(options: Record<string, string>) {
+  return (tree: any) => {
+    for (const [selectors, className] of Object.entries(options)) {
+      for (const selector of selectors.split(',')) {
+        for (const match of selectAll(selector, tree)) {
+          visit(tree, match, (node: any) => {
+            node.properties.class = `${node.properties.class ?? ''} ${className}`.trim();
+          });
+        }
+      }
+    }
+  };
+}
+
+function rehypeTableResponsive() {
+  return (tree: any) => {
+    for (const match of selectAll('table', tree)) {
+      visit(tree, match, (node: any, index: number, parent: any) => {
+        const wrapper = parseSelector('div.table-responsive');
+        wrapper.children = [node];
+        parent.children[index] = wrapper;
+      });
+    }
+  };
+}
+
+export { getAnchorSvg, remarkMermaid, rehypeTableResponsive, rehypeAddClasses };

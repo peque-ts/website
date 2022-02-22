@@ -5,7 +5,7 @@ import path from 'node:path';
 import { read } from './fs';
 import { NavItem, PrevNextNavItems } from './nav.types';
 
-async function buildSideNavItems(project: string, activeSection: string): Promise<NavItem[]> {
+async function buildNavItems(project: string, activeSection: string): Promise<NavItem[]> {
   const items: NavItem[] = [];
 
   const sectionFiles = await fs.readdir(path.join(process.cwd(), '_docs', project));
@@ -30,8 +30,8 @@ async function buildSideNavItems(project: string, activeSection: string): Promis
   });
 }
 
-function getPrevNextNavItems(sideNavItems: NavItem[], activeSection: string): PrevNextNavItems {
-  const currentItem = sideNavItems.find((item) => item.slug === activeSection);
+function getPrevNextNavItems(navItems: NavItem[], activeSection: string): PrevNextNavItems {
+  const currentItem = navItems.find((item) => item.slug === activeSection);
 
   if (!currentItem) {
     throw new Error(
@@ -40,9 +40,9 @@ function getPrevNextNavItems(sideNavItems: NavItem[], activeSection: string): Pr
   }
 
   return {
-    prev: sideNavItems.find((item) => item.order === currentItem.order - 1) ?? null,
-    next: sideNavItems.find((item) => item.order === currentItem.order + 1) ?? null,
+    prev: navItems.find((item) => item.order === currentItem.order - 1) ?? null,
+    next: navItems.find((item) => item.order === currentItem.order + 1) ?? null,
   };
 }
 
-export { buildSideNavItems, getPrevNextNavItems };
+export { buildNavItems, getPrevNextNavItems };

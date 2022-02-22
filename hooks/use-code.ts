@@ -1,9 +1,10 @@
 import hljs from 'highlight.js/lib/core';
 import bash from 'highlight.js/lib/languages/bash';
+import json from 'highlight.js/lib/languages/json';
 import typescript from 'highlight.js/lib/languages/typescript';
 import { MutableRefObject, useEffect } from 'react';
 
-const SUPPORTED_LANGUAGES = { bash, typescript };
+const SUPPORTED_LANGUAGES = { bash, typescript, json };
 
 export const useCode = (ref?: MutableRefObject<HTMLElement | null>) => {
   useEffect(() => {
