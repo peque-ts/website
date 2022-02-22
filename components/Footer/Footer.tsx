@@ -19,12 +19,7 @@ export const Footer: React.VFC = () => {
   return (
     <footer className="bg-secondary-800 py-10">
       <Container>
-        <div
-          className={clsx(
-            'flex flex-col space-y-10',
-            styleUtils.twGroup('tablet', 'flex-row space-y-0 justify-between'),
-          )}
-        >
+        <div className="flex flex-col space-y-10 tablet:flex-row tablet:space-y-0 tablet:justify-between">
           <div>
             <div className="flex items-center mb-4">
               <Icon alt="Logo" name="logo" size={32} />
