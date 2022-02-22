@@ -3,12 +3,16 @@
 exports[`PrevNext should render 1`] = `
 <DocumentFragment>
   <div
-    class="flex items-center justify-between mt-4"
+    class="flex mt-4 laptop:justify-between laptop:space-x-4 desktop:space-x-0"
   >
-    <div />
-    <div>
+    <div
+      class="w-full desktop:w-80 hidden laptop:block"
+    />
+    <div
+      class="w-full desktop:w-80"
+    >
       <a
-        class="flex items-center font-semibold justify-between rounded w-80 p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row-reverse"
+        class="flex items-center font-semibold justify-between rounded p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row-reverse"
         href="/last"
       >
         <div
@@ -60,11 +64,13 @@ exports[`PrevNext should render 1`] = `
 exports[`PrevNext should render 2`] = `
 <DocumentFragment>
   <div
-    class="flex items-center justify-between mt-4"
+    class="flex mt-4 laptop:justify-between laptop:space-x-4 desktop:space-x-0"
   >
-    <div>
+    <div
+      class="w-full desktop:w-80 hidden laptop:block"
+    >
       <a
-        class="flex items-center font-semibold justify-between rounded w-80 p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row"
+        class="flex items-center font-semibold justify-between rounded p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row text-right"
         href="/first"
       >
         <div
@@ -109,9 +115,11 @@ exports[`PrevNext should render 2`] = `
         </div>
       </a>
     </div>
-    <div>
+    <div
+      class="w-full desktop:w-80"
+    >
       <a
-        class="flex items-center font-semibold justify-between rounded w-80 p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row-reverse"
+        class="flex items-center font-semibold justify-between rounded p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row-reverse"
         href="/last"
       >
         <div
@@ -163,11 +171,13 @@ exports[`PrevNext should render 2`] = `
 exports[`PrevNext should render 3`] = `
 <DocumentFragment>
   <div
-    class="flex items-center justify-between mt-4"
+    class="flex mt-4 laptop:justify-between laptop:space-x-4 desktop:space-x-0"
   >
-    <div>
+    <div
+      class="w-full desktop:w-80 hidden laptop:block"
+    >
       <a
-        class="flex items-center font-semibold justify-between rounded w-80 p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row"
+        class="flex items-center font-semibold justify-between rounded p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row text-right"
         href="/first"
       >
         <div
@@ -212,7 +222,9 @@ exports[`PrevNext should render 3`] = `
         </div>
       </a>
     </div>
-    <div />
+    <div
+      class="w-full desktop:w-80"
+    />
   </div>
 </DocumentFragment>
 `;

@@ -45,10 +45,12 @@ const Section: NextPage<Props> = ({
 
       <main>
         <Header text={projectName} bgClassName="bg-secondary-900" />
-        <Container className="pb-8 pt-20">
-          <div className="tablet:hidden">mobile nav</div>
+        <Container className="pb-8 pt-16 tablet:pt-20">
+          <div className="laptop:hidden border-t border-b border-secondary-700 py-2 mb-4">
+            <Nav items={navItems} />
+          </div>
           <div className="flex">
-            <aside className="w-72 hidden tablet:block">
+            <aside className="w-72 hidden laptop:block">
               <div className="fixed">
                 <h4 className="mb-2">Documentation</h4>
                 <Nav items={navItems} />
