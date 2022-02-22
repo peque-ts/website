@@ -11,7 +11,9 @@ exports[`Footer should render 1`] = `
       <div
         class="flex flex-col space-y-10 tablet:flex-row tablet:space-y-0 tablet:justify-between"
       >
-        <div>
+        <div
+          class="flex flex-col items-center text-center tablet:text-left tablet:items-start"
+        >
           <div
             class="flex items-center mb-4"
           >
@@ -79,7 +81,7 @@ exports[`Footer should render 1`] = `
           </ul>
         </div>
         <div
-          class="grid grid-cols-2 laptop:grid-cols-4 gap-6"
+          class="grid grid-cols-2 laptop:grid-cols-4 gap-6 text-center tablet:text-left"
         >
           <div
             class="flex flex-col"
@@ -234,7 +236,9 @@ exports[`Footer should render 1`] = `
       <div
         class="text-center mt-8"
       >
-        <p>
+        <p
+          class="text-sm laptop:text-base"
+        >
           Peque packages are open source and released under the Apache 2.0 License.
         </p>
       </div>

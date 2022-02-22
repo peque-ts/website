@@ -18,7 +18,7 @@ export const Footer: React.VFC = () => {
     <footer className="bg-secondary-800 py-10">
       <Container>
         <div className="flex flex-col space-y-10 tablet:flex-row tablet:space-y-0 tablet:justify-between">
-          <div>
+          <div className="flex flex-col items-center text-center tablet:text-left tablet:items-start">
             <div className="flex items-center mb-4">
               <Icon alt="Logo" name="logo" size={32} />
               <h3>Peque</h3>
@@ -30,7 +30,7 @@ export const Footer: React.VFC = () => {
               {renderLink('Credits')}
             </ul>
           </div>
-          <div className="grid grid-cols-2 laptop:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 laptop:grid-cols-4 gap-6 text-center tablet:text-left">
             <FooterProject projectId="framework" />
             <FooterProject projectId="graphql" />
             <FooterProject projectId="di" />
@@ -38,7 +38,9 @@ export const Footer: React.VFC = () => {
           </div>
         </div>
         <div className="text-center mt-8">
-          <p>Peque packages are open source and released under the Apache 2.0 License.</p>
+          <p className="text-sm laptop:text-base">
+            Peque packages are open source and released under the Apache 2.0 License.
+          </p>
         </div>
         <div className="flex flex-col text-center items-center mt-8 space-y-2 text-sm">
           <p className="flex items-center">
