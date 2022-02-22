@@ -1,8 +1,6 @@
-import clsx from 'clsx';
 import Image from 'next/image';
 import React from 'react';
 
-import { styleUtils } from '../../lib/style.utils';
 import { Container } from '../Container';
 import { Icon } from '../Icon';
 import { FooterProject } from './Footer.blocks';
