@@ -14,7 +14,6 @@ describe('Project', () => {
         docsLink="/docs/framework"
         command="npx peque new project-name"
         renderExample={() => <Code>{SNIPPET_FRAMEWORK}</Code>}
-        examplePosition={examplePosition as 'left' | 'right'}
         bgClassName="bg-primary-800 skew-y-2"
       />,
     );

@@ -2,6 +2,7 @@ import { parseSelector } from 'hast-util-parse-selector';
 import { selectAll } from 'hast-util-select';
 import { h } from 'hastscript';
 import puppeteer from 'puppeteer';
+import type { Transformer } from 'unified';
 import { visit } from 'unist-util-visit';
 
 const getAnchorSvg = () => {
@@ -57,12 +58,12 @@ function remarkMermaid() {
   };
 }
 
-function rehypeAddClasses(options: Record<string, string>) {
+function rehypeAddClasses(options: Record<string, string>): Transformer {
   return (tree: any) => {
     for (const [selectors, className] of Object.entries(options)) {
       for (const selector of selectors.split(',')) {
         for (const match of selectAll(selector, tree)) {
-          visit(tree, match, (node: any) => {
+          visit(tree, match as any, (node: any) => {
             node.properties.class = `${node.properties.class ?? ''} ${className}`.trim();
           });
         }
@@ -71,13 +72,15 @@ function rehypeAddClasses(options: Record<string, string>) {
   };
 }
 
-function rehypeTableResponsive() {
+function rehypeTableResponsive(): Transformer {
   return (tree: any) => {
     for (const match of selectAll('table', tree)) {
-      visit(tree, match, (node: any, index: number, parent: any) => {
-        const wrapper = parseSelector('div.table-responsive');
-        wrapper.children = [node];
-        parent.children[index] = wrapper;
+      visit(tree, match as any, (node, index, parent) => {
+        if (index !== null) {
+          const wrapper = parseSelector('div.table-responsive');
+          wrapper.children = [node];
+          parent.children[index] = wrapper;
+        }
       });
     }
   };
