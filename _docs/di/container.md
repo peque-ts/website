@@ -82,8 +82,12 @@ There are two possible scopes within the container:
 - Singleton
 - Non-Singleton
 
-The default scope on dependency register is `singleton`. That means you will get a singleton instance when resolving a
-dependency. If you want to set the dependency as a `non-singleton` it has to be explicit.
+| Scope             | Description                                                                                                                                   |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| `default`         | The dependency is a `singleton` and it will be resolved as so without any setting while registering a dependency or injecting via `@Inject()` |
+| `non-singleton`   | The dependency will be resolved as a brand new instance                                                                                       |
+
+### Register
 
 ```typescript
 import { Container, Injectable } from '@pequehq/di';
@@ -103,7 +107,7 @@ DI.set(Foo, 'Foo').nonSingleton();
 DI.get('Foo').test(); // brand new instance;
 ```
 
-You can also request a specific `non-singleton` instances as constructor dependency or class property.
+### Inject decorator
 
 ```typescript
 import { Container, Injectable } from '@pequehq/di';
