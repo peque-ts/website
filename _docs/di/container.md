@@ -78,14 +78,12 @@ DI.get('Provider').test(); // prints "hotdog";
 
 ### Scope
 
-There are two possible scopes within the container:
-- Singleton
-- Non-Singleton
+It is possible to manage dependencies within different scopes, and so within different [design patterns](https://en.wikipedia.org/wiki/Design_Patterns).
 
-| Scope             | Description                                                                                                                                   |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| `default`         | The dependency is a `singleton` and it will be resolved as so without any setting while registering a dependency or injecting via `@Inject()` |
-| `non-singleton`   | The dependency will be resolved as a brand new instance                                                                                       |
+| Scope             | Description                                                                                                                                    |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| `default`         | The dependency is a `singleton` and it will be resolved as so without any setting while registering a dependency or injecting via `@Inject()`. |
+| `non-singleton`   | The dependency will be resolved as a brand new instance.                                                                                       |
 
 ### Register
 
