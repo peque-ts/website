@@ -85,7 +85,7 @@ It is possible to manage dependencies within different scopes, and so within dif
 | `default`         | The dependency is a `singleton` and it will be resolved as so without any setting while registering a dependency or injecting via `@Inject()`. |
 | `non-singleton`   | The dependency will be resolved as a brand new instance.                                                                                       |
 
-### Register
+### On egister
 
 ```typescript
 import { Container, Injectable } from '@pequehq/di';
@@ -139,8 +139,8 @@ class Bar {
 const DI = new Container();
 
 DI.set(Foo, 'Foo');
+DI.set(Baz, 'Baz');
 DI.set(Bar, 'Bar');
-
 
 // Resolve.
 DI.get('Bar').foo.test(); // brand new instance;

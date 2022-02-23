@@ -29,8 +29,3 @@ graph TB
   classDef server fill:DarkSeaGreen
   classDef service fill:SandyBrown
 ```
-
-## Container
-
-The container is that component where providers declarations are registered in order to be resolved in a second time 
-whenever its injection are requested.
