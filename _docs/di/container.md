@@ -76,6 +76,77 @@ DI.set(NewProvider, 'NewProvider');
 DI.get('Provider').test(); // prints "hotdog";
 ```
 
+### Scope
+
+It is possible to manage dependencies within different scopes, and so within different [design patterns](https://en.wikipedia.org/wiki/Design_Patterns).
+
+| Scope             | Description                                                                                                                                    |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| `default`         | The dependency is a `singleton` and it will be resolved as so without any setting while registering a dependency or injecting via `@Inject()`. |
+| `non-singleton`   | The dependency will be resolved as a brand new instance.                                                                                       |
+
+### On register
+
+```typescript
+import { Container, Injectable } from '@pequehq/di';
+
+@Injectable()
+class Foo {
+  test() {
+    return 'pizza';
+  }
+}
+
+const DI = new Container();
+
+DI.set(Foo, 'Foo').nonSingleton();
+
+// Resolve.
+DI.get('Foo').test(); // brand new instance;
+```
+
+### Inject decorator
+
+```typescript
+import { Container, Injectable } from '@pequehq/di';
+
+@Injectable()
+class Foo {
+  test() {
+    return 'pizza';
+  }
+}
+
+@Injectable()
+class Baz {
+  test() {
+    return 'sushi';
+  }
+}
+
+@Injectable()
+class Bar {
+  @Inject('Baz', { scope: 'non-singleton' })
+  baz: Baz;
+  
+  constructor(@Inject('Bar', { scope: 'non-singleton' }) public foo: Foo) {}
+  
+  test() {
+    return 'hotdog';
+  }
+}
+
+const DI = new Container();
+
+DI.set(Foo, 'Foo');
+DI.set(Baz, 'Baz');
+DI.set(Bar, 'Bar');
+
+// Resolve.
+DI.get('Bar').foo.test(); // brand new instance;
+DI.get('Bar').baz.test(); // brand new instance;
+```
+
 ## Resolve
 
 The resolve process takes care of resolving and injecting all the dependencies for the requested providers in order to
