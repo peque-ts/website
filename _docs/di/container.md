@@ -76,6 +76,75 @@ DI.set(NewProvider, 'NewProvider');
 DI.get('Provider').test(); // prints "hotdog";
 ```
 
+### Scope
+
+There are two possible scopes within the container:
+- Singleton
+- Non-Singleton
+
+The default scope on dependency register is `singleton`. That means you will get a singleton instance when resolving a
+dependency. If you want to set the dependency as a `non-singleton` it has to be explicit.
+
+```typescript
+import { Container, Injectable } from '@pequehq/di';
+
+@Injectable()
+class Foo {
+  test() {
+    return 'pizza';
+  }
+}
+
+const DI = new Container();
+
+DI.set(Foo, 'Foo').nonSingleton();
+
+// Resolve.
+DI.get('Foo').test(); // brand new instance;
+```
+
+You can also request a specific `non-singleton` instances as constructor dependency or class property.
+
+```typescript
+import { Container, Injectable } from '@pequehq/di';
+
+@Injectable()
+class Foo {
+  test() {
+    return 'pizza';
+  }
+}
+
+@Injectable()
+class Baz {
+  test() {
+    return 'sushi';
+  }
+}
+
+@Injectable()
+class Bar {
+  @Inject('Baz', { scope: 'non-singleton' })
+  baz: Baz;
+  
+  constructor(@Inject('Bar', { scope: 'non-singleton' }) public foo: Foo) {}
+  
+  test() {
+    return 'hotdog';
+  }
+}
+
+const DI = new Container();
+
+DI.set(Foo, 'Foo');
+DI.set(Bar, 'Bar');
+
+
+// Resolve.
+DI.get('Bar').foo.test(); // brand new instance;
+DI.get('Bar').baz.test(); // brand new instance;
+```
+
 ## Resolve
 
 The resolve process takes care of resolving and injecting all the dependencies for the requested providers in order to
