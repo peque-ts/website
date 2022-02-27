@@ -1,7 +1,6 @@
 ---
 title: Full example
 description: Peque GraphQL full example usage
-order: 8
 ---
 
 # Full example

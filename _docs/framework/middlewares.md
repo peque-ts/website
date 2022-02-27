@@ -1,7 +1,6 @@
 ---
 title: Middlewares
 description: Building middlewares in Peque Framework
-order: 7
 ---
 
 # Middlewares

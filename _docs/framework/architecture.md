@@ -1,7 +1,6 @@
 ---
 title: Architecture
 description: Peque Framework high-level architecture
-order: 2
 ---
 
 # General architecture

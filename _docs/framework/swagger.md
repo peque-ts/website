@@ -1,7 +1,6 @@
 ---
 title: Swagger
 description: Generate Open API documentation for your endpoints in Peque Framework
-order: 14
 ---
 
 # Swagger (OpenAPI)

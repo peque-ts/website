@@ -1,7 +1,6 @@
 ---
 title: Interceptors
 description: Intercepting requests in Peque Framework 
-order: 11
 ---
 
 # Interceptors

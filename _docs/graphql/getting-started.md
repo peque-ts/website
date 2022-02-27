@@ -1,7 +1,6 @@
 ---
 title: Getting Started
 description: Getting started with Peque GraphQL
-order: 1
 ---
 
 # Peque GraphQL

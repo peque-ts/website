@@ -1,4 +1,4 @@
-export const PROJECTS = {
+const PROJECTS = {
   framework: {
     id: 'framework',
     name: 'Framework',
@@ -27,4 +27,8 @@ export const PROJECTS = {
   },
 };
 
-export type ProjectId = keyof typeof PROJECTS;
+type ProjectId = keyof typeof PROJECTS;
+
+export { PROJECTS };
+
+export type { ProjectId };

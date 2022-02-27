@@ -1,7 +1,6 @@
 ---
 title: WebSockets
 description: Using WebSockets for real-time communication in Peque Framework
-order: 12
 ---
 
 # WebSockets

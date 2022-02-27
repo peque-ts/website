@@ -1,7 +1,6 @@
 ---
 title: Authorization
 description: Handling authorization in Peque Framework
-order: 10
 ---
 
 # Guards

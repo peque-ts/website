@@ -1,7 +1,6 @@
 ---
 title: Resolvers
 description: Writing Resolvers with Peque GraphQL
-order: 2
 ---
 
 # Resolvers

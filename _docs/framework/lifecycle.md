@@ -1,7 +1,6 @@
 ---
 title: Lifecycle
 description: Life-cycle events in Peque Framework
-order: 3
 ---
 
 # Lifecycle

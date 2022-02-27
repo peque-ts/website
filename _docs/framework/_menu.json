@@ -1,0 +1,21 @@
+[
+  "getting-started",
+  "architecture",
+  "lifecycle",
+  "modules",
+  "controllers",
+  "providers",
+  "middlewares",
+  "microservices",
+  "transformers",
+  "authorization",
+  "interceptors",
+  "websockets",
+  ["Built-in features", [
+    "builtin-features/overview",
+    "builtin-features/event-management",
+    "builtin-features/logger",
+    "builtin-features/scheduler"
+  ]],
+  "swagger"
+]

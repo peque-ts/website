@@ -1,7 +1,6 @@
 ---
 title: Mutations
 description: Handling Mutations with Peque GraphQL
-order: 4
 ---
 
 # Mutations

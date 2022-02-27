@@ -1,7 +1,6 @@
 ---
 title: Getting Started
 description: Create enterprise level server-side TypeScript applications. For REST, GraphQL, and Microservices.
-order: 1
 ---
 
 # Peque Framework

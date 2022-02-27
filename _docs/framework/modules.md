@@ -1,7 +1,6 @@
 ---
 title: Modules
 description: Splitting business logic in Peque Framework
-order: 4
 ---
 
 # Modules

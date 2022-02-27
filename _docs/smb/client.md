@@ -1,7 +1,6 @@
 ---
 title: Client
 description: Client
-order: 3
 ---
 
 # Client
