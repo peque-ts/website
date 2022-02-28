@@ -16,7 +16,7 @@ export const Hero: React.VFC = () => {
   return (
     <section className="h-80 mt-16 bg-gradient-to-b from-secondary-600 to-transparent flex items-center justify-center">
       <div className="flex items-start space-x-2">
-        <Icon alt="Logo" name="logo" size={40} />
+        <Icon name="Logo" size={40} />
         <div>
           <h1>Peque</h1>
           <div className="flex flex-col space-y-1">

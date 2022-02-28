@@ -37,7 +37,7 @@ const SubNav: React.VFC<{ item: NavItem; parentIndex: number }> = ({
         )}
       >
         <span className={clsx('transition ease-in-out flex', open ? '-rotate-90' : '-rotate-180')}>
-          <Icon alt="Menu" name="arrow-left" size={8} />
+          <Icon name="ArrowLeft" size={8} />
         </span>
         <span>{name}</span>
       </button>

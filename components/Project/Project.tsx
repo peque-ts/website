@@ -32,9 +32,9 @@ export const Project: React.VFC<Props> = ({
       <h2 className="text-lg font-normal mb-6 text-secondary-100">{description}</h2>
       <List className="space-y-1.5 mb-8" items={features}>
         {(feature) => (
-          <div className="flex items-center space-x-2">
-            <Icon alt={feature} name="check" size={20} />
-            <span className="text-secondary-100">{feature}</span>
+          <div className="flex items-center space-x-2 text-secondary-100">
+            <Icon name="Check" size={20} />
+            <span>{feature}</span>
           </div>
         )}
       </List>
