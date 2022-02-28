@@ -1,7 +1,6 @@
 ---
 title: Getting Started
 description: Getting started
-order: 1
 ---
 
 # Peque DI

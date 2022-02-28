@@ -1,7 +1,6 @@
 ---
 title: Transformers and Validators
 description: Transform and validate users input in Peque Framework
-order: 9
 ---
 
 # Transformers

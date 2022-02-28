@@ -1,7 +1,6 @@
 ---
 title: Parameters
 description: Handling Parameters with Peque GraphQL
-order: 6
 ---
 
 # Parameters

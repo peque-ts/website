@@ -1,7 +1,6 @@
 ---
 title: Fields
 description: Handling Fields with Peque GraphQL
-order: 5
 ---
 
 # Fields

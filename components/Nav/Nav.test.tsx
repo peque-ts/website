@@ -9,30 +9,45 @@ describe('Nav', () => {
     {
       active: true,
       name: 'First',
-      order: 1,
-      to: '/docs/1',
-      slug: 'first',
+      to: '/docs/first/sub-1',
+      slug: 'first/sub-1',
+      children: [
+        {
+          active: true,
+          name: 'Sub 1',
+          to: '/docs/first/sub-1',
+          slug: 'first/sub-1',
+          children: [],
+        },
+        {
+          active: false,
+          name: 'Sub 2',
+          to: '/docs/first/sub-2',
+          slug: 'first/sub-2',
+          children: [],
+        },
+      ],
     },
     {
       active: false,
       name: 'Second',
-      order: 2,
       to: '/docs/2',
       slug: 'second',
+      children: [],
     },
     {
       active: false,
       name: 'Third',
-      order: 3,
       to: '/docs/3',
       slug: 'third',
+      children: [],
     },
   ];
 
   it('should render', () => {
     const { asFragment } = render(<Nav items={items} />);
 
-    expect(screen.getAllByRole('link')).toHaveLength(3);
+    expect(screen.getAllByRole('link')).toHaveLength(4);
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -40,18 +55,32 @@ describe('Nav', () => {
     render(<Nav items={items} />);
 
     // assert hidden by default
-    expect(screen.getByRole('list').parentElement).toHaveClass('hidden');
+    expect(screen.getAllByRole('list')[0].parentElement).toHaveClass('hidden');
 
     // expand menu
-    userEvent.click(screen.getByRole('button'));
+    userEvent.click(screen.getAllByRole('button')[0]);
 
     // assert no longer hidden
-    expect(screen.getByRole('list').parentElement).not.toHaveClass('hidden');
+    expect(screen.getAllByRole('list')[0].parentElement).not.toHaveClass('hidden');
 
     // collapse menu
-    userEvent.click(screen.getByRole('button'));
+    userEvent.click(screen.getAllByRole('button')[0]);
 
     // assert hidden again
-    expect(screen.getByRole('list').parentElement).toHaveClass('hidden');
+    expect(screen.getAllByRole('list')[0].parentElement).toHaveClass('hidden');
+  });
+
+  it('should toggle submenu', () => {
+    render(<Nav items={items} />);
+
+    expect(screen.getAllByRole('list')).toHaveLength(2);
+
+    userEvent.click(screen.getByText('First'));
+
+    expect(screen.getAllByRole('list')).toHaveLength(1);
+
+    userEvent.click(screen.getByText('First'));
+
+    expect(screen.getAllByRole('list')).toHaveLength(2);
   });
 });

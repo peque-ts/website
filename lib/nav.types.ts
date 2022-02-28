@@ -2,8 +2,8 @@ interface NavItem {
   name: string;
   to: string;
   slug: string;
-  order: number;
   active: boolean;
+  children: NavItem[];
 }
 
 interface PrevNextNavItems {
@@ -11,4 +11,6 @@ interface PrevNextNavItems {
   next: NavItem | null;
 }
 
-export type { NavItem, PrevNextNavItems };
+type MenuItem = string | [string, string[]];
+
+export type { NavItem, PrevNextNavItems, MenuItem };

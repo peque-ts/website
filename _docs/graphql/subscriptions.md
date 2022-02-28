@@ -1,7 +1,6 @@
 ---
 title: Subscriptions
 description: Handling Subscriptions with Peque GraphQL
-order: 7
 ---
 
 # Subscriptions
@@ -16,9 +15,9 @@ Subscriptions are methods of a Resolver class decorated with `@Subscription()`.
 
 The `@Subscription()` decorator supports parameters defined by the `ISubscriptionOptions` interface.
 
-| Options  | Description                                                                                                                      | Required |
-|----------|--------------------------------------------------------------------------------------------------------------------------------- |----------|
-| `name`   | The name of the subscription in the SDL schema subscription type. If not specified, the name is assumed to be the method's name. | No       |
+| Options | Description                                                                                                                      | Required |
+|---------|----------------------------------------------------------------------------------------------------------------------------------|----------|
+| `name`  | The name of the subscription in the SDL schema subscription type. If not specified, the name is assumed to be the method's name. | No       |
 
 ## Example usage
 

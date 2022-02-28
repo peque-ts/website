@@ -1,7 +1,6 @@
 ---
 title: Injectable
 description: Injectable
-order: 4
 ---
 
 # Injectable

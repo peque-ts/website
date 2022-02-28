@@ -1,7 +1,6 @@
 ---
 title: Controllers
 description: REST API Controllers in Peque Framework
-order: 5
 ---
 
 # Controllers

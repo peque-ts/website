@@ -14,7 +14,7 @@ import { parse } from '../../../lib/markdown';
 import { buildNavItems, getPrevNextNavItems } from '../../../lib/nav';
 import type { NavItem, PrevNextNavItems } from '../../../lib/nav.types';
 import type { Meta } from '../../../types/meta';
-import { assertString } from '../../../utils/assertions';
+import { assertArray, assertString } from '../../../utils/assertions';
 
 interface Props {
   html: string;
@@ -81,16 +81,19 @@ export async function getStaticProps(
   context: GetStaticPropsContext,
 ): Promise<GetStaticPropsResult<Props>> {
   assertString(context.params?.project);
-  assertString(context.params?.section);
+  assertArray<string>(context.params?.section);
 
-  const { project, section } = context.params;
+  const project = context.params.project as ProjectId;
+  const section = context.params.section.join('/');
+
   const markdown = await read(`_docs/${project}/${section}.md`);
+
   const { meta, html } = await parse<Meta>(markdown);
 
-  const projectName = PROJECTS[project as ProjectId].name;
+  const projectName = PROJECTS[project].name;
   const pageTitle = `${meta.title} | Peque ${projectName}`;
   const navItems = await buildNavItems(project, section);
-  const prevNextNavItems = getPrevNextNavItems(navItems, section);
+  const prevNextNavItems = getPrevNextNavItems(navItems);
 
   return {
     props: {

@@ -1,7 +1,6 @@
 ---
 title: Queries
 description: Handling Queries with Peque GraphQL
-order: 3
 ---
 
 # Queries

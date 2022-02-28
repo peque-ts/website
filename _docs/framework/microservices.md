@@ -1,7 +1,6 @@
 ---
 title: Microservices
 description: Using Peque Framework to build microservices
-order: 8
 ---
 
 # Microservices

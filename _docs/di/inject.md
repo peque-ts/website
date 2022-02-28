@@ -1,7 +1,6 @@
 ---
 title: Inject
 description: Inject
-order: 5
 ---
 
 # Inject

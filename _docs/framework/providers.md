@@ -1,7 +1,6 @@
 ---
 title: Providers
 description: Using Providers and dependency injection in Peque Framework
-order: 6
 ---
 
 # Providers

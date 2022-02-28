@@ -1,7 +1,6 @@
 ---
 title: Dependency injection
 description: Dependency injection
-order: 2
 ---
 
 # Dependency injection

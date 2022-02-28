@@ -1,10 +1,16 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
+import type { MenuItem } from './nav.types';
+
 async function read(filePath: string): Promise<string> {
   return fs.readFile(path.join(process.cwd(), filePath), {
     encoding: 'utf-8',
   });
+}
+
+async function getProjectMenu(project: string): Promise<MenuItem[]> {
+  return JSON.parse(await read(`_docs/${project}/_menu.json`));
 }
 
 async function getProjectSectionPaths(): Promise<string[]> {
@@ -13,13 +19,17 @@ async function getProjectSectionPaths(): Promise<string[]> {
   const projects = await fs.readdir(path.join(process.cwd(), '_docs'));
 
   for (const project of projects) {
-    const sections = await fs.readdir(path.join(process.cwd(), '_docs', project));
+    const projectMenu = await getProjectMenu(project);
 
     paths = [
       ...paths,
-      ...sections.map((section) => {
-        const slug = section.replace(/.md$/, '');
-        return `/docs/${project}/${slug}`;
+      ...projectMenu.flatMap((item) => {
+        if (typeof item === 'string') {
+          return `/docs/${project}/${item}`;
+        }
+
+        // submenu
+        return item[1].map((submenuItem) => `/docs/${project}/${submenuItem}`);
       }),
     ];
   }
@@ -27,4 +37,4 @@ async function getProjectSectionPaths(): Promise<string[]> {
   return paths;
 }
 
-export { read, getProjectSectionPaths };
+export { read, getProjectMenu, getProjectSectionPaths };

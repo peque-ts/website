@@ -1,48 +1,88 @@
 import matter from 'gray-matter';
-import fs from 'node:fs/promises';
-import path from 'node:path';
 
-import { read } from './fs';
+import { assertArray } from '../utils/assertions';
+import { getProjectMenu, read } from './fs';
 import { NavItem, PrevNextNavItems } from './nav.types';
 
 async function buildNavItems(project: string, activeSection: string): Promise<NavItem[]> {
   const items: NavItem[] = [];
 
-  const sectionFiles = await fs.readdir(path.join(process.cwd(), '_docs', project));
+  const menu = await getProjectMenu(project);
 
-  for (const sectionFile of sectionFiles) {
-    const markdown = await read(`_docs/${project}/${sectionFile}`);
+  for (const node of menu) {
+    const isLeaf = typeof node === 'string';
 
-    const sectionSlug = sectionFile.replace(/.md$/, '');
-    const { title, order } = matter(markdown).data;
+    if (isLeaf) {
+      const markdown = await read(`_docs/${project}/${node}.md`);
 
-    items.push({
-      name: title,
-      to: `/docs/${project}/${sectionSlug}`,
-      order,
-      active: sectionSlug === activeSection,
-      slug: sectionSlug,
-    });
+      items.push({
+        name: matter(markdown).data.title,
+        to: `/docs/${project}/${node}`,
+        active: node === activeSection,
+        slug: node,
+        children: [],
+      });
+
+      continue;
+    }
+
+    // submenu
+    assertArray<string>(node);
+    const [submenuName, submenuItems] = node;
+
+    const submenu: NavItem = {
+      name: submenuName,
+      to: `/docs/${project}/${submenuItems[0]}`,
+      active: submenuItems.includes(activeSection),
+      slug: submenuItems[0],
+      children: [],
+    };
+
+    for (const submenuItem of submenuItems) {
+      const markdown = await read(`_docs/${project}/${submenuItem}.md`);
+
+      submenu.children.push({
+        name: matter(markdown).data.title,
+        to: `/docs/${project}/${submenuItem}`,
+        active: submenuItem === activeSection,
+        slug: submenuItem,
+        children: [],
+      });
+    }
+
+    items.push(submenu);
   }
 
-  return items.sort((a, b) => {
-    return a.order > b.order ? 1 : a.order < b.order ? -1 : 0;
-  });
+  return items;
 }
 
-function getPrevNextNavItems(navItems: NavItem[], activeSection: string): PrevNextNavItems {
-  const currentItem = navItems.find((item) => item.slug === activeSection);
+function getPrevNextNavItems(items: NavItem[]): PrevNextNavItems {
+  let prev: NavItem | null = null;
+  let next: NavItem | null = null;
 
-  if (!currentItem) {
-    throw new Error(
-      `Cannot find navigation item with slug = [${activeSection}]. This looks like a bug.`,
-    );
+  for (let index = 0; index < items.length; index++) {
+    const item = items[index];
+
+    if (!item.active) {
+      continue;
+    }
+
+    const subIndex = item.children.findIndex((sub) => sub.active);
+
+    prev =
+      item.children[subIndex - 1] ??
+      [...(items[index - 1]?.children ?? [])].pop() ??
+      items[index - 1] ??
+      null;
+
+    next =
+      item.children[subIndex + 1] ??
+      [...(items[index + 1]?.children ?? [])].shift() ??
+      items[index + 1] ??
+      null;
   }
 
-  return {
-    prev: navItems.find((item) => item.order === currentItem.order - 1) ?? null,
-    next: navItems.find((item) => item.order === currentItem.order + 1) ?? null,
-  };
+  return { prev, next };
 }
 
 export { buildNavItems, getPrevNextNavItems };
