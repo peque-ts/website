@@ -3,28 +3,28 @@
 exports[`Project should render with example to the left 1`] = `
 <DocumentFragment>
   <section
-    class="relative py-8 my-8 group"
+    class="group relative my-8 py-8"
   >
     <div
-      class="-z-10 absolute inset-0 bg-primary-800 skew-y-2"
+      class="absolute inset-0 -z-10 bg-primary-800 skew-y-2"
     />
     <div
       class="container mx-auto px-4"
     >
       <div
-        class="flex flex-col space-y-12 desktop:flex-row desktop:group-odd:flex-row-reverse desktop:items-center desktop:justify-around desktop:space-y-0"
+        class="flex flex-col space-y-12 desktop:flex-row desktop:items-center desktop:justify-around desktop:space-y-0 desktop:group-odd:flex-row-reverse"
       >
         <div>
           <h1>
             Framework
           </h1>
           <h2
-            class="text-lg font-normal mb-6 text-secondary-100"
+            class="mb-6 text-lg font-normal text-secondary-100"
           >
             Node.js framework for backend applications.
           </h2>
           <ul
-            class="space-y-1.5 mb-8"
+            class="mb-8 space-y-1.5"
           >
             <li>
               <div
@@ -139,13 +139,13 @@ exports[`Project should render with example to the left 1`] = `
             class="mb-10"
           >
             <div
-              class="flex items-center justify-between w-full bg-black shadow-lg rounded p-4 space-x-4 shadow-secondary-700"
+              class="flex w-full items-center justify-between space-x-4 rounded bg-black p-4 shadow-lg shadow-secondary-700"
             >
               <code>
                 $ npx peque new project-name
               </code>
               <div
-                class="w-12 flex items-center justify-end"
+                class="flex w-12 items-center justify-end"
               >
                 <button
                   class="flex items-center"
@@ -157,7 +157,7 @@ exports[`Project should render with example to the left 1`] = `
                     Copy to clipboard
                   </span>
                   <svg
-                    class="text-secondary-200 hover:text-white transition"
+                    class="text-secondary-200 transition hover:text-white"
                     height="16"
                     viewBox="0 0 64 64"
                     width="16"
@@ -192,7 +192,7 @@ exports[`Project should render with example to the left 1`] = `
           </div>
           <div>
             <a
-              class="inline-block text-sm font-semibold rounded py-3 px-8 transition bg-primary-500 shadow-lg shadow-[#E712B433] hover:shadow-[#E712B455] hover:bg-primary-400"
+              class="inline-block rounded py-3 px-8 text-sm font-semibold bg-primary-500 shadow-lg shadow-[#E712B433] transition hover:bg-primary-400 hover:shadow-[#E712B455]"
               href="/docs/framework"
             >
               Check the docs
@@ -203,7 +203,7 @@ exports[`Project should render with example to the left 1`] = `
           class="custom-scrollbar"
         >
           <code
-            class="drop-shadow-xl rounded hljs language-typescript"
+            class="rounded drop-shadow-xl hljs language-typescript"
             role="code"
           >
             <span
@@ -432,28 +432,28 @@ webserver.
 exports[`Project should render with example to the right 1`] = `
 <DocumentFragment>
   <section
-    class="relative py-8 my-8 group"
+    class="group relative my-8 py-8"
   >
     <div
-      class="-z-10 absolute inset-0 bg-primary-800 skew-y-2"
+      class="absolute inset-0 -z-10 bg-primary-800 skew-y-2"
     />
     <div
       class="container mx-auto px-4"
     >
       <div
-        class="flex flex-col space-y-12 desktop:flex-row desktop:group-odd:flex-row-reverse desktop:items-center desktop:justify-around desktop:space-y-0"
+        class="flex flex-col space-y-12 desktop:flex-row desktop:items-center desktop:justify-around desktop:space-y-0 desktop:group-odd:flex-row-reverse"
       >
         <div>
           <h1>
             Framework
           </h1>
           <h2
-            class="text-lg font-normal mb-6 text-secondary-100"
+            class="mb-6 text-lg font-normal text-secondary-100"
           >
             Node.js framework for backend applications.
           </h2>
           <ul
-            class="space-y-1.5 mb-8"
+            class="mb-8 space-y-1.5"
           >
             <li>
               <div
@@ -568,13 +568,13 @@ exports[`Project should render with example to the right 1`] = `
             class="mb-10"
           >
             <div
-              class="flex items-center justify-between w-full bg-black shadow-lg rounded p-4 space-x-4 shadow-secondary-700"
+              class="flex w-full items-center justify-between space-x-4 rounded bg-black p-4 shadow-lg shadow-secondary-700"
             >
               <code>
                 $ npx peque new project-name
               </code>
               <div
-                class="w-12 flex items-center justify-end"
+                class="flex w-12 items-center justify-end"
               >
                 <button
                   class="flex items-center"
@@ -586,7 +586,7 @@ exports[`Project should render with example to the right 1`] = `
                     Copy to clipboard
                   </span>
                   <svg
-                    class="text-secondary-200 hover:text-white transition"
+                    class="text-secondary-200 transition hover:text-white"
                     height="16"
                     viewBox="0 0 64 64"
                     width="16"
@@ -621,7 +621,7 @@ exports[`Project should render with example to the right 1`] = `
           </div>
           <div>
             <a
-              class="inline-block text-sm font-semibold rounded py-3 px-8 transition bg-primary-500 shadow-lg shadow-[#E712B433] hover:shadow-[#E712B455] hover:bg-primary-400"
+              class="inline-block rounded py-3 px-8 text-sm font-semibold bg-primary-500 shadow-lg shadow-[#E712B433] transition hover:bg-primary-400 hover:shadow-[#E712B455]"
               href="/docs/framework"
             >
               Check the docs
@@ -632,7 +632,7 @@ exports[`Project should render with example to the right 1`] = `
           class="custom-scrollbar"
         >
           <code
-            class="drop-shadow-xl rounded hljs language-typescript"
+            class="rounded drop-shadow-xl hljs language-typescript"
             role="code"
           >
             <span

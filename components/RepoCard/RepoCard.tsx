@@ -13,15 +13,15 @@ export const RepoCard: React.FC<Props> = ({ projectId }) => {
 
   return (
     <article className="space-y-3">
-      <div className="flex items-center space-x-3 justify-center tablet:justify-start">
+      <div className="flex items-center justify-center space-x-3 tablet:justify-start">
         <h3>{name}</h3>
         <Link href={`https://github.com/pequehq/${id}`}>
-          <a className="text-secondary-200 hover:text-white transition">
+          <a className="text-secondary-200 transition hover:text-white">
             <Icon name="GitHub" size={16} />
           </a>
         </Link>
       </div>
-      <p className="text-lg text-secondary-100 text-center tablet:text-left">{description}</p>
+      <p className="text-center text-lg text-secondary-100 tablet:text-left">{description}</p>
     </article>
   );
 };

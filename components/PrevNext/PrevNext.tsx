@@ -19,7 +19,7 @@ export const PrevNext: React.VFC<Props> = ({ items }) => {
           <Link href={item.to}>
             <a
               className={clsx(
-                'flex items-center font-semibold justify-between rounded p-4 transition bg-secondary-700 hover:bg-secondary-800',
+                'flex items-center justify-between rounded bg-secondary-700 p-4 font-semibold transition hover:bg-secondary-800',
                 {
                   'flex-row text-right': type === 'prev',
                   'flex-row-reverse': type === 'next',
@@ -29,7 +29,7 @@ export const PrevNext: React.VFC<Props> = ({ items }) => {
               <div
                 className={clsx(
                   'flex text-secondary-200',
-                  type === 'next' ? 'rotate-180 ml-4' : 'mr-4',
+                  type === 'next' ? 'ml-4 rotate-180' : 'mr-4',
                 )}
               >
                 <Icon name="ArrowLeft" size={24} />
@@ -53,7 +53,7 @@ export const PrevNext: React.VFC<Props> = ({ items }) => {
   };
 
   return (
-    <div className="flex mt-4 laptop:justify-between laptop:space-x-4 desktop:space-x-0">
+    <div className="mt-4 flex laptop:justify-between laptop:space-x-4 desktop:space-x-0">
       {renderButton('prev')}
       {renderButton('next')}
     </div>

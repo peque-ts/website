@@ -14,12 +14,12 @@ export const Terminal: React.FC<Props> = ({ children, className }) => {
   return (
     <div
       className={clsx(
-        'flex items-center justify-between w-full bg-black shadow-lg rounded p-4 space-x-4',
+        'flex w-full items-center justify-between space-x-4 rounded bg-black p-4 shadow-lg',
         className,
       )}
     >
       <code>$ {children}</code>
-      <div className="w-12 flex items-center justify-end">
+      <div className="flex w-12 items-center justify-end">
         <ButtonCopy data={children} />
       </div>
     </div>

@@ -19,7 +19,7 @@ export const FooterProject: React.VFC<FooterProjectProps> = ({ projectId }) => {
 
   return (
     <div className="flex flex-col">
-      <h3 className="text-base font-semibold mb-2">{name}</h3>
+      <h3 className="mb-2 text-base font-semibold">{name}</h3>
       <ul className="space-y-1">
         {renderLink('Releases', `https://github.com/pequehq/${id}/releases`)}
         {renderLink('Report an issue', `https://github.com/pequehq/${id}/issues`)}

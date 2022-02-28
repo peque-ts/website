@@ -3,7 +3,7 @@
 exports[`PrevNext should render 1`] = `
 <DocumentFragment>
   <div
-    class="flex mt-4 laptop:justify-between laptop:space-x-4 desktop:space-x-0"
+    class="mt-4 flex laptop:justify-between laptop:space-x-4 desktop:space-x-0"
   >
     <div
       class="w-full desktop:w-80 hidden laptop:block"
@@ -12,11 +12,11 @@ exports[`PrevNext should render 1`] = `
       class="w-full desktop:w-80"
     >
       <a
-        class="flex items-center font-semibold justify-between rounded p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row-reverse"
+        class="flex items-center justify-between rounded bg-secondary-700 p-4 font-semibold transition hover:bg-secondary-800 flex-row-reverse"
         href="/last"
       >
         <div
-          class="flex text-secondary-200 rotate-180 ml-4"
+          class="flex text-secondary-200 ml-4 rotate-180"
         >
           <svg
             height="24"
@@ -57,13 +57,13 @@ exports[`PrevNext should render 1`] = `
 exports[`PrevNext should render 2`] = `
 <DocumentFragment>
   <div
-    class="flex mt-4 laptop:justify-between laptop:space-x-4 desktop:space-x-0"
+    class="mt-4 flex laptop:justify-between laptop:space-x-4 desktop:space-x-0"
   >
     <div
       class="w-full desktop:w-80 hidden laptop:block"
     >
       <a
-        class="flex items-center font-semibold justify-between rounded p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row text-right"
+        class="flex items-center justify-between rounded bg-secondary-700 p-4 font-semibold transition hover:bg-secondary-800 flex-row text-right"
         href="/first"
       >
         <div
@@ -105,11 +105,11 @@ exports[`PrevNext should render 2`] = `
       class="w-full desktop:w-80"
     >
       <a
-        class="flex items-center font-semibold justify-between rounded p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row-reverse"
+        class="flex items-center justify-between rounded bg-secondary-700 p-4 font-semibold transition hover:bg-secondary-800 flex-row-reverse"
         href="/last"
       >
         <div
-          class="flex text-secondary-200 rotate-180 ml-4"
+          class="flex text-secondary-200 ml-4 rotate-180"
         >
           <svg
             height="24"
@@ -150,13 +150,13 @@ exports[`PrevNext should render 2`] = `
 exports[`PrevNext should render 3`] = `
 <DocumentFragment>
   <div
-    class="flex mt-4 laptop:justify-between laptop:space-x-4 desktop:space-x-0"
+    class="mt-4 flex laptop:justify-between laptop:space-x-4 desktop:space-x-0"
   >
     <div
       class="w-full desktop:w-80 hidden laptop:block"
     >
       <a
-        class="flex items-center font-semibold justify-between rounded p-4 transition bg-secondary-700 hover:bg-secondary-800 flex-row text-right"
+        class="flex items-center justify-between rounded bg-secondary-700 p-4 font-semibold transition hover:bg-secondary-800 flex-row text-right"
         href="/first"
       >
         <div

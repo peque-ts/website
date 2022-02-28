@@ -8,7 +8,7 @@ import { Icon } from '../Icon';
 const NavItemContent: React.VFC<{ item: NavItem }> = ({ item: { to, name, active } }) => (
   <Link href={to}>
     <a
-      className={clsx('py-2 flex text-secondary-200 hover:text-white transition', {
+      className={clsx('flex py-2 text-secondary-200 transition hover:text-white', {
         'font-semibold text-white': active,
       })}
     >
@@ -29,14 +29,14 @@ const SubNav: React.VFC<{ item: NavItem; parentIndex: number }> = ({
         type="button"
         onClick={() => setOpen((value) => !value)}
         className={clsx(
-          'py-2 flex items-center space-x-2 text-secondary-200 hover:text-white transition',
+          'flex items-center space-x-2 py-2 text-secondary-200 transition hover:text-white',
           {
             'text-white': open,
             'font-semibold': active,
           },
         )}
       >
-        <span className={clsx('transition ease-in-out flex', open ? '-rotate-90' : '-rotate-180')}>
+        <span className={clsx('flex transition ease-in-out', open ? '-rotate-90' : '-rotate-180')}>
           <Icon name="ArrowLeft" size={8} />
         </span>
         <span>{name}</span>

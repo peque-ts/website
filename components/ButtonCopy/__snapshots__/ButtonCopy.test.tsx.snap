@@ -12,7 +12,7 @@ exports[`ButtonCopy should render 1`] = `
       Copy to clipboard
     </span>
     <svg
-      class="text-secondary-200 hover:text-white transition"
+      class="text-secondary-200 transition hover:text-white"
       height="16"
       viewBox="0 0 64 64"
       width="16"

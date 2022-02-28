@@ -4,11 +4,11 @@ exports[`MainNav should render 1`] = `
 <DocumentFragment>
   <nav>
     <div
-      class="tablet:hidden block"
+      class="block tablet:hidden"
       data-testid="MainNavMobile"
     >
       <button
-        class="w-10 h-10 relative focus:outline-none"
+        class="relative h-10 w-10 focus:outline-none"
         type="button"
       >
         <span
@@ -17,19 +17,19 @@ exports[`MainNav should render 1`] = `
           Open main menu
         </span>
         <div
-          class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 block w-5 -translate-x-1/2 -translate-y-1/2 transform"
         >
           <span
             aria-hidden="true"
-            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out -translate-y-1.5"
+            class="absolute block h-0.5 w-5 transform bg-white transition ease-in-out -translate-y-1.5"
           />
           <span
             aria-hidden="true"
-            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out"
+            class="absolute block h-0.5 w-5 transform bg-white transition ease-in-out"
           />
           <span
             aria-hidden="true"
-            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out translate-y-1.5"
+            class="absolute block h-0.5 w-5 transform bg-white transition ease-in-out translate-y-1.5"
           />
         </div>
       </button>
@@ -37,7 +37,7 @@ exports[`MainNav should render 1`] = `
         class="absolute inset-x-0 -z-10 shadow-lg transition -translate-y-full"
       >
         <ul
-          class="flex-col space-y-4 items-center pt-4 pb-8 hidden"
+          class="flex-col items-center space-y-4 pt-4 pb-8 hidden"
         >
           <li>
             <a
@@ -67,7 +67,7 @@ exports[`MainNav should render 1`] = `
       </div>
     </div>
     <ul
-      class="hidden tablet:flex space-x-8"
+      class="hidden space-x-8 tablet:flex"
       data-testid="MainNavDesktop"
     >
       <li>
@@ -103,11 +103,11 @@ exports[`MainNav should toggle mobile navigation 1`] = `
 <DocumentFragment>
   <nav>
     <div
-      class="tablet:hidden block"
+      class="block tablet:hidden"
       data-testid="MainNavMobile"
     >
       <button
-        class="w-10 h-10 relative focus:outline-none"
+        class="relative h-10 w-10 focus:outline-none"
         type="button"
       >
         <span
@@ -116,19 +116,19 @@ exports[`MainNav should toggle mobile navigation 1`] = `
           Open main menu
         </span>
         <div
-          class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 block w-5 -translate-x-1/2 -translate-y-1/2 transform"
         >
           <span
             aria-hidden="true"
-            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out rotate-45"
+            class="absolute block h-0.5 w-5 transform bg-white transition ease-in-out rotate-45"
           />
           <span
             aria-hidden="true"
-            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out opacity-0"
+            class="absolute block h-0.5 w-5 transform bg-white transition ease-in-out opacity-0"
           />
           <span
             aria-hidden="true"
-            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out -rotate-45"
+            class="absolute block h-0.5 w-5 transform bg-white transition ease-in-out -rotate-45"
           />
         </div>
       </button>
@@ -136,7 +136,7 @@ exports[`MainNav should toggle mobile navigation 1`] = `
         class="absolute inset-x-0 -z-10 shadow-lg transition translate-y-0"
       >
         <ul
-          class="flex-col space-y-4 items-center pt-4 pb-8 flex"
+          class="flex-col items-center space-y-4 pt-4 pb-8 flex"
         >
           <li>
             <a
@@ -166,7 +166,7 @@ exports[`MainNav should toggle mobile navigation 1`] = `
       </div>
     </div>
     <ul
-      class="hidden tablet:flex space-x-8"
+      class="hidden space-x-8 tablet:flex"
       data-testid="MainNavDesktop"
     >
       <li>
@@ -202,11 +202,11 @@ exports[`MainNav should toggle mobile navigation 2`] = `
 <DocumentFragment>
   <nav>
     <div
-      class="tablet:hidden block"
+      class="block tablet:hidden"
       data-testid="MainNavMobile"
     >
       <button
-        class="w-10 h-10 relative focus:outline-none"
+        class="relative h-10 w-10 focus:outline-none"
         type="button"
       >
         <span
@@ -215,19 +215,19 @@ exports[`MainNav should toggle mobile navigation 2`] = `
           Open main menu
         </span>
         <div
-          class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          class="absolute left-1/2 top-1/2 block w-5 -translate-x-1/2 -translate-y-1/2 transform"
         >
           <span
             aria-hidden="true"
-            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out -translate-y-1.5"
+            class="absolute block h-0.5 w-5 transform bg-white transition ease-in-out -translate-y-1.5"
           />
           <span
             aria-hidden="true"
-            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out"
+            class="absolute block h-0.5 w-5 transform bg-white transition ease-in-out"
           />
           <span
             aria-hidden="true"
-            class="block absolute h-0.5 w-5 bg-white transform transition ease-in-out translate-y-1.5"
+            class="absolute block h-0.5 w-5 transform bg-white transition ease-in-out translate-y-1.5"
           />
         </div>
       </button>
@@ -235,7 +235,7 @@ exports[`MainNav should toggle mobile navigation 2`] = `
         class="absolute inset-x-0 -z-10 shadow-lg transition -translate-y-full"
       >
         <ul
-          class="flex-col space-y-4 items-center pt-4 pb-8 hidden"
+          class="flex-col items-center space-y-4 pt-4 pb-8 hidden"
         >
           <li>
             <a
@@ -265,7 +265,7 @@ exports[`MainNav should toggle mobile navigation 2`] = `
       </div>
     </div>
     <ul
-      class="hidden tablet:flex space-x-8"
+      class="hidden space-x-8 tablet:flex"
       data-testid="MainNavDesktop"
     >
       <li>

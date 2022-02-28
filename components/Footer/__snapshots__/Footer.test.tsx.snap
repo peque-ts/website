@@ -9,13 +9,13 @@ exports[`Footer should render 1`] = `
       class="container mx-auto px-4"
     >
       <div
-        class="flex flex-col space-y-10 tablet:flex-row tablet:space-y-0 tablet:justify-between"
+        class="flex flex-col space-y-10 tablet:flex-row tablet:justify-between tablet:space-y-0"
       >
         <div
-          class="flex flex-col items-center text-center tablet:text-left tablet:items-start"
+          class="flex flex-col items-center text-center tablet:items-start tablet:text-left"
         >
           <div
-            class="flex items-center mb-4"
+            class="mb-4 flex items-center"
           >
             <svg
               enable-background="new 0 0 1600 1200"
@@ -125,13 +125,13 @@ exports[`Footer should render 1`] = `
           </ul>
         </div>
         <div
-          class="grid grid-cols-2 laptop:grid-cols-4 gap-6 text-center tablet:text-left"
+          class="grid grid-cols-2 gap-6 text-center tablet:text-left laptop:grid-cols-4"
         >
           <div
             class="flex flex-col"
           >
             <h3
-              class="text-base font-semibold mb-2"
+              class="mb-2 text-base font-semibold"
             >
               Framework
             </h3>
@@ -168,7 +168,7 @@ exports[`Footer should render 1`] = `
             class="flex flex-col"
           >
             <h3
-              class="text-base font-semibold mb-2"
+              class="mb-2 text-base font-semibold"
             >
               GraphQL
             </h3>
@@ -205,7 +205,7 @@ exports[`Footer should render 1`] = `
             class="flex flex-col"
           >
             <h3
-              class="text-base font-semibold mb-2"
+              class="mb-2 text-base font-semibold"
             >
               IoC Container
             </h3>
@@ -242,7 +242,7 @@ exports[`Footer should render 1`] = `
             class="flex flex-col"
           >
             <h3
-              class="text-base font-semibold mb-2"
+              class="mb-2 text-base font-semibold"
             >
               Message Broker
             </h3>
@@ -278,7 +278,7 @@ exports[`Footer should render 1`] = `
         </div>
       </div>
       <div
-        class="text-center mt-8"
+        class="mt-8 text-center"
       >
         <p
           class="text-sm laptop:text-base"
@@ -287,7 +287,7 @@ exports[`Footer should render 1`] = `
         </p>
       </div>
       <div
-        class="flex flex-col text-center items-center mt-8 space-y-2 text-sm"
+        class="mt-8 flex flex-col items-center space-y-2 text-center text-sm"
       >
         <p
           class="flex items-center"

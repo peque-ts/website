@@ -43,11 +43,11 @@ exports[`Nav should render 1`] = `
         <li>
           <div>
             <button
-              class="py-2 flex items-center space-x-2 text-secondary-200 hover:text-white transition text-white font-semibold"
+              class="flex items-center space-x-2 py-2 text-secondary-200 transition hover:text-white text-white font-semibold"
               type="button"
             >
               <span
-                class="transition ease-in-out flex -rotate-90"
+                class="flex transition ease-in-out -rotate-90"
               >
                 <svg
                   height="8"
@@ -74,7 +74,7 @@ exports[`Nav should render 1`] = `
             >
               <li>
                 <a
-                  class="py-2 flex text-secondary-200 hover:text-white transition font-semibold text-white"
+                  class="flex py-2 text-secondary-200 transition hover:text-white font-semibold text-white"
                   href="/docs/first/sub-1"
                 >
                   Sub 1
@@ -82,7 +82,7 @@ exports[`Nav should render 1`] = `
               </li>
               <li>
                 <a
-                  class="py-2 flex text-secondary-200 hover:text-white transition"
+                  class="flex py-2 text-secondary-200 transition hover:text-white"
                   href="/docs/first/sub-2"
                 >
                   Sub 2
@@ -93,7 +93,7 @@ exports[`Nav should render 1`] = `
         </li>
         <li>
           <a
-            class="py-2 flex text-secondary-200 hover:text-white transition"
+            class="flex py-2 text-secondary-200 transition hover:text-white"
             href="/docs/2"
           >
             Second
@@ -101,7 +101,7 @@ exports[`Nav should render 1`] = `
         </li>
         <li>
           <a
-            class="py-2 flex text-secondary-200 hover:text-white transition"
+            class="flex py-2 text-secondary-200 transition hover:text-white"
             href="/docs/3"
           >
             Third

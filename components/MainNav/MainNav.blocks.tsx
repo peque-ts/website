@@ -20,7 +20,7 @@ const MainNavMobile: React.VFC<{ bgClassName?: string }> = (props) => {
   const { open, renderButton } = useNavMobileButton();
 
   return (
-    <div className="tablet:hidden block" data-testid="MainNavMobile">
+    <div className="block tablet:hidden" data-testid="MainNavMobile">
       {renderButton()}
       <div
         className={clsx(
@@ -29,7 +29,7 @@ const MainNavMobile: React.VFC<{ bgClassName?: string }> = (props) => {
           open ? 'translate-y-0' : '-translate-y-full',
         )}
       >
-        <ul className={clsx('flex-col space-y-4 items-center pt-4 pb-8', open ? 'flex' : 'hidden')}>
+        <ul className={clsx('flex-col items-center space-y-4 pt-4 pb-8', open ? 'flex' : 'hidden')}>
           <MainNavItems />
         </ul>
       </div>
@@ -38,7 +38,7 @@ const MainNavMobile: React.VFC<{ bgClassName?: string }> = (props) => {
 };
 
 const MainNavDesktop: React.VFC = () => (
-  <ul className="hidden tablet:flex space-x-8" data-testid="MainNavDesktop">
+  <ul className="hidden space-x-8 tablet:flex" data-testid="MainNavDesktop">
     <MainNavItems />
   </ul>
 );
