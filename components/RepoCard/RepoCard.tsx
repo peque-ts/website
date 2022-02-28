@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 import { ProjectId, PROJECTS } from '../../lib/data';
@@ -14,12 +15,11 @@ export const RepoCard: React.FC<Props> = ({ projectId }) => {
     <article className="space-y-3">
       <div className="flex items-center space-x-3 justify-center tablet:justify-start">
         <h3>{name}</h3>
-        <Icon
-          alt={`${name} on GitHub`}
-          name="github"
-          size={16}
-          link={`https://github.com/pequehq/${id}`}
-        />
+        <Link href={`https://github.com/pequehq/${id}`}>
+          <a className="text-secondary-200 hover:text-white transition">
+            <Icon name="GitHub" size={16} />
+          </a>
+        </Link>
       </div>
       <p className="text-lg text-secondary-100 text-center tablet:text-left">{description}</p>
     </article>

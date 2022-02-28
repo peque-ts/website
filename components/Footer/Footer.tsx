@@ -20,7 +20,7 @@ export const Footer: React.VFC = () => {
         <div className="flex flex-col space-y-10 tablet:flex-row tablet:space-y-0 tablet:justify-between">
           <div className="flex flex-col items-center text-center tablet:text-left tablet:items-start">
             <div className="flex items-center mb-4">
-              <Icon alt="Logo" name="logo" size={32} />
+              <Icon name="Logo" size={32} />
               <h3>Peque</h3>
             </div>
             <ul className="space-y-2">

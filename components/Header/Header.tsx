@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 import React from 'react';
 
 import { Container } from '../Container';
@@ -14,12 +15,20 @@ export const Header: React.VFC<Props> = ({ text, bgClassName }) => (
   <header className={clsx('z-10 h-16 w-full top-0 fixed', bgClassName)}>
     <Container className="h-full flex items-center justify-between">
       <div className="flex items-center">
-        <Icon alt="Logo" name="logo" size={40} link="/" />
+        <Link href="/">
+          <a className="flex">
+            <Icon name="Logo" size={40} />
+          </a>
+        </Link>
         <h4>{text}</h4>
       </div>
       <div className="flex items-center space-x-8">
         <MainNav bgClassName={bgClassName} />
-        <Icon alt="Peque on GitHub" name="github" size={24} link="https://github.com/pequehq" />
+        <Link href="https://github.com/pequehq">
+          <a className="flex">
+            <Icon name="GitHub" size={24} />
+          </a>
+        </Link>
       </div>
     </Container>
   </header>

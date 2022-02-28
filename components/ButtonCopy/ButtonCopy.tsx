@@ -17,7 +17,7 @@ export const ButtonCopy: React.VFC<Props> = ({ data }) => {
       ) : (
         <>
           <span className="sr-only">Copy to clipboard</span>
-          <Icon alt="Copy" name="copy" size={16} />
+          <Icon name="Copy" className="text-secondary-200 hover:text-white transition" size={16} />
         </>
       )}
     </button>

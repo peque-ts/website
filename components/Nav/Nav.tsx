@@ -22,7 +22,7 @@ export const Nav: React.VFC<Props> = ({ items }) => {
         >
           <span className="text-sm font-semibold">Menu</span>
           <span className={clsx('transition ease-in-out', open ? 'rotate-90' : '-rotate-90')}>
-            <Icon alt="Menu" name="arrow-left" size={12} />
+            <Icon name="ArrowLeft" size={12} />
           </span>
         </button>
       </div>
