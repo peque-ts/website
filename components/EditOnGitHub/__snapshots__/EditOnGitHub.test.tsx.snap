@@ -3,7 +3,7 @@
 exports[`EditOnGitHub should render 1`] = `
 <DocumentFragment>
   <div
-    class="pt-8 mt-8 border-t border-t-secondary-700 text-right"
+    class="mt-8 border-t border-t-secondary-700 pt-8 text-right"
   >
     <a
       class="link text-sm"

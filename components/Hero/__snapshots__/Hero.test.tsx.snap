@@ -3,7 +3,7 @@
 exports[`Hero should render 1`] = `
 <DocumentFragment>
   <section
-    class="h-80 mt-16 bg-gradient-to-b from-secondary-600 to-transparent flex items-center justify-center"
+    class="mt-16 flex h-80 items-center justify-center bg-gradient-to-b from-secondary-600 to-transparent"
   >
     <div
       class="flex items-start space-x-2"

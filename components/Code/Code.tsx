@@ -12,7 +12,7 @@ export const Code: React.FC = ({ children }) => {
 
   return (
     <pre className="custom-scrollbar">
-      <code role="code" className="drop-shadow-xl rounded" ref={ref}>
+      <code role="code" className="rounded drop-shadow-xl" ref={ref}>
         {children.trim()}
       </code>
     </pre>

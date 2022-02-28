@@ -3,13 +3,13 @@
 exports[`Terminal should render 1`] = `
 <DocumentFragment>
   <div
-    class="flex items-center justify-between w-full bg-black shadow-lg rounded p-4 space-x-4"
+    class="flex w-full items-center justify-between space-x-4 rounded bg-black p-4 shadow-lg"
   >
     <code>
       $ npm i @pequehq/di
     </code>
     <div
-      class="w-12 flex items-center justify-end"
+      class="flex w-12 items-center justify-end"
     >
       <button
         class="flex items-center"
@@ -21,7 +21,7 @@ exports[`Terminal should render 1`] = `
           Copy to clipboard
         </span>
         <svg
-          class="text-secondary-200 hover:text-white transition"
+          class="text-secondary-200 transition hover:text-white"
           height="16"
           viewBox="0 0 64 64"
           width="16"

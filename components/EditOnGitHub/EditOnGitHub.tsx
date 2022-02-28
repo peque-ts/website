@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const EditOnGitHub: React.VFC<Props> = ({ link }) => (
-  <div className="pt-8 mt-8 border-t border-t-secondary-700 text-right">
+  <div className="mt-8 border-t border-t-secondary-700 pt-8 text-right">
     <a href={link} target="_blank" className="link text-sm" rel="noreferrer">
       Edit this page on GitHub
     </a>

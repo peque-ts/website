@@ -46,17 +46,17 @@ const Section: NextPage<Props> = ({
       <main>
         <Header text={projectName} bgClassName="bg-secondary-900" />
         <Container className="pb-8 pt-16 tablet:pt-20">
-          <div className="laptop:hidden border-t border-b border-secondary-700 py-2 mb-4">
+          <div className="mb-4 border-t border-b border-secondary-700 py-2 laptop:hidden">
             <Nav items={navItems} />
           </div>
           <div className="flex">
-            <aside className="w-72 hidden laptop:block">
+            <aside className="hidden w-72 laptop:block">
               <div className="fixed">
                 <h4 className="mb-2">Documentation</h4>
                 <Nav items={navItems} />
               </div>
             </aside>
-            <div className="flex-1 overflow-x-auto custom-scrollbar pl-0 tablet:pl-4">
+            <div className="custom-scrollbar flex-1 overflow-x-auto pl-0 tablet:pl-4">
               <Renderer html={html} />
               <PrevNext items={prevNextNavItems} />
               <EditOnGitHub link={github} />

@@ -10,8 +10,8 @@ export const ButtonLink: React.FC<Props> = ({ children, to }) => (
   <Link href={to}>
     <a
       className={clsx(
-        'inline-block text-sm font-semibold rounded py-3 px-8',
-        'transition bg-primary-500 shadow-lg shadow-[#E712B433] hover:shadow-[#E712B455] hover:bg-primary-400',
+        'inline-block rounded py-3 px-8 text-sm font-semibold',
+        'bg-primary-500 shadow-lg shadow-[#E712B433] transition hover:bg-primary-400 hover:shadow-[#E712B455]',
       )}
     >
       {children}

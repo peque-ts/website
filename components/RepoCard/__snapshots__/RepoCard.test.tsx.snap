@@ -6,13 +6,13 @@ exports[`RepoCard should render 1`] = `
     class="space-y-3"
   >
     <div
-      class="flex items-center space-x-3 justify-center tablet:justify-start"
+      class="flex items-center justify-center space-x-3 tablet:justify-start"
     >
       <h3>
         Framework
       </h3>
       <a
-        class="text-secondary-200 hover:text-white transition"
+        class="text-secondary-200 transition hover:text-white"
         href="https://github.com/pequehq/framework"
       >
         <svg
@@ -29,7 +29,7 @@ exports[`RepoCard should render 1`] = `
       </a>
     </div>
     <p
-      class="text-lg text-secondary-100 text-center tablet:text-left"
+      class="text-center text-lg text-secondary-100 tablet:text-left"
     >
       Create enterprise level server-side TypeScript applications. For REST, GraphQL, and Microservices.
     </p>

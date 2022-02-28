@@ -6,7 +6,7 @@ exports[`Code should render 1`] = `
     class="custom-scrollbar"
   >
     <code
-      class="drop-shadow-xl rounded hljs language-typescript"
+      class="rounded drop-shadow-xl hljs language-typescript"
       role="code"
     >
       <span

@@ -29,8 +29,8 @@ export const Project: React.VFC<Props> = ({
   const renderContent = () => (
     <div>
       <h1>{name}</h1>
-      <h2 className="text-lg font-normal mb-6 text-secondary-100">{description}</h2>
-      <List className="space-y-1.5 mb-8" items={features}>
+      <h2 className="mb-6 text-lg font-normal text-secondary-100">{description}</h2>
+      <List className="mb-8 space-y-1.5" items={features}>
         {(feature) => (
           <div className="flex items-center space-x-2 text-secondary-100">
             <Icon name="Check" size={20} />
@@ -56,10 +56,10 @@ export const Project: React.VFC<Props> = ({
   );
 
   return (
-    <section className="relative py-8 my-8 group">
-      <div className={clsx('-z-10 absolute inset-0', bgClassName)} />
+    <section className="group relative my-8 py-8">
+      <div className={clsx('absolute inset-0 -z-10', bgClassName)} />
       <Container>
-        <div className="flex flex-col space-y-12 desktop:flex-row desktop:group-odd:flex-row-reverse desktop:items-center desktop:justify-around desktop:space-y-0">
+        <div className="flex flex-col space-y-12 desktop:flex-row desktop:items-center desktop:justify-around desktop:space-y-0 desktop:group-odd:flex-row-reverse">
           {renderContent()}
           {renderExample()}
         </div>
