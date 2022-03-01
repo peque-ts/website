@@ -8,6 +8,7 @@ interface Props {
   onChange: (value: string) => void;
   onFocus: (event: React.FocusEvent<HTMLInputElement>) => void;
   onBlur: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   loading: boolean;
   typing: boolean;
 }
@@ -17,6 +18,7 @@ export const SearchInput: React.VFC<Props> = ({
   onChange,
   onFocus,
   onBlur,
+  onKeyDown,
   loading,
   typing,
 }) => {
@@ -41,6 +43,7 @@ export const SearchInput: React.VFC<Props> = ({
         onBlur={onBlur}
         onChange={(event) => onChange(event.target.value)}
         maxLength={SEARCH_MAX_LENGTH}
+        onKeyDown={onKeyDown}
       />
     </div>
   );

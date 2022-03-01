@@ -14,9 +14,9 @@ function search(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
   res.send({
     results: [
       {
-        title: 'Some Heading',
+        title: 'Architecture',
         description: 'You may have seen this somewhere',
-        link: '/docs/framework/getting-started',
+        link: '/docs/framework/architecture',
       },
       {
         title: 'Free Pizza',

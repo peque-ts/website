@@ -20,6 +20,7 @@ export const useSearch = (): UseSearchResult => {
   const [value, setValue] = useState('');
   const [searchValue, typing] = useDebounce(value, DEBOUNCE_TIME);
   const [showResults, setShowResults] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -38,6 +39,24 @@ export const useSearch = (): UseSearchResult => {
     router.events.on('routeChangeStart', onRouteChange);
     return () => router.events.off('routeChangeStart', onRouteChange);
   });
+
+  const onInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (['ArrowUp', 'ArrowDown', 'Enter'].includes(event.key)) {
+      event.preventDefault();
+    }
+
+    if (event.key === 'ArrowUp') {
+      setActiveIndex((i) => (i > 0 ? i - 1 : data.length - 1));
+    }
+
+    if (event.key === 'ArrowDown') {
+      setActiveIndex((i) => (i < data.length - 1 ? i + 1 : 0));
+    }
+
+    if (event.key === 'Enter') {
+      console.log('go to', data[activeIndex].link);
+    }
+  };
 
   const onInputFocus = () => {
     setShowResults(value.trim() !== '');
@@ -92,14 +111,29 @@ export const useSearch = (): UseSearchResult => {
       onChange={setValue}
       onFocus={onInputFocus}
       onBlur={onInputBlur}
+      onKeyDown={onInputKeyDown}
       typing={typing}
       loading={loading}
     />
   );
 
-  const renderSearchResults = () => (
-    <SearchResults data={data} error={error} loading={loading} typing={typing} keyword={value} />
-  );
+  const renderSearchResults = () => {
+    if (error) {
+      return <p className="mt-8 text-center text-danger">{error}</p>;
+    }
+
+    if (data.length === 0) {
+      return (
+        <p className="mt-8 text-center text-secondary-200">
+          No results for &ldquo;{value.trim()}&rdquo;. Try again with a different keyword.
+        </p>
+      );
+    }
+
+    return (
+      <SearchResults data={data} activeIndex={activeIndex} onActiveIndexChange={setActiveIndex} />
+    );
+  };
 
   return {
     renderSearchInput,
