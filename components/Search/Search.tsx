@@ -9,9 +9,11 @@ interface Props {
   onChange: (value: string) => void;
   onFocus: () => void;
   onBlur: () => void;
+  loading: boolean;
+  typing: boolean;
 }
 
-export const Search: React.VFC<Props> = ({ value, onChange, onFocus, onBlur }) => {
+export const Search: React.VFC<Props> = ({ value, onChange, onFocus, onBlur, loading, typing }) => {
   const ref = useRef<HTMLInputElement | null>(null);
 
   return (
