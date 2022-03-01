@@ -36,7 +36,7 @@ const Section: NextPage<Props> = ({
   prevNextNavItems,
   github,
 }) => {
-  const { renderSearchInput, renderSearchResults, showResults } = useSearch();
+  const { renderSearchInput, renderSearchResults } = useSearch();
 
   return (
     <>
@@ -51,14 +51,14 @@ const Section: NextPage<Props> = ({
         <Container className="pb-8 pt-16 tablet:pt-20">
           <div className="mb-4 border-t border-b border-secondary-700 py-2 laptop:hidden">
             <div className="mb-2">{renderSearchInput()}</div>
-            {showResults ? renderSearchResults() : <Nav items={navItems} />}
+            {renderSearchResults?.() ?? <Nav items={navItems} />}
           </div>
           <div className="flex">
             <aside className="hidden w-72 laptop:block">
               <div className="fixed w-72">
                 <h4 className="mb-3">Documentation</h4>
                 <div className="mb-4">{renderSearchInput()}</div>
-                {showResults ? renderSearchResults() : <Nav items={navItems} />}
+                {renderSearchResults?.() ?? <Nav items={navItems} />}
               </div>
             </aside>
             <div className="custom-scrollbar flex-1 overflow-x-auto pl-0 tablet:pl-4">

@@ -1,8 +1,7 @@
 import React, { useRef } from 'react';
 
+import { SEARCH_MAX_LENGTH } from '../../lib/validation';
 import { Icon } from '../Icon';
-
-const MAX_LENGTH = 50;
 
 interface Props {
   value: string;
@@ -30,7 +29,7 @@ export const Search: React.VFC<Props> = ({ value, onChange, onFocus, onBlur, loa
         onFocus={() => onFocus()}
         onBlur={() => onBlur()}
         onChange={(event) => onChange(event.target.value)}
-        maxLength={MAX_LENGTH}
+        maxLength={SEARCH_MAX_LENGTH}
       />
     </div>
   );

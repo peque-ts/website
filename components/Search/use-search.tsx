@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { useDebounce } from '../../hooks/use-debounce';
 import { SearchResult } from '../../types/search-result';
@@ -7,8 +7,7 @@ import { SearchResults } from './SearchResults';
 
 interface UseSearchResult {
   renderSearchInput: () => JSX.Element;
-  renderSearchResults: () => JSX.Element;
-  showResults: boolean;
+  renderSearchResults: (() => JSX.Element) | undefined;
 }
 
 const DEBOUNCE_TIME = 200 as const;
@@ -17,7 +16,8 @@ const API_URL = '/api/search' as const;
 export const useSearch = (): UseSearchResult => {
   const [value, setValue] = useState('');
   const [searchValue, typing] = useDebounce(value, DEBOUNCE_TIME);
-  const [showResults, setShowResults] = useState(false);
+
+  const showResults = useRef(false);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -26,7 +26,7 @@ export const useSearch = (): UseSearchResult => {
   useEffect(() => {
     // When input is empty, reset to the initial state.
     if (value.trim() === '') {
-      setShowResults(false);
+      showResults.current = false;
       setError('');
       setLoading(false);
       setData([]);
@@ -53,7 +53,7 @@ export const useSearch = (): UseSearchResult => {
         setError('Unable to fetch');
         setData([]);
       } finally {
-        setShowResults(true);
+        showResults.current = true;
         setLoading(false);
       }
     })();
@@ -63,8 +63,8 @@ export const useSearch = (): UseSearchResult => {
     <Search
       value={value}
       onChange={setValue}
-      onFocus={() => setShowResults(value.trim() !== '')}
-      onBlur={() => setShowResults(false)}
+      onFocus={() => (showResults.current = value.trim() !== '')}
+      onBlur={() => (showResults.current = false)}
       typing={typing}
       loading={loading}
     />
@@ -76,7 +76,6 @@ export const useSearch = (): UseSearchResult => {
 
   return {
     renderSearchInput,
-    renderSearchResults,
-    showResults,
+    renderSearchResults: showResults.current ? renderSearchResults : undefined,
   };
 };
