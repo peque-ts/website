@@ -55,7 +55,7 @@ const Section: NextPage<Props> = ({
           </div>
           <div className="flex">
             <aside className="hidden w-72 laptop:block">
-              <div className="fixed w-72">
+              <div className="fixed w-72 tablet:pr-4">
                 <h4 className="mb-3">Documentation</h4>
                 <div className="mb-4">{renderSearchInput()}</div>
                 {renderSearchResults?.() ?? <Nav items={navItems} />}

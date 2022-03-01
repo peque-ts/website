@@ -11,6 +11,7 @@ module.exports = {
     colors: {
       white: 'var(--white)',
       black: 'var(--black)',
+      danger: 'var(--danger)',
       transparent: 'transparent',
       'primary-300': 'var(--primary-300)',
       'primary-400': 'var(--primary-400)',

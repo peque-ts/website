@@ -1,8 +1,9 @@
+import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { useDebounce } from '../../hooks/use-debounce';
 import { SearchResult } from '../../types/search-result';
-import { Search } from './Search';
+import { SearchInput } from './SearchInput';
 import { SearchResults } from './SearchResults';
 
 interface UseSearchResult {
@@ -10,23 +11,50 @@ interface UseSearchResult {
   renderSearchResults: (() => JSX.Element) | undefined;
 }
 
-const DEBOUNCE_TIME = 200 as const;
-const API_URL = '/api/search' as const;
+const DEBOUNCE_TIME = 200;
+const API_URL = '/api/search';
 
 export const useSearch = (): UseSearchResult => {
+  const router = useRouter();
+
   const [value, setValue] = useState('');
   const [searchValue, typing] = useDebounce(value, DEBOUNCE_TIME);
-
-  const showResults = useRef(false);
+  const [showResults, setShowResults] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [data, setData] = useState<SearchResult[]>([]);
 
+  const isLinkClicked = useRef(false);
+
+  useEffect(() => {
+    const onRouteChange = () => {
+      if (isLinkClicked.current) {
+        setShowResults(false);
+        isLinkClicked.current = false;
+      }
+    };
+
+    router.events.on('routeChangeStart', onRouteChange);
+    return () => router.events.off('routeChangeStart', onRouteChange);
+  });
+
+  const onInputFocus = () => {
+    setShowResults(value.trim() !== '');
+  };
+
+  const onInputBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    if (event.relatedTarget?.getAttribute('data-search-result')) {
+      isLinkClicked.current = true;
+    } else {
+      setShowResults(false);
+    }
+  };
+
   useEffect(() => {
     // When input is empty, reset to the initial state.
     if (value.trim() === '') {
-      showResults.current = false;
+      setShowResults(false);
       setError('');
       setLoading(false);
       setData([]);
@@ -46,36 +74,35 @@ export const useSearch = (): UseSearchResult => {
         const response = await fetch(`${API_URL}?q=${encodeURIComponent(searchValue)}`);
         const json = await response.json();
 
-        setError('');
-        setData(json);
-      } catch (err) {
-        console.log('YOYOYO ERROR', err);
-        setError('Unable to fetch');
+        setData(json.results ?? []);
+        setError(json.message ?? '');
+      } catch {
         setData([]);
+        setError('Unable to retrieve results due to a network error.');
       } finally {
-        showResults.current = true;
+        setShowResults(true);
         setLoading(false);
       }
     })();
   }, [searchValue]);
 
   const renderSearchInput = () => (
-    <Search
+    <SearchInput
       value={value}
       onChange={setValue}
-      onFocus={() => (showResults.current = value.trim() !== '')}
-      onBlur={() => (showResults.current = false)}
+      onFocus={onInputFocus}
+      onBlur={onInputBlur}
       typing={typing}
       loading={loading}
     />
   );
 
   const renderSearchResults = () => (
-    <SearchResults error={error} data={data} loading={loading} typing={typing} />
+    <SearchResults data={data} error={error} loading={loading} typing={typing} keyword={value} />
   );
 
   return {
     renderSearchInput,
-    renderSearchResults: showResults.current ? renderSearchResults : undefined,
+    renderSearchResults: showResults ? renderSearchResults : undefined,
   };
 };

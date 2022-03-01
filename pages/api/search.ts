@@ -14,9 +14,14 @@ function search(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
   res.send({
     results: [
       {
-        title: req.query.q,
-        description: '',
-        link: '',
+        title: 'Some Heading',
+        description: 'You may have seen this somewhere',
+        link: '/docs/framework/getting-started',
+      },
+      {
+        title: 'Free Pizza',
+        description: 'Who does not want to get a free pizza?',
+        link: '/docs/framework/getting-started',
       },
     ],
   });
