@@ -1,10 +1,25 @@
 const matter = require('gray-matter');
 const fs = require('node:fs/promises');
 const path = require('node:path');
+const Slugger = require('github-slugger');
 
 const cacheFile = path.join(process.cwd(), 'cache.json');
 
+let unified;
+let remarkParse;
+let remarkGfm;
+let nodeToString;
+
+async function prepare() {
+  unified = (await import('unified')).unified;
+  remarkParse = (await import('remark-parse')).default;
+  remarkGfm = (await import('remark-gfm')).default;
+  nodeToString = (await import('hast-util-to-string')).toString;
+}
+
 async function createCache(project) {
+  const slugger = new Slugger();
+
   const sections = [];
 
   const menu = JSON.parse(
@@ -18,13 +33,34 @@ async function createCache(project) {
       encoding: 'utf-8',
     });
 
-    const meta = matter(markdown);
+    const { content, data } = matter(markdown);
 
-    sections.push({
-      meta: meta.data,
-      content: meta.content,
-      url: `/docs/${project}/${slug}`,
-    });
+    let heading = '';
+    let headingSlug = '';
+
+    const tree = unified().use(remarkParse).use(remarkGfm).parse(content);
+
+    slugger.reset();
+
+    for (const node of tree.children) {
+      if (!['heading', 'paragraph'].includes(node.type)) {
+        continue;
+      }
+
+      if (node.type === 'heading') {
+        heading = nodeToString(node);
+        headingSlug = `#${slugger.slug(heading, false)}`;
+      }
+
+      if (node.type === 'paragraph') {
+        sections.push({
+          title: data.title,
+          heading,
+          description: nodeToString(node),
+          url: `/docs/${project}/${slug}${headingSlug}`,
+        });
+      }
+    }
   };
 
   for (const node of menu) {
@@ -52,6 +88,8 @@ async function createProjectsCache() {
   }
 
   const projects = await fs.readdir(path.join(process.cwd(), '_docs'));
+
+  await prepare();
 
   for (const project of projects) {
     await createCache(project);

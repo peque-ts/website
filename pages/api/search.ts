@@ -9,28 +9,51 @@ interface ResponseData {
   results: SearchResult[];
 }
 
+interface CachedItem {
+  title: string;
+  heading: string;
+  description: string;
+  url: string;
+}
+
+const CONTENT_MAX_LENGTH = 120;
+
+const truncate = (text: string): string => {
+  return `${text.substr(0, CONTENT_MAX_LENGTH)}${text.length > CONTENT_MAX_LENGTH ? '...' : ''}`;
+};
+
 function search(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
   const { p, q } = req.query;
 
   validateProject(p);
   validateQuery(q);
 
-  res.send({
-    results: cache[p]
-      .filter((result) => {
-        const word = q.toLowerCase();
+  const results: SearchResult[] = [];
 
-        const matchTitle = result.meta.title.toLowerCase().includes(word);
-        const matchContent = result.content.toLowerCase().includes(word);
+  for (const { description, url, title, heading } of cache[p] as CachedItem[]) {
+    const word = q.toLowerCase();
 
-        return matchTitle || matchContent;
-      })
-      .map((result) => ({
-        title: result.meta.title,
-        description: result.meta.description,
-        link: result.url,
-      })),
-  });
+    // @ts-ignore
+    let matches = [...description.toLowerCase().matchAll(new RegExp(word, 'g'))];
+
+    if (matches.length === 0) {
+      continue;
+    }
+
+    results.push({
+      title: title === heading ? title : [title, heading].join(' > '),
+      description: truncate(description),
+      url,
+      matches: matches
+        .map(({ index }) => ({
+          start: index,
+          length: word.length,
+        }))
+        .filter((match) => match.start + match.length < CONTENT_MAX_LENGTH),
+    });
+  }
+
+  res.send({ results });
 }
 
 export default withErrorHandler(search);

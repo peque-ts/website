@@ -55,7 +55,7 @@ export const useSearch = (project: ProjectId): UseSearchResult => {
     }
 
     if (event.key === 'Enter') {
-      console.log('go to', data[activeIndex].link);
+      console.log('go to', data[activeIndex].url);
     }
   };
 

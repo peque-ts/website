@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import { SearchResult } from '../../types/search-result';
+import { HighlightText } from '../HighlightText';
 import { List } from '../List';
 
 interface Props {
@@ -13,8 +14,8 @@ interface Props {
 
 export const SearchResults: React.VFC<Props> = ({ data, onActiveIndexChange, activeIndex }) => (
   <List items={data} className="space-y-2">
-    {({ title, description, link }, index) => (
-      <Link href={link}>
+    {({ title, description, url, matches }, index) => (
+      <Link href={url}>
         <a
           data-search-result={true}
           onMouseEnter={() => onActiveIndexChange(index)}
@@ -26,7 +27,9 @@ export const SearchResults: React.VFC<Props> = ({ data, onActiveIndexChange, act
           )}
         >
           <h1 className="text-base font-semibold text-secondary-100">{title}</h1>
-          <p className="text-secondary-150">{description}</p>
+          <p className="text-secondary-150">
+            <HighlightText text={description} matches={matches} />
+          </p>
         </a>
       </Link>
     )}
