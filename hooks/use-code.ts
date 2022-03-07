@@ -8,6 +8,8 @@ const SUPPORTED_LANGUAGES = { bash, typescript, json };
 
 export const useCode = (ref?: MutableRefObject<HTMLElement | null>) => {
   useEffect(() => {
+    hljs.configure({ ignoreUnescapedHTML: true });
+
     for (const [key, value] of Object.entries(SUPPORTED_LANGUAGES)) {
       hljs.registerLanguage(key, value);
     }

@@ -8,6 +8,7 @@ import { Header } from '../../../components/Header';
 import { Nav } from '../../../components/Nav';
 import { PrevNext } from '../../../components/PrevNext';
 import { Renderer } from '../../../components/Renderer';
+import { useSearch } from '../../../components/Search';
 import { ProjectId, PROJECTS } from '../../../lib/data';
 import { getProjectSectionPaths, read } from '../../../lib/fs';
 import { parse } from '../../../lib/markdown';
@@ -20,6 +21,7 @@ interface Props {
   html: string;
   meta: Meta;
   pageTitle: string;
+  project: ProjectId;
   projectName: string;
   navItems: NavItem[];
   prevNextNavItems: PrevNextNavItems;
@@ -31,10 +33,13 @@ const Section: NextPage<Props> = ({
   meta,
   pageTitle,
   navItems,
+  project,
   projectName,
   prevNextNavItems,
   github,
 }) => {
+  const { renderSearchInput, renderSearchResults } = useSearch(project);
+
   return (
     <>
       <Head>
@@ -47,13 +52,15 @@ const Section: NextPage<Props> = ({
         <Header text={projectName} bgClassName="bg-secondary-900" />
         <Container className="pb-8 pt-16 tablet:pt-20">
           <div className="mb-4 border-t border-b border-secondary-700 py-2 laptop:hidden">
-            <Nav items={navItems} />
+            <div className="mb-2">{renderSearchInput()}</div>
+            {renderSearchResults?.() ?? <Nav items={navItems} />}
           </div>
           <div className="flex">
             <aside className="hidden w-72 laptop:block">
-              <div className="fixed">
-                <h4 className="mb-2">Documentation</h4>
-                <Nav items={navItems} />
+              <div className="fixed w-72 tablet:pr-4">
+                <h4 className="mb-3">Documentation</h4>
+                <div className="mb-4">{renderSearchInput()}</div>
+                {renderSearchResults?.() ?? <Nav items={navItems} />}
               </div>
             </aside>
             <div className="custom-scrollbar flex-1 overflow-x-auto pl-0 tablet:pl-4">
@@ -100,6 +107,7 @@ export async function getStaticProps(
       html,
       meta,
       pageTitle,
+      project,
       projectName,
       navItems,
       prevNextNavItems,
