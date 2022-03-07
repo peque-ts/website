@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
+import cache from '../../cache.json';
 import { withErrorHandler } from '../../lib/error';
-import { validate } from '../../lib/validation';
+import { validateProject, validateQuery } from '../../lib/validation';
 import { SearchResult } from '../../types/search-result';
 
 interface ResponseData {
@@ -9,21 +10,26 @@ interface ResponseData {
 }
 
 function search(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
-  validate(req.query.q);
+  const { p, q } = req.query;
+
+  validateProject(p);
+  validateQuery(q);
 
   res.send({
-    results: [
-      {
-        title: 'Architecture',
-        description: 'You may have seen this somewhere',
-        link: '/docs/framework/architecture',
-      },
-      {
-        title: 'Free Pizza',
-        description: 'Who does not want to get a free pizza?',
-        link: '/docs/framework/getting-started',
-      },
-    ],
+    results: cache[p]
+      .filter((result) => {
+        const word = q.toLowerCase();
+
+        const matchTitle = result.meta.title.toLowerCase().includes(word);
+        const matchContent = result.content.toLowerCase().includes(word);
+
+        return matchTitle || matchContent;
+      })
+      .map((result) => ({
+        title: result.meta.title,
+        description: result.meta.description,
+        link: result.url,
+      })),
   });
 }
 

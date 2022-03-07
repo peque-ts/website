@@ -3,12 +3,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm run cache && next build",
     "start": "next start",
     "lint": "next lint --fix",
     "test": "jest --watch",
     "test:coverage": "jest --coverage",
-    "generate:component": "node ./scripts/generator.js"
+    "generate:component": "node ./scripts/generator.js",
+    "cache": "node ./scripts/cache.js"
   },
   "dependencies": {
     "clsx": "^1.1.1",

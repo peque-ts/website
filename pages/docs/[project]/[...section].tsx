@@ -21,6 +21,7 @@ interface Props {
   html: string;
   meta: Meta;
   pageTitle: string;
+  project: ProjectId;
   projectName: string;
   navItems: NavItem[];
   prevNextNavItems: PrevNextNavItems;
@@ -32,11 +33,12 @@ const Section: NextPage<Props> = ({
   meta,
   pageTitle,
   navItems,
+  project,
   projectName,
   prevNextNavItems,
   github,
 }) => {
-  const { renderSearchInput, renderSearchResults } = useSearch();
+  const { renderSearchInput, renderSearchResults } = useSearch(project);
 
   return (
     <>
@@ -105,6 +107,7 @@ export async function getStaticProps(
       html,
       meta,
       pageTitle,
+      project,
       projectName,
       navItems,
       prevNextNavItems,

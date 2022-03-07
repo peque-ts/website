@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { useDebounce } from '../../hooks/use-debounce';
+import { ProjectId } from '../../lib/data';
 import { SearchResult } from '../../types/search-result';
 import { SearchInput } from './SearchInput';
 import { SearchResults } from './SearchResults';
@@ -14,7 +15,7 @@ interface UseSearchResult {
 const DEBOUNCE_TIME = 200;
 const API_URL = '/api/search';
 
-export const useSearch = (): UseSearchResult => {
+export const useSearch = (project: ProjectId): UseSearchResult => {
   const router = useRouter();
 
   const [value, setValue] = useState('');
@@ -90,7 +91,10 @@ export const useSearch = (): UseSearchResult => {
       try {
         setLoading(true);
 
-        const response = await fetch(`${API_URL}?q=${encodeURIComponent(searchValue)}`);
+        const response = await fetch(
+          `${API_URL}?p=${project}&q=${encodeURIComponent(searchValue)}`,
+        );
+
         const json = await response.json();
 
         setData(json.results ?? []);
@@ -103,7 +107,7 @@ export const useSearch = (): UseSearchResult => {
         setLoading(false);
       }
     })();
-  }, [searchValue]);
+  }, [searchValue, project]);
 
   const renderSearchInput = () => (
     <SearchInput
